@@ -24,7 +24,7 @@ RangersAppLog.podspec
 2. pod
 
 ```Rbuy
-pod 'RangersAppLog',:git=>'git@github.com:bytedance/RangersAppLog.git',:tag=>'3.2.5'
+pod 'RangersAppLog', '3.2.5'
 
 ```
 
