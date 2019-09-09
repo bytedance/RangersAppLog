@@ -23,9 +23,12 @@ RangersAppLog.podspec
 
 2. pod
 
-```Rbuy
-pod 'RangersAppLog', '3.2.5'
+或者参照Demo工程的Podfile
 
+```Rbuy
+target 'YourTarget' do
+  pod 'RangersAppLog', '3.2.5'
+end
 ```
 
 ## 集成指南
