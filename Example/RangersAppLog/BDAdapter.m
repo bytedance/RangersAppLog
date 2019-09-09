@@ -20,6 +20,7 @@
 
     /// show debug log
     config.showDebugLog = YES;
+    config.autoTrackEnabled = YES;
     config.logger = ^(NSString * _Nullable log) {
         NSLog(@"%@",log);
     };
