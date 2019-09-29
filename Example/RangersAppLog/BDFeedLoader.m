@@ -54,6 +54,16 @@
         model;
     })];
 
+    [array addObject:({
+        BDFeedModel *model = [BDFeedModel new];
+        model.title = @"show picker";
+        model.actionBlock = ^{
+            [BDAdapter showPicker];
+        };
+
+        model;
+    })];
+
 
     return array;
 }

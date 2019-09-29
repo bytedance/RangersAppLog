@@ -24,9 +24,19 @@
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
     [BDAdapter startAppLog];
-    
+    [BDAdapter trackKeyWindow:self.window];
+
     return YES;
 }
 
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options {
+    if([BDAdapter handleURL:url scene:nil]) {
+        return YES;
+    }
+
+    /// your handle code
+
+    return NO;
+}
 
 @end

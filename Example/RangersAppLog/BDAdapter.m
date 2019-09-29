@@ -9,12 +9,53 @@
 #import "BDAdapter.h"
 #import <RangersAppLog/BDAutoTrack.h>
 #import <RangersAppLog/BDAutoTrackConfig.h>
+#import <RangersAppLog/BDKeyWindowTracker.h>
+#import <RangersAppLog/BDAutoTrackSchemeHandler.h>
+#import <RangersAppLog/BDAutoTrackNotifications.h>
+
+static NSString * const TestAPPID = @"159486";
+
+@interface BDAdapter ()
+
+
+@property (nonatomic, strong) BDAutoTrack *track;
+
+@end
 
 @implementation BDAdapter
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+        [center addObserver:self selector:@selector(onABTestSuccess:)
+                       name:BDAutoTrackNotificationABTestSuccess
+                     object:nil];
+        [center addObserver:self selector:@selector(onRegisterSuccess:)
+                       name:BDAutoTrackNotificationRegisterSuccess
+                     object:nil];
+        [center addObserver:self selector:@selector(onActiveSuccess:)
+                       name:BDAutoTrackNotificationActiveSuccess
+                     object:nil];
+    }
+
+    return self;
+}
+
++ (instancetype)sharedInstance {
+    static BDAdapter *sharedInstance = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedInstance = [self new];
+    });
+
+    return sharedInstance;
+}
+
 + (void)startAppLog {
+    [BDAdapter sharedInstance];
     BDAutoTrackConfig *config = [BDAutoTrackConfig new];
-    config.appID = @"159486";
+    config.appID = TestAPPID;
     config.channel = @"App Store";
     config.appName = @"dp_tob_sdk_test2";
 
@@ -25,33 +66,63 @@
         NSLog(@"%@",log);
     };
 
-    [BDAutoTrack setABTestFinishBlock:^(BOOL ABTestEnabled, NSDictionary * allConfigs) {
-        NSLog(@"-- ABTestEnabled(%tu)",ABTestEnabled);
-    }];
+    BDAutoTrack *track = [BDAutoTrack trackWithConfig:config];
     /// change to your UserUniqueID if now is loged in
     NSString *uniqueID = @"12345";
-    [BDAutoTrack setCurrentUserUniqueID:uniqueID];
-    [BDAutoTrack startTrackWithConfig:config];
+    [track setCurrentUserUniqueID:uniqueID];
+    [track startTrack];
+
+    [BDAdapter sharedInstance].track = track;
 }
 
 + (id)ABTestValue {
     /// change to your key
     NSString *key = @"experiment-no2";
-    return [BDAutoTrack ABTestConfigValueForKey:key defaultValue:nil];
+    return [[BDAdapter sharedInstance].track ABTestConfigValueForKey:key defaultValue:nil];
 }
 
 + (void)logout {
-    [BDAutoTrack clearUserUniqueID];
+    [[BDAdapter sharedInstance].track clearUserUniqueID];
 }
 
 + (void)login {
     /// change to your UserUniqueID
     NSString *uniqueID = @"12345";
-    [BDAutoTrack setCurrentUserUniqueID:uniqueID];
+    [[BDAdapter sharedInstance].track setCurrentUserUniqueID:uniqueID];
 }
 
 + (void)eventV3:(NSString *)event params:(NSDictionary *)params {
-    [BDAutoTrack eventV3:event params:params];
+    [[BDAdapter sharedInstance].track eventV3:event params:params];
+}
+
++ (void)trackKeyWindow:(UIWindow *)keyWindow {
+    [BDKeyWindowTracker sharedInstance].keyWindow = keyWindow;
+}
+
++ (BOOL)handleURL:(NSURL *)URL scene:(id)scene {
+    if ([[BDAutoTrackSchemeHandler sharedHandler] handleURL:URL appID:TestAPPID scene:scene]) {
+        return YES;
+    }
+
+    return NO;
+}
+
++ (void)showPicker {
+
+}
+
+#pragma mark - Notification
+
+- (void)onRegisterSuccess:(NSNotification *)not  {
+    NSLog(@"onRegisterSuccess %@",not.userInfo);
+}
+
+- (void)onActiveSuccess:(NSNotification *)not  {
+    NSLog(@"onActiveSuccess %@",not.userInfo);
+}
+
+- (void)onABTestSuccess:(NSNotification *)not  {
+    NSLog(@"onABTestSuccess %@",not.userInfo);
 }
 
 @end

@@ -27,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
  @discussion 如果设置，页面切换的时候会采集
  @discussion 如果设置，该VC里面的View被点击的时候会采集
  */
-@property (nonatomic, strong) NSDictionary<NSString*, NSString *> *bdAutoTrackExtraInfos;
+@property (nonatomic, copy) NSDictionary<NSString*, NSString *> *bdAutoTrackExtraInfos;
 
 @end
 

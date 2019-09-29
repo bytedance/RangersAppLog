@@ -6,7 +6,7 @@
 //  Copyright © 2019 Bytedance. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -21,6 +21,12 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)logout;
 
 + (void)login;
+
++ (void)showPicker;
+
++ (void)trackKeyWindow:(UIWindow *)keyWindow;
+
++ (BOOL)handleURL:(NSURL *)URL scene:(nullable id)scene;
 
 @end
 

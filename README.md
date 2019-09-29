@@ -29,13 +29,13 @@ RangersAppLog.podspec
 source 'https://github.com/CocoaPods/Specs.git'
 
 target 'YourTarget' do
-  pod 'RangersAppLog', '3.2.5'
+  pod 'RangersAppLog', '4.0.0'
 end
 ```
 
 ## 集成指南
 
-更多接口参见头文件，或者[接入文档](https://bytedance.feishu.cn/space/doc/doccnM5AI18azkKxasnNrP).
+更多接口参见头文件，和Demo工程.
 
 ### 初始化SDK
 
@@ -60,8 +60,11 @@ end
     }];
     /// change to your UserUniqueID if now is loged in
     NSString *uniqueID = @"12345";
-    [BDAutoTrack setCurrentUserUniqueID:uniqueID];
-    [BDAutoTrack startTrackWithConfig:config];
+    BDAutoTrack *track = [BDAutoTrack trackWithConfig:config];
+    /// change to your UserUniqueID if now is loged in
+    NSString *uniqueID = @"12345";
+    [track setCurrentUserUniqueID:uniqueID];
+    [track startTrack];
 }
 
 ```
@@ -71,13 +74,13 @@ end
 ```Objective-C
 
 + (void)logout {
-    [BDAutoTrack clearUserUniqueID];
+    [track clearUserUniqueID];
 }
 
 + (void)login {
     /// change to your UserUniqueID
     NSString *uniqueID = @"12345";
-    [BDAutoTrack setCurrentUserUniqueID:uniqueID];
+    [track setCurrentUserUniqueID:uniqueID];
 }
 
 ```
@@ -87,16 +90,54 @@ end
 ```Objective-C
 
 + (void)eventV3:(NSString *)event params:(NSDictionary *)params {
-    [BDAutoTrack eventV3:event params:params];
+    [track eventV3:event params:params];
+}
+
+```
+
+### Scheme上报
+
+```Objective-C
+
+#import <RangersAppLog/BDAutoTrackSchemeHandler.h>
+
+/// 如果是iOS 13中重写UISceneDelegate的回调，则按照i以下code
+- (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts {
+    for (UIOpenURLContext *context in URLContexts) {
+        NSURL *URL = context.URL;
+        if ([[BDAutoTrackSchemeHandler sharedHandler] handleURL:URL appID:@"appid" scene:scene]) {
+            continue;
+        }
+
+        /// your handle code for the URL
+    }
+}
+
+/// 如果是iOS 13一下，重写UIApplicationDelegate的回调方法，则参考以下code
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options {
+    if ([[BDAutoTrackSchemeHandler sharedHandler] handleURL:url appID:@"appid" scene:nil]) {
+        return YES;
+    }
+
+    /// your handle code
+
+    return NO;
 }
 
 ```
 
 ## 版本更新记录
 
-#### 最新稳定版本
 
-- 3.2.5 
+#### 4.0.0 
+
+- AppLog支持多AppID实例
+- 修复写数据库trackGlobalEventID卡顿问题
+- 修复 OpenUdid 初始化性能问题
+- 新增Universal Link上报接口
+- 移除对 UIWebView 无埋点支持
+- 移除UIAlertView和UIActionSheet的无埋点支持
+
 
 
 ## 证书

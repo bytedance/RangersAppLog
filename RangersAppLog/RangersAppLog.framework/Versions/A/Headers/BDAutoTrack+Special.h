@@ -18,7 +18,9 @@ NS_ASSUME_NONNULL_BEGIN
                                 appName:(NSString *)appName
                                    type:(NSString *)productType;
 
-+ (BOOL)eventV3:(NSString *)event params:(NSDictionary *)params specialParams:(NSDictionary *)specialParams;
+- (BOOL)eventV3:(NSString *)event params:(nullable NSDictionary *)params specialParams:(NSDictionary *)specialParams;
+
+- (BOOL)customEvent:(NSString *)category params:(NSDictionary *)params;
 
 @end
 

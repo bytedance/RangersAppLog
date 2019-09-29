@@ -1,5 +1,5 @@
 //
-//  BDAutoTrack+GTGame.h
+//  BDAutoTrack- GTGame.h
 //  Applog
 //
 //  Created by bob on 2019/7/17.
@@ -31,7 +31,7 @@ FOUNDATION_EXTERN NSString * const kGTGameParameterLevel;
  @param level 用户等级
  @discussion 最终上报参数 @{@"lev":@(level)}
  */
-+ (void)logInEventWithLevel:(NSInteger)level;
+- (void)logInEventWithLevel:(NSInteger)level;
 
 /*! @abstract 广告请求：事件名称 gt_ad_request
  @param level 用户等级，作为自定义公共属性（custom_header)上报
@@ -46,7 +46,7 @@ FOUNDATION_EXTERN NSString * const kGTGameParameterLevel;
                         @"ad_reason":reason,
                         @"ad_reasonid":@(reasonID)}
  */
-+ (void)adRequestEventWithLevel:(NSInteger)level
+- (void)adRequestEventWithLevel:(NSInteger)level
                            type:(NSString *)type
                        position:(NSString *)position
                          reason:(NSString *)reason
@@ -65,7 +65,7 @@ FOUNDATION_EXTERN NSString * const kGTGameParameterLevel;
                     @"ad_reason":reason,
                     @"ad_reasonid":@(reasonID)}
  */
-+ (void)adSendEventWithLevel:(NSInteger)level
+- (void)adSendEventWithLevel:(NSInteger)level
                         type:(NSString *)type
                     position:(NSString *)position
                       reason:(NSString *)reason
@@ -84,7 +84,7 @@ FOUNDATION_EXTERN NSString * const kGTGameParameterLevel;
                      @"ad_reason":reason,
                      @"ad_reasonid":@(reasonID)}
  */
-+ (void)adButtonclickEventWithLevel:(NSInteger)level
+- (void)adButtonclickEventWithLevel:(NSInteger)level
                                type:(NSString *)type
                            position:(NSString *)position
                              reason:(NSString *)reason
@@ -103,7 +103,7 @@ FOUNDATION_EXTERN NSString * const kGTGameParameterLevel;
                      @"ad_reason":reason,
                      @"ad_reasonid":@(reasonID)}
  */
-+ (void)adShowEventWithLevel:(NSInteger)level
+- (void)adShowEventWithLevel:(NSInteger)level
                         type:(NSString *)type
                     position:(NSString *)position
                       reason:(NSString *)reason
@@ -120,7 +120,7 @@ FOUNDATION_EXTERN NSString * const kGTGameParameterLevel;
                      @"method":method,
                      @"aflev":@(afterLevel)}
  */
-+ (void)levelUpEventWithLevel:(NSInteger)level
+- (void)levelUpEventWithLevel:(NSInteger)level
                           exp:(NSInteger)exp
                        method:(NSString *)method
                    afterLevel:(NSInteger)afterLevel;
@@ -134,7 +134,7 @@ FOUNDATION_EXTERN NSString * const kGTGameParameterLevel;
                      @"guide_id":@(guideID),
                      @"guide_name":guideName}
  */
-+ (void)guideEventWithLevel:(NSInteger)level
+- (void)guideEventWithLevel:(NSInteger)level
                     guideID:(NSInteger)guideID
                   guideName:(NSString *)guideName;
 
@@ -151,7 +151,7 @@ FOUNDATION_EXTERN NSString * const kGTGameParameterLevel;
                      @"reward_name":rewardName,
                      @"method":method}
  */
-+ (void)activityEventWithLevel:(NSInteger)level
+- (void)activityEventWithLevel:(NSInteger)level
                   activityName:(NSString *)activityName
                     rewardType:(NSString *)rewardType
                     rewardName:(NSString *)rewardName
@@ -166,7 +166,7 @@ FOUNDATION_EXTERN NSString * const kGTGameParameterLevel;
                      @"ectype_type":ecTypeType,
                      @"ectype_id":@(ecTypeID)}
  */
-+ (void)startPlayEventWithLevel:(NSInteger)level
+- (void)startPlayEventWithLevel:(NSInteger)level
                      ecTypeType:(NSString *)ecTypeType
                        ecTypeID:(NSInteger)ecTypeID;
 
@@ -189,7 +189,7 @@ FOUNDATION_EXTERN NSString * const kGTGameParameterLevel;
                      @"kill_num":@(killNum),
                      @"passed":passed}
  */
-+ (void)endPlayEventWithLevel:(NSInteger)level
+- (void)endPlayEventWithLevel:(NSInteger)level
                    ecTypeType:(NSString *)ecTypeType
                      ecTypeID:(NSInteger)ecTypeID
                        result:(NSString *)result
@@ -209,7 +209,7 @@ FOUNDATION_EXTERN NSString * const kGTGameParameterLevel;
                      @"ectype_id":@(ecTypeID),
                      @"method":method}
  */
-+ (void)reviveEventWithWithLevel:(NSInteger)level
+- (void)reviveEventWithWithLevel:(NSInteger)level
                       ecTypeType:(NSString *)ecTypeType
                         ecTypeID:(NSInteger)ecTypeID
                           method:(NSString *)method;
@@ -227,7 +227,7 @@ FOUNDATION_EXTERN NSString * const kGTGameParameterLevel;
                      @"coin_num":@(coinNum),
                      @"coin_left":@(coinLeft)}
  */
-+ (void)getCoinsEventWithLevel:(NSInteger)level
+- (void)getCoinsEventWithLevel:(NSInteger)level
                     coinType:(NSString *)coinType
                         method:(NSString *)method
                        coinNum:(NSInteger)coinNum
@@ -246,7 +246,7 @@ FOUNDATION_EXTERN NSString * const kGTGameParameterLevel;
                      @"coin_num":@(coinNum),
                      @"coin_left":@(coinLeft)}
  */
-+ (void)costCoinsEventWithLevel:(NSInteger)level
+- (void)costCoinsEventWithLevel:(NSInteger)level
                        coinType:(NSString *)coinType
                          method:(NSString *)method
                         coinNum:(NSInteger)coinNum
@@ -265,7 +265,7 @@ FOUNDATION_EXTERN NSString * const kGTGameParameterLevel;
                      @"method":method,
                      @"item_num":@(itemNum)}
  */
-+ (void)getItemEventWithLevel:(NSInteger)level
+- (void)getItemEventWithLevel:(NSInteger)level
                      itemType:(NSString *)itemType
                      itemName:(NSString *)itemName
                        method:(NSString *)method
@@ -284,7 +284,7 @@ FOUNDATION_EXTERN NSString * const kGTGameParameterLevel;
                      @"method":method,
                      @"item_num":@(itemNum)}
  */
-+ (void)costItemEventWithLevel:(NSInteger)level
+- (void)costItemEventWithLevel:(NSInteger)level
                       itemType:(NSString *)itemType
                       itemName:(NSString *)itemName
                         method:(NSString *)method
@@ -307,7 +307,7 @@ FOUNDATION_EXTERN NSString * const kGTGameParameterLevel;
                      @"coin_type":coinType,
                      @"coin_num":@(coinNum)}
  */
-+ (void)shopTradeEventWithLevel:(NSInteger)level
+- (void)shopTradeEventWithLevel:(NSInteger)level
                        shopType:(NSString *)shopType
                        itemType:(NSString *)itemType
                        itemName:(NSString *)itemName
@@ -324,7 +324,7 @@ FOUNDATION_EXTERN NSString * const kGTGameParameterLevel;
                      @"share_type":shareType,
                      @"share_media":shareMedia}
  */
-+ (void)shareClickEventWithLevel:(NSInteger)level
+- (void)shareClickEventWithLevel:(NSInteger)level
                        shareType:(NSString *)shareType
                       shareMedia:(NSString *)shareMedia;
 
@@ -339,7 +339,7 @@ FOUNDATION_EXTERN NSString * const kGTGameParameterLevel;
                      @"share_media":shareMedia,
                      @"result":result}
  */
-+ (void)shareResultEventWithLevel:(NSInteger)level
+- (void)shareResultEventWithLevel:(NSInteger)level
                         shareType:(NSString *)shareType
                        shareMedia:(NSString *)shareMedia
                            result:(NSString *)result;
@@ -350,7 +350,7 @@ FOUNDATION_EXTERN NSString * const kGTGameParameterLevel;
  @param moduleName 主路径步骤描述，使用文字或者英文进行标识
  @discussion 触发条件：用户在发生主路径行为时触发，主路径比如：初始化、登陆前、登陆后、主界面显示
  */
-+ (void)moduleConversionEventWithLevel:(NSInteger)level
+- (void)moduleConversionEventWithLevel:(NSInteger)level
                               moduleID:(NSInteger)moduleID
                             moduleName:(NSString *)moduleName;
 
@@ -364,7 +364,7 @@ FOUNDATION_EXTERN NSString * const kGTGameParameterLevel;
  @param itemNum 充值获得物品的数量
  @discussion 触发条件：用户完成充值并获得对应的游戏内货币和道具时
  */
-+ (void)addCashEventWithLevel:(NSInteger)level
+- (void)addCashEventWithLevel:(NSInteger)level
                       addType:(NSString *)addType
                          cash:(NSInteger)cash
                      coinType:(NSString *)coinType

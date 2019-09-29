@@ -1,5 +1,5 @@
 //
-//  BDAutoTrack+Game.h
+//  BDAutoTrack- Game.h
 //  Applog
 //
 //  Created by bob on 2019/4/10.
@@ -31,7 +31,7 @@ FOUNDATION_EXTERN NSString * const kBDAGameLevel;
  @param isSuccess 状态，强制添加
  @discussion 上报参数：@{@"method":method,@"is_success":@(isSuccess)}
  */
-+ (void)registerEventByMethod:(NSString *)method
+- (void)registerEventByMethod:(NSString *)method
                     isSuccess:(BOOL)isSuccess;
 
 /*! @abstract 初始化登录
@@ -39,7 +39,7 @@ FOUNDATION_EXTERN NSString * const kBDAGameLevel;
  @param isSuccess 状态
  @discussion 上报参数：@{@"method":method,@"is_success":@(isSuccess)}
  */
-+ (void)loginEventByMethod:(NSString *)method
+- (void)loginEventByMethod:(NSString *)method
                  isSuccess:(BOOL)isSuccess;
 
 /*! @abstract 绑定社交账号
@@ -47,7 +47,7 @@ FOUNDATION_EXTERN NSString * const kBDAGameLevel;
  @param isSuccess 状态
  @discussion 上报参数：@{@"account_type":type,@"is_success":@(isSuccess)}
  */
-+ (void)accessAccountEventByType:(NSString *)type
+- (void)accessAccountEventByType:(NSString *)type
                        isSuccess:(BOOL)isSuccess;
 
 /*! @abstract 进行任务
@@ -64,7 +64,7 @@ FOUNDATION_EXTERN NSString * const kBDAGameLevel;
                      @"description":desc,
                      @"is_success":@(isSuccess)}
  */
-+ (void)questEventWithQuestID:(NSString *)questID
+- (void)questEventWithQuestID:(NSString *)questID
                     questType:(NSString *)type
                     questName:(NSString *)name
                    questNumer:(NSUInteger)number
@@ -75,13 +75,13 @@ FOUNDATION_EXTERN NSString * const kBDAGameLevel;
  @param level 当前等级
  @discussion 上报参数：@{@"level":@(level)}
  */
-+ (void)updateLevelEventWithLevel:(NSUInteger)level;
+- (void)updateLevelEventWithLevel:(NSUInteger)level;
 
 /*! @abstract 创建角色
  @param roleID 角色id
  @discussion 上报参数：@{@"gamerole_id":roleID}
  */
-+ (void)createGameRoleEventByID:(NSString *)roleID;
+- (void)createGameRoleEventByID:(NSString *)roleID;
 
 /*! @abstract 查看内容/商品详情
  @param type 内容类型
@@ -91,7 +91,7 @@ FOUNDATION_EXTERN NSString * const kBDAGameLevel;
                          @"content_name":name,
                          @"content_id":contentID}
  */
-+ (void)viewContentEventWithContentType:(NSString *)type
+- (void)viewContentEventWithContentType:(NSString *)type
                             contentName:(NSString *)name
                               contentID:(NSString *)contentID;
 
@@ -107,7 +107,7 @@ FOUNDATION_EXTERN NSString * const kBDAGameLevel;
                      @"content_num":number,
                      @"is_success":@(isSuccess)}
  */
-+ (void)addCartEventWithContentType:(NSString *)type
+- (void)addCartEventWithContentType:(NSString *)type
                         contentName:(NSString *)name
                           contentID:(NSString *)contentID
                       contentNumber:(NSUInteger)number
@@ -133,7 +133,7 @@ FOUNDATION_EXTERN NSString * const kBDAGameLevel;
                          @"is_success":@(isSuccess),
                          @"currency_amount":@(amount)}
  */
-+ (void)checkoutEventWithContentType:(NSString *)type
+- (void)checkoutEventWithContentType:(NSString *)type
                          contentName:(NSString *)name
                            contentID:(NSString *)contentID
                        contentNumber:(NSUInteger)number
@@ -161,7 +161,7 @@ FOUNDATION_EXTERN NSString * const kBDAGameLevel;
                      @"is_success":@(isSuccess),
                      @"currency_amount":@(amount)}
  */
-+ (void)purchaseEventWithContentType:(NSString *)type
+- (void)purchaseEventWithContentType:(NSString *)type
                          contentName:(NSString *)name
                            contentID:(NSString *)contentID
                        contentNumber:(NSUInteger)number
@@ -176,7 +176,7 @@ FOUNDATION_EXTERN NSString * const kBDAGameLevel;
  @discussion 上报参数：@{@"payment_channel":channel,
                         @"is_success":@(isSuccess)}
  */
-+ (void)accessPaymentChannelEventByChannel:(NSString *)channel
+- (void)accessPaymentChannelEventByChannel:(NSString *)channel
                                  isSuccess:(BOOL)isSuccess;
 
 /*! @abstract 添加至收藏
@@ -191,7 +191,7 @@ FOUNDATION_EXTERN NSString * const kBDAGameLevel;
                      @"content_num":@(number),
                      @"is_success":@(isSuccess)}
  */
-+ (void)addToFavouriteEventWithContentType:(NSString *)type
+- (void)addToFavouriteEventWithContentType:(NSString *)type
                                contentName:(NSString *)name
                                  contentID:(NSString *)contentID
                              contentNumber:(NSUInteger)number

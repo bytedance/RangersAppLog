@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 /*! @abstract 手动设置的extra信息
  @discussion 如果设置，被点击的时候会采集
  */
-@property (nonatomic, strong) NSDictionary<NSString*, NSString *> *bdAutoTrackExtraInfos;
+@property (nonatomic, copy) NSDictionary<NSString*, NSString *> *bdAutoTrackExtraInfos;
 
 @end
 
