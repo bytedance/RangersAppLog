@@ -29,7 +29,7 @@ RangersAppLog.podspec
 source 'https://github.com/CocoaPods/Specs.git'
 
 target 'YourTarget' do
-  pod 'RangersAppLog', '4.0.0'
+  pod 'RangersAppLog', '4.0.1'
 end
 ```
 
