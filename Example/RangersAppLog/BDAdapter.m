@@ -13,6 +13,9 @@
 #import <RangersAppLog/BDAutoTrackSchemeHandler.h>
 #import <RangersAppLog/BDAutoTrackNotifications.h>
 
+#import <RangersAppLog/BDAutoTrack+Game.h>
+#import <RangersAppLog/BDAutoTrack+GTGame.h>
+
 static NSString * const TestAPPID = @"159486";
 
 @interface BDAdapter ()
@@ -61,7 +64,7 @@ static NSString * const TestAPPID = @"159486";
 
     /// show debug log
     config.showDebugLog = YES;
-    config.autoTrackEnabled = YES;
+    config.logNeedEncrypt = NO;
     config.logger = ^(NSString * _Nullable log) {
         NSLog(@"%@",log);
     };
@@ -92,6 +95,14 @@ static NSString * const TestAPPID = @"159486";
 }
 
 + (void)eventV3:(NSString *)event params:(NSDictionary *)params {
+    for (NSInteger count = 0; count < 100; count++) {
+        [[BDAdapter sharedInstance].track adShowEventWithLevel:10
+                                                          type:@"type"
+                                                      position:@"game over"
+                                                        reason:@"test"
+                                                      reasonID:1];
+    }
+
     [[BDAdapter sharedInstance].track eventV3:event params:params];
 }
 
