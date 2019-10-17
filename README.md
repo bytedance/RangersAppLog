@@ -10,7 +10,10 @@
 
 ## 要求
 
+特别说明，只支持Xcode 11 打包开发，Xcode 11以下，请单独联系开发提供SDK包
+
 * iOS 8.0+
+* Xcode 11
 
 ## 集成方式
 
@@ -40,8 +43,8 @@ end
 ### 初始化SDK
 
 ```Objective-C
-#import <RangersAppLog/BDAutoTrack.h>
-#import <RangersAppLog/BDAutoTrackConfig.h>
+
+#import <RangersAppLog/RangersAppLogUITrack.h>
 
 + (void)startAppLog {
     BDAutoTrackConfig *config = [BDAutoTrackConfig new];
@@ -99,7 +102,7 @@ end
 
 ```Objective-C
 
-#import <RangersAppLog/BDAutoTrackSchemeHandler.h>
+#import <RangersAppLog/RangersAppLogCore.h>
 
 /// 如果是iOS 13中重写UISceneDelegate的回调，则按照i以下code
 - (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts {
@@ -129,20 +132,21 @@ end
 ## 版本更新记录
 
 
-#### 4.0.1
+#### 3.2.6
 
 - 修复日志重复多报问题
 - 修复多AppID时Session事件异常问题
-
-
-#### 4.0.0 
-
 - AppLog支持多AppID实例
 - 修复写数据库trackGlobalEventID卡顿问题
 - 修复 OpenUdid 初始化性能问题
 - 新增Universal Link上报接口
 - 移除对 UIWebView 无埋点支持
 - 移除UIAlertView和UIActionSheet的无埋点支持
+- 修复`cydia.app` 敏感字符串检测
+- 增加subspec
+	- Core模块是埋点事件
+	- UITracker模块包含无埋点事件采集，依赖 Core
+	- Picker模块是圈选SDK，依赖 UITracker
 
 
 

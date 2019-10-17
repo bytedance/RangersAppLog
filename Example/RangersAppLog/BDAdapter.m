@@ -7,14 +7,8 @@
 //
 
 #import "BDAdapter.h"
-#import <RangersAppLog/BDAutoTrack.h>
-#import <RangersAppLog/BDAutoTrackConfig.h>
-#import <RangersAppLog/BDKeyWindowTracker.h>
-#import <RangersAppLog/BDAutoTrackSchemeHandler.h>
-#import <RangersAppLog/BDAutoTrackNotifications.h>
-
-#import <RangersAppLog/BDAutoTrack+Game.h>
-#import <RangersAppLog/BDAutoTrack+GTGame.h>
+#import <RangersAppLog/RangersAppLogUITrack.h>
+#import <RangersAppLog/BDUIEventPicker.h>
 
 static NSString * const TestAPPID = @"159486";
 
@@ -95,13 +89,6 @@ static NSString * const TestAPPID = @"159486";
 }
 
 + (void)eventV3:(NSString *)event params:(NSDictionary *)params {
-    for (NSInteger count = 0; count < 100; count++) {
-        [[BDAdapter sharedInstance].track adShowEventWithLevel:10
-                                                          type:@"type"
-                                                      position:@"game over"
-                                                        reason:@"test"
-                                                      reasonID:1];
-    }
 
     [[BDAdapter sharedInstance].track eventV3:event params:params];
 }
@@ -119,7 +106,29 @@ static NSString * const TestAPPID = @"159486";
 }
 
 + (void)showPicker {
-
+    #if 1
+        NSURL *URL = [NSURL URLWithString:@"rangersapplog.xxx://rangersapplog/picker?aid=159486"];
+        id scene = nil;
+        #ifdef __IPHONE_13_0
+        if (@available(iOS 13.0, *)) {
+            scene = [UIApplication sharedApplication].keyWindow.windowScene;
+        }
+        #endif
+        [[BDAutoTrackSchemeHandler sharedHandler] handleURL:URL appID:TestAPPID scene:scene];
+    #else
+        BDUIEventPicker *picker = [BDUIEventPicker pickerWithAppID:TestAPPID];
+        [picker showPicker];
+        #ifdef __IPHONE_13_0
+            if (@available(iOS 13.0, *)) {
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    id scene = nil;
+                    scene = [UIApplication sharedApplication].keyWindow.windowScene;
+                    picker.exposedWrapper.windowScene = scene;
+                    picker.exposedPickerButton.window.windowScene = scene;
+                });
+            }
+        #endif
+    #endif
 }
 
 #pragma mark - Notification
