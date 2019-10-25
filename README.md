@@ -29,7 +29,7 @@ RangersAppLog.podspec
 或者参照Demo工程的Podfile
 
 ```Rbuy
-source 'https://github.com/CocoaPods/Specs.git'
+source 'https://cdn.cocoapods.org/'
 
 target 'YourTarget' do
   pod 'RangersAppLog', '~> 3.2.6'
