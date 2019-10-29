@@ -106,7 +106,7 @@ static NSString * const TestAPPID = @"159486";
 }
 
 + (void)showPicker {
-    #if 1
+    #if 0
         NSURL *URL = [NSURL URLWithString:@"rangersapplog.xxx://rangersapplog/picker?aid=159486"];
         id scene = nil;
         #ifdef __IPHONE_13_0
@@ -118,16 +118,16 @@ static NSString * const TestAPPID = @"159486";
     #else
         BDUIEventPicker *picker = [BDUIEventPicker pickerWithAppID:TestAPPID];
         [picker showPicker];
-        #ifdef __IPHONE_13_0
-            if (@available(iOS 13.0, *)) {
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    id scene = nil;
-                    scene = [UIApplication sharedApplication].keyWindow.windowScene;
-                    picker.exposedWrapper.windowScene = scene;
-                    picker.exposedPickerButton.window.windowScene = scene;
-                });
-            }
-        #endif
+//        #ifdef __IPHONE_13_0
+//            if (@available(iOS 13.0, *)) {
+//                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//                    id scene = nil;
+//                    scene = [UIApplication sharedApplication].keyWindow.windowScene;
+//                    picker.exposedWrapper.windowScene = scene;
+//                    picker.exposedPickerButton.window.windowScene = scene;
+//                });
+//            }
+//        #endif
     #endif
 }
 

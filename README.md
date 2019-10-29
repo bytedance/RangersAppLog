@@ -17,14 +17,7 @@
 
 ## 集成方式
 
-1. 直接下载podspec和Framework文件，按照Demo示例放到工程目录中，并引用
-
-```
-RangersAppLog/RangersAppLog.Framework
-RangersAppLog.podspec
-```
-
-2. pod
+### Xcode 11
 
 或者参照Demo工程的Podfile
 
@@ -32,9 +25,27 @@ RangersAppLog.podspec
 source 'https://cdn.cocoapods.org/'
 
 target 'YourTarget' do
-  pod 'RangersAppLog', '~> 3.2.6'
+  pod 'RangersAppLog', '~> 3.2.7'
 end
 ```
+
+### Xcode 10
+
+后缀-rc作为Xcode 10 打包的二进制版本
+
+```Rbuy
+source 'https://cdn.cocoapods.org/'
+
+target 'YourTarget' do
+  pod 'RangersAppLog', '3.2.7-rc.0'
+end
+```
+
+**特别说明：Xcode10和Xcode11的二进制不兼容，不能相互使用**
+
+- `@available`在Xcode10和Xcode11打包的二进制中不一样
+- UIWindowScene等特性需要使用iOS 13，即要求Xcode11打包
+- 应苹果爸爸要求，大家还是尽快升级到Xcode 11吧
 
 ## 集成指南
 
@@ -131,6 +142,13 @@ end
 
 ## 版本更新记录
 
+#### 3.2.7
+包括 3.27-rc.0
+
+- 增加预置性能埋点事件
+- 优化SDK启动性能
+- 新增简化初始化接口
+- 优化Reachability卡顿问题
 
 #### 3.2.6
 
@@ -147,7 +165,6 @@ end
 	- Core模块是埋点事件
 	- UITracker模块包含无埋点事件采集，依赖 Core
 	- Picker模块是圈选SDK，依赖 UITracker
-
 
 
 ## 证书
