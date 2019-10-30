@@ -75,7 +75,7 @@ end
 
 - `@available`在Xcode10和Xcode11打包的二进制中不一样
 - UIWindowScene等特性需要使用iOS 13，即要求Xcode11打包
-- 应苹果爸爸要求，大家还是尽快升级到Xcode 11吧
+- 应苹果爸爸要求，大家还是推荐升级到Xcode 11
 
 ## 集成指南
 
