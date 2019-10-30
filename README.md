@@ -15,6 +15,12 @@
 * iOS 8.0+
 * Xcode 11
 
+## 版本说明
+
+1. Lite版，埋点版本，即 `subspecs => ['Core']`
+2. 无埋点版本，即 `subspecs => ['Core', 'UITracker']`
+3. 圈选Debug版本，即 `subspecs => ['Core', 'UITracker','Picker']`
+
 ## 集成方式
 
 ### Xcode 11
@@ -24,9 +30,21 @@
 ```Rbuy
 source 'https://cdn.cocoapods.org/'
 
+# 接入无埋点版本
 target 'YourTarget' do
   pod 'RangersAppLog', '~> 3.2.7'
 end
+
+# 接入埋点版本
+target 'YourTarget' do
+  pod 'RangersAppLog/Core', '~> 3.2.7'
+end
+
+# 接入埋点版本 
+target 'YourTarget' do
+  pod 'RangersAppLog', '~> 3.2.7',:subspecs => ['Core']
+end
+
 ```
 
 ### Xcode 10
@@ -36,9 +54,21 @@ end
 ```Rbuy
 source 'https://cdn.cocoapods.org/'
 
+# 接入无埋点版本
 target 'YourTarget' do
   pod 'RangersAppLog', '3.2.7-rc.0'
 end
+
+# 接入埋点版本 
+target 'YourTarget' do
+  pod 'RangersAppLog/Core', '3.2.7-rc.0'
+end
+
+# 接入埋点版本 
+target 'YourTarget' do
+  pod 'RangersAppLog', '3.2.7-rc.0',:subspecs => ['Core']
+end
+
 ```
 
 **特别说明：Xcode10和Xcode11的二进制不兼容，不能相互使用**
