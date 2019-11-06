@@ -18,6 +18,7 @@
 		C41C88B62326564600C9AFC8 /* BDFeedLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = C41C88B52326564600C9AFC8 /* BDFeedLoader.m */; };
 		C41C88B9232656C800C9AFC8 /* BDBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C41C88B8232656C800C9AFC8 /* BDBaseTableViewController.m */; };
 		C41C88BC2326577600C9AFC8 /* BDDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C41C88BB2326577600C9AFC8 /* BDDemoViewController.m */; };
+		C49D7BAC2372B4020005D95F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C49D7BAB2372B4020005D95F /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		C41C88B8232656C800C9AFC8 /* BDBaseTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BDBaseTableViewController.m; sourceTree = "<group>"; };
 		C41C88BA2326577600C9AFC8 /* BDDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BDDemoViewController.h; sourceTree = "<group>"; };
 		C41C88BB2326577600C9AFC8 /* BDDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BDDemoViewController.m; sourceTree = "<group>"; };
+		C49D7BAB2372B4020005D95F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C49D7BAC2372B4020005D95F /* AVFoundation.framework in Frameworks */,
 				C0A5599473AE031F08B59B7F /* libPods-RangersAppLog.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -59,6 +62,7 @@
 		7407FA501920B3165AE2CBE1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C49D7BAB2372B4020005D95F /* AVFoundation.framework */,
 				4822380C4BF0D6CA9B1D97FD /* libPods-RangersAppLog.a */,
 			);
 			name = Frameworks;
@@ -126,7 +130,6 @@
 				C41C8891232653FB00C9AFC8 /* Sources */,
 				C41C8892232653FB00C9AFC8 /* Frameworks */,
 				C41C8893232653FB00C9AFC8 /* Resources */,
-				849BBD3328F8C65AFAB90067 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -203,23 +206,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		849BBD3328F8C65AFAB90067 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RangersAppLog/Pods-RangersAppLog-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RangersAppLog/Pods-RangersAppLog-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RangersAppLog/Pods-RangersAppLog-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

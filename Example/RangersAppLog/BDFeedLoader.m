@@ -56,9 +56,18 @@
 
     [array addObject:({
         BDFeedModel *model = [BDFeedModel new];
-        model.title = @"show picker";
+        model.title = @"open rangersapplog";
         model.actionBlock = ^{
-            [BDAdapter showPicker];
+            NSURL *URL = [NSURL URLWithString:@"rangersapplog://xxx"];
+            if ([[UIApplication sharedApplication] canOpenURL:URL]) {
+                if (@available(iOS 10.0, *)) {
+                    [[UIApplication sharedApplication] openURL:URL options:@{} completionHandler:^(BOOL success) {
+                        NSLog(@"Open success");
+                    }];
+                } else {
+                    
+                }
+            }
         };
 
         model;

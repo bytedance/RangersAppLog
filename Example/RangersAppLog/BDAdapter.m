@@ -7,8 +7,7 @@
 //
 
 #import "BDAdapter.h"
-#import <RangersAppLog/RangersAppLogUITrack.h>
-#import <RangersAppLog/BDUIEventPicker.h>
+#import <RangersAppLog/RangersAppLogCore.h>
 
 static NSString * const TestAPPID = @"159486";
 
@@ -25,15 +24,35 @@ static NSString * const TestAPPID = @"159486";
     self = [super init];
     if (self) {
         NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-        [center addObserver:self selector:@selector(onABTestSuccess:)
-                       name:BDAutoTrackNotificationABTestSuccess
+
+        [center addObserver:self
+                   selector:@selector(onDidFinishLaunchingNotification:)
+                       name:UIApplicationDidFinishLaunchingNotification
                      object:nil];
-        [center addObserver:self selector:@selector(onRegisterSuccess:)
-                       name:BDAutoTrackNotificationRegisterSuccess
+        [center addObserver:self
+                   selector:@selector(onWillEnterForegroundNotification:)
+                       name:UIApplicationWillEnterForegroundNotification
                      object:nil];
-        [center addObserver:self selector:@selector(onActiveSuccess:)
-                       name:BDAutoTrackNotificationActiveSuccess
+        [center addObserver:self
+                   selector:@selector(onDidBecomeActiveNotification:)
+                       name:UIApplicationDidBecomeActiveNotification
                      object:nil];
+
+        [center addObserver:self
+                   selector:@selector(onWillResignActiveNotification:)
+                       name:UIApplicationWillResignActiveNotification
+                     object:nil];
+        [center addObserver:self
+                   selector:@selector(onDidEnterBackgroundNotification:)
+                       name:UIApplicationDidEnterBackgroundNotification
+                     object:nil];
+        [center addObserver:self
+                   selector:@selector(onWillTerminateNotification:)
+                       name:UIApplicationWillTerminateNotification
+                     object:nil];
+
+
+        [self startAppLog];
     }
 
     return self;
@@ -49,27 +68,34 @@ static NSString * const TestAPPID = @"159486";
     return sharedInstance;
 }
 
+- (void)startAppLog {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+
+        BDAutoTrackConfig *config = [BDAutoTrackConfig new];
+        config.appID = TestAPPID;
+        config.channel = @"App Store";
+        config.appName = @"dp_tob_sdk_test2";
+
+        /// show debug log
+        config.showDebugLog = YES;
+        config.logNeedEncrypt = NO;
+        config.logger = ^(NSString * _Nullable log) {
+            NSLog(@"%@",log);
+        };
+
+        BDAutoTrack *track = [BDAutoTrack trackWithConfig:config];
+        /// change to your UserUniqueID if now is loged in
+        NSString *uniqueID = @"12345";
+        [track setCurrentUserUniqueID:uniqueID];
+        [track startTrack];
+
+        self.track = track;
+    });
+}
+
 + (void)startAppLog {
     [BDAdapter sharedInstance];
-    BDAutoTrackConfig *config = [BDAutoTrackConfig new];
-    config.appID = TestAPPID;
-    config.channel = @"App Store";
-    config.appName = @"dp_tob_sdk_test2";
-
-    /// show debug log
-    config.showDebugLog = YES;
-    config.logNeedEncrypt = NO;
-    config.logger = ^(NSString * _Nullable log) {
-        NSLog(@"%@",log);
-    };
-
-    BDAutoTrack *track = [BDAutoTrack trackWithConfig:config];
-    /// change to your UserUniqueID if now is loged in
-    NSString *uniqueID = @"12345";
-    [track setCurrentUserUniqueID:uniqueID];
-    [track startTrack];
-
-    [BDAdapter sharedInstance].track = track;
 }
 
 + (id)ABTestValue {
@@ -89,12 +115,11 @@ static NSString * const TestAPPID = @"159486";
 }
 
 + (void)eventV3:(NSString *)event params:(NSDictionary *)params {
-
     [[BDAdapter sharedInstance].track eventV3:event params:params];
 }
 
 + (void)trackKeyWindow:(UIWindow *)keyWindow {
-    [BDKeyWindowTracker sharedInstance].keyWindow = keyWindow;
+
 }
 
 + (BOOL)handleURL:(NSURL *)URL scene:(id)scene {
@@ -105,44 +130,48 @@ static NSString * const TestAPPID = @"159486";
     return NO;
 }
 
-+ (void)showPicker {
-    #if 0
-        NSURL *URL = [NSURL URLWithString:@"rangersapplog.xxx://rangersapplog/picker?aid=159486"];
-        id scene = nil;
-        #ifdef __IPHONE_13_0
-        if (@available(iOS 13.0, *)) {
-            scene = [UIApplication sharedApplication].keyWindow.windowScene;
-        }
-        #endif
-        [[BDAutoTrackSchemeHandler sharedHandler] handleURL:URL appID:TestAPPID scene:scene];
-    #else
-        BDUIEventPicker *picker = [BDUIEventPicker pickerWithAppID:TestAPPID];
-        [picker showPicker];
-//        #ifdef __IPHONE_13_0
-//            if (@available(iOS 13.0, *)) {
-//                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//                    id scene = nil;
-//                    scene = [UIApplication sharedApplication].keyWindow.windowScene;
-//                    picker.exposedWrapper.windowScene = scene;
-//                    picker.exposedPickerButton.window.windowScene = scene;
-//                });
-//            }
-//        #endif
-    #endif
++ (void)trackCallback:(NSString *)method state:(NSInteger)state {
+    [[BDAdapter sharedInstance] trackCallback:method state:state];
+}
+
+- (void)trackCallback:(NSString *)method state:(NSInteger)state {
+    NSDictionary *param = @{@"method":method,
+                            @"state":@(state),
+
+    };
+    [self.track eventV3:@"application" params:param];
 }
 
 #pragma mark - Notification
 
-- (void)onRegisterSuccess:(NSNotification *)not  {
-    NSLog(@"onRegisterSuccess %@",not.userInfo);
+- (void)onDidFinishLaunchingNotification:(NSNotification *)not  {
+    [self trackCallback:NSStringFromSelector(_cmd)
+                  state:[UIApplication sharedApplication].applicationState];
 }
 
-- (void)onActiveSuccess:(NSNotification *)not  {
-    NSLog(@"onActiveSuccess %@",not.userInfo);
+- (void)onWillEnterForegroundNotification:(NSNotification *)not  {
+    [self trackCallback:NSStringFromSelector(_cmd)
+                  state:[UIApplication sharedApplication].applicationState];
 }
 
-- (void)onABTestSuccess:(NSNotification *)not  {
-    NSLog(@"onABTestSuccess %@",not.userInfo);
+- (void)onDidBecomeActiveNotification:(NSNotification *)not  {
+    [self trackCallback:NSStringFromSelector(_cmd)
+                  state:[UIApplication sharedApplication].applicationState];
+}
+
+- (void)onWillResignActiveNotification:(NSNotification *)not  {
+    [self trackCallback:NSStringFromSelector(_cmd)
+                  state:[UIApplication sharedApplication].applicationState];
+}
+
+- (void)onDidEnterBackgroundNotification:(NSNotification *)not  {
+    [self trackCallback:NSStringFromSelector(_cmd)
+                  state:[UIApplication sharedApplication].applicationState];
+}
+
+- (void)onWillTerminateNotification:(NSNotification *)not  {
+    [self trackCallback:NSStringFromSelector(_cmd)
+                  state:[UIApplication sharedApplication].applicationState];
 }
 
 @end

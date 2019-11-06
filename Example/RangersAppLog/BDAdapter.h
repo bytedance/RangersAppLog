@@ -22,11 +22,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)login;
 
-+ (void)showPicker;
-
 + (void)trackKeyWindow:(UIWindow *)keyWindow;
 
 + (BOOL)handleURL:(NSURL *)URL scene:(nullable id)scene;
+
++ (void)trackCallback:(NSString *)method state:(NSInteger)state;
 
 @end
 

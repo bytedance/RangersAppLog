@@ -2,7 +2,7 @@ source 'https://cdn.cocoapods.org/'
 platform :ios, '9.0'
 
 target 'RangersAppLog' do
-  pod 'RangersAppLog/Picker',:path => '../'
+  pod 'RangersAppLog/Core',:path => '../'
 end
 
 
