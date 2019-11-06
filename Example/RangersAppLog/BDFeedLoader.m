@@ -9,6 +9,9 @@
 #import "BDFeedLoader.h"
 #import "BDFeedModel.h"
 #import "BDAdapter.h"
+#import "BDPlayer.h"
+
+#import <AVFoundation/AVFoundation.h>
 
 @implementation BDFeedLoader
 
@@ -68,6 +71,16 @@
                     
                 }
             }
+        };
+
+        model;
+    })];
+
+    [array addObject:({
+        BDFeedModel *model = [BDFeedModel new];
+        model.title = @"播放一首歌，开启后台";
+        model.actionBlock = ^{
+            [[BDPlayer sharedInstance] play];
         };
 
         model;

@@ -9,6 +9,9 @@
 #import "AppDelegate.h"
 #import "BDDemoViewController.h"
 #import "BDAdapter.h"
+#import "BackgroundTask.h"
+#import "LocationTracker.h"
+#import "BackgroundDownload.h"
 
 @interface AppDelegate ()
 
@@ -29,7 +32,14 @@
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
     [application setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
+
     
+    if ([BackgroundTask backgroundAbility] && [LocationTracker checkLocationAbility]) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [[LocationTracker sharedInstance] requestAuthorization];
+        });
+    }
+
     return YES;
 }
 
@@ -63,6 +73,7 @@
     [BDAdapter trackCallback:NSStringFromSelector(_cmd) state:application.applicationState];
 }
 
+#pragma mark - background fetch
 /// background fetch 30s
 - (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     [BDAdapter trackCallback:NSStringFromSelector(_cmd) state:application.applicationState];
@@ -93,6 +104,12 @@
 
     // 开始任务
     [task resume];
+}
+
+#pragma mark - backgroundDonwload
+
+- (void)application:(UIApplication *)application handleEventsForBackgroundURLSession:(NSString *)identifier completionHandler:(void (^)(void))completionHandler {
+
 }
 
 @end

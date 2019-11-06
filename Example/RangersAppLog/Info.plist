@@ -59,16 +59,18 @@
 	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
+		<string>Privacy - Location When In Use Usage Description</string>
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>UISupportedInterfaceOrientations~ipad</key>
-	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationPortraitUpsideDown</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>需要定位权限</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>需要定位权限</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>需要定位权限</string>
+	<key>NSLocationUsageDescription</key>
+	<string>需要定位权限</string>
 </dict>
 </plist>

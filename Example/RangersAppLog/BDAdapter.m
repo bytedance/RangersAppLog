@@ -86,7 +86,7 @@ static NSString * const TestAPPID = @"159486";
 
         BDAutoTrack *track = [BDAutoTrack trackWithConfig:config];
         /// change to your UserUniqueID if now is loged in
-        NSString *uniqueID = @"12345";
+        NSString *uniqueID = @"123456789";
         [track setCurrentUserUniqueID:uniqueID];
         [track startTrack];
 
@@ -110,7 +110,7 @@ static NSString * const TestAPPID = @"159486";
 
 + (void)login {
     /// change to your UserUniqueID
-    NSString *uniqueID = @"12345";
+    NSString *uniqueID = @"123456789";
     [[BDAdapter sharedInstance].track setCurrentUserUniqueID:uniqueID];
 }
 
