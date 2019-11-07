@@ -26,6 +26,9 @@
 }
 
 - (void)onDidEnterBackground {
+    if (!self.enabled) {
+        return;
+    }
     [self startBackgroundLocation];
 }
 
@@ -54,6 +57,7 @@
                                                  selector:@selector(onWillEnterForeground)
                                                      name:UIApplicationWillEnterForegroundNotification
                                                    object:nil];
+        self.enabled = NO;
     }
 
     return self;
@@ -71,7 +75,7 @@
 
 - (void)startBackgroundLocation {
     [self startLocation];
-    [self.task beginBackgroundTask];
+//    [self.task beginBackgroundTask];
 }
 
 - (void)startLocation {

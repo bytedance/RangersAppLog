@@ -92,8 +92,6 @@
 
         NSDictionary * jsonObj = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
 
-        NSLog(@"%@",jsonObj);
-
         BOOL hasNewData = jsonObj == nil;
         if (hasNewData) {
             completionHandler(UIBackgroundFetchResultNewData);
@@ -111,5 +109,6 @@
 - (void)application:(UIApplication *)application handleEventsForBackgroundURLSession:(NSString *)identifier completionHandler:(void (^)(void))completionHandler {
 
 }
+
 
 @end

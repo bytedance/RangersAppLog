@@ -10,8 +10,7 @@
 #import "BDFeedModel.h"
 #import "BDAdapter.h"
 #import "BDPlayer.h"
-
-#import <AVFoundation/AVFoundation.h>
+#import "LocationTracker.h"
 
 @implementation BDFeedLoader
 
@@ -49,16 +48,6 @@
 
     [array addObject:({
         BDFeedModel *model = [BDFeedModel new];
-        model.title = @"report a event called test_event ";
-        model.actionBlock = ^{
-            [BDAdapter eventV3:@"test_event" params:nil];
-        };
-
-        model;
-    })];
-
-    [array addObject:({
-        BDFeedModel *model = [BDFeedModel new];
         model.title = @"open rangersapplog";
         model.actionBlock = ^{
             NSURL *URL = [NSURL URLWithString:@"rangersapplog://xxx"];
@@ -78,9 +67,39 @@
 
     [array addObject:({
         BDFeedModel *model = [BDFeedModel new];
-        model.title = @"播放一首歌，开启后台";
+        model.title = @"开始播放，开启后台";
         model.actionBlock = ^{
             [[BDPlayer sharedInstance] play];
+        };
+
+        model;
+    })];
+
+    [array addObject:({
+        BDFeedModel *model = [BDFeedModel new];
+        model.title = @"停止播放";
+        model.actionBlock = ^{
+            [[BDPlayer sharedInstance] stop];
+        };
+
+        model;
+    })];
+
+    [array addObject:({
+        BDFeedModel *model = [BDFeedModel new];
+        model.title = @"开启后台定位";
+        model.actionBlock = ^{
+            [LocationTracker sharedInstance].enabled = YES;
+        };
+
+        model;
+    })];
+
+    [array addObject:({
+        BDFeedModel *model = [BDFeedModel new];
+        model.title = @"关闭定位";
+        model.actionBlock = ^{
+            [LocationTracker sharedInstance].enabled = NO;
         };
 
         model;

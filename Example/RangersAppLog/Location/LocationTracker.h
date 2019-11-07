@@ -12,10 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LocationTracker : NSObject
 
+@property (nonatomic, assign) BOOL enabled;
+
 + (instancetype)sharedInstance;
 
 - (void)requestAuthorization;
-- (void)startLocation;
 
 + (BOOL)checkLocationAbility;
 
