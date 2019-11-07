@@ -12,6 +12,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BackgroundDownload : NSObject
 
+@property (nonatomic, assign) BOOL backgroundDownloadEnabled;
+
++ (instancetype)sharedInstance;
+
+- (void)addBackgroundHandler:(dispatch_block_t)completionHandler forSession:(NSString *)identifier;
+
 @end
 
 NS_ASSUME_NONNULL_END

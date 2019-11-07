@@ -12,6 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BackgroundTask : NSObject
 
+@property (nonatomic, assign) BOOL enabled;
+
++ (instancetype)sharedInstance;
+
 - (void)beginBackgroundTask;
 - (void)endBackgroundTask;
 

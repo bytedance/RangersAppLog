@@ -30,14 +30,6 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void)onDidEnterBackground {
-
-}
-
-- (void)onWillEnterForeground {
-
-}
-
 - (void)onSessionInterruption:(NSNotification *)not {
     NSLog(@"%@",not.userInfo);
     [self pause];
@@ -64,14 +56,6 @@
         player.numberOfLoops = -1;
         self.player = player;
 
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(onDidEnterBackground)
-                                                     name:UIApplicationDidEnterBackgroundNotification
-                                                   object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(onWillEnterForeground)
-                                                     name:UIApplicationWillEnterForegroundNotification
-                                                   object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(onWillTerminate)
                                                      name:UIApplicationWillTerminateNotification
@@ -179,6 +163,5 @@
         return MPRemoteCommandHandlerStatusSuccess;
     }];
 }
-
 
 @end

@@ -84,20 +84,7 @@
     NSURL *url = [[NSURL alloc] initWithString:@"https://www.baidu.com"];
     NSURLSessionDataTask *task = [session dataTaskWithURL:url
                                         completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-
-        if (error) {
-            completionHandler(UIBackgroundFetchResultFailed);
-            return;
-        }
-
-        NSDictionary * jsonObj = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-
-        BOOL hasNewData = jsonObj == nil;
-        if (hasNewData) {
-            completionHandler(UIBackgroundFetchResultNewData);
-        } else {
-            completionHandler(UIBackgroundFetchResultNoData);
-        }
+        completionHandler(UIBackgroundFetchResultNewData);
     }];
 
     // 开始任务
@@ -107,8 +94,15 @@
 #pragma mark - backgroundDonwload
 
 - (void)application:(UIApplication *)application handleEventsForBackgroundURLSession:(NSString *)identifier completionHandler:(void (^)(void))completionHandler {
-
+    [BDAdapter trackCallback:NSStringFromSelector(_cmd) state:application.applicationState];
+    [[BackgroundDownload sharedInstance] addBackgroundHandler:completionHandler forSession:identifier];
 }
 
+#pragma mark - 远程通知
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler {
+    [BDAdapter trackCallback:NSStringFromSelector(_cmd) state:application.applicationState];
+    completionHandler(UIBackgroundFetchResultNewData);
+}
 
 @end
