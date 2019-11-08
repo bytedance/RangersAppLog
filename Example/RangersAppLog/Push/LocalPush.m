@@ -56,7 +56,6 @@
     UNAuthorizationOptions opt = UNAuthorizationOptionBadge | UNAuthorizationOptionSound | UNAuthorizationOptionAlert ;
     [[UNUserNotificationCenter currentNotificationCenter] requestAuthorizationWithOptions:opt
                                                                         completionHandler:^(BOOL granted, NSError* error) {
-        [BDAdapter eventV3:@"registerUserNotification" params:@{@"success":@(granted)}];
     }];
 }
 
@@ -78,7 +77,6 @@
     [[UNUserNotificationCenter currentNotificationCenter] removeAllDeliveredNotifications];
     [[UNUserNotificationCenter currentNotificationCenter] addNotificationRequest:request
                                                            withCompletionHandler:^(NSError * error) {
-        [BDAdapter eventV3:@"scheduleLocalNotification" params:@{@"success":@(error==nil)}];
     }];
 }
 

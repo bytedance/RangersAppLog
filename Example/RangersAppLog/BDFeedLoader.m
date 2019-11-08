@@ -142,7 +142,17 @@
 
     [array addObject:({
         BDFeedModel *model = [BDFeedModel new];
-        model.title = @"开启本地通知";
+        model.title = @"前台本地通知";
+        model.actionBlock = ^{
+            [[LocalPush sharedInstance] scheduleLocalNotification];
+        };
+
+        model;
+    })];
+
+    [array addObject:({
+        BDFeedModel *model = [BDFeedModel new];
+        model.title = @"后台启本地通知";
         model.actionBlock = ^{
             [LocalPush sharedInstance].enabled = YES;
         };
