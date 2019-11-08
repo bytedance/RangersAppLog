@@ -118,7 +118,10 @@
     [songDict setObject:@"Test" forKey:MPMediaItemPropertyTitle];
     [songDict setObject:@"Test" forKey:MPMediaItemPropertyArtist];
     [songDict setObject:@(240) forKeyedSubscript:MPMediaItemPropertyPlaybackDuration];
-    MPMediaItemArtwork *imageItem= [[MPMediaItemArtwork alloc]initWithImage:[UIImage imageNamed:@"test_song.jpg"]];
+    UIImage *image = [UIImage imageNamed:@"test_song.jpg"];
+    MPMediaItemArtwork *imageItem= [[MPMediaItemArtwork alloc] initWithBoundsSize:image.size requestHandler:^UIImage *(CGSize size) {
+        return image;
+    }];
     [songDict setObject:imageItem forKey:MPMediaItemPropertyArtwork];
     [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:songDict];
 }

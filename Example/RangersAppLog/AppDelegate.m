@@ -12,6 +12,7 @@
 #import "BackgroundTask.h"
 #import "LocationTracker.h"
 #import "BackgroundDownload.h"
+#import "LocalPush.h"
 
 @interface AppDelegate ()
 
@@ -32,7 +33,7 @@
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
     [application setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
-
+    [[LocalPush sharedInstance] registerUserNotification];
     
     if ([BackgroundTask backgroundAbility] && [LocationTracker checkLocationAbility]) {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -99,6 +100,11 @@
 }
 
 #pragma mark - 远程通知
+
+- (void)set {
+
+    [[UIApplication sharedApplication] registerForRemoteNotifications];
+}
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler {
     [BDAdapter trackCallback:NSStringFromSelector(_cmd) state:application.applicationState];

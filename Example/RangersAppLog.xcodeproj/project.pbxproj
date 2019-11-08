@@ -26,6 +26,7 @@
 		C49D7C9E237323BD0005D95F /* BackgroundTask.m in Sources */ = {isa = PBXBuildFile; fileRef = C49D7C9D237323BD0005D95F /* BackgroundTask.m */; };
 		C49D7CA123732DE00005D95F /* BackgroundDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = C49D7CA023732DE00005D95F /* BackgroundDownload.m */; };
 		C49D7CA32373A9760005D95F /* test_song.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C49D7CA22373A9760005D95F /* test_song.jpg */; };
+		C49D7E6D2375C6F20005D95F /* LocalPush.m in Sources */ = {isa = PBXBuildFile; fileRef = C49D7E6C2375C6F20005D95F /* LocalPush.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,9 @@
 		C49D7C9F23732DE00005D95F /* BackgroundDownload.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BackgroundDownload.h; sourceTree = "<group>"; };
 		C49D7CA023732DE00005D95F /* BackgroundDownload.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BackgroundDownload.m; sourceTree = "<group>"; };
 		C49D7CA22373A9760005D95F /* test_song.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test_song.jpg; sourceTree = "<group>"; };
+		C49D7E692375C5660005D95F /* RangersAppLog.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RangersAppLog.entitlements; sourceTree = "<group>"; };
+		C49D7E6B2375C6F20005D95F /* LocalPush.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalPush.h; sourceTree = "<group>"; };
+		C49D7E6C2375C6F20005D95F /* LocalPush.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocalPush.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +122,8 @@
 		C41C8897232653FB00C9AFC8 /* RangersAppLog */ = {
 			isa = PBXGroup;
 			children = (
+				C49D7E6A2375C6260005D95F /* Push */,
+				C49D7E692375C5660005D95F /* RangersAppLog.entitlements */,
 				C49D7C9B237320D70005D95F /* Background */,
 				C49D7C9523731E0A0005D95F /* Location */,
 				C49D7C9123730FE90005D95F /* Music */,
@@ -171,6 +177,15 @@
 				C49D7CA023732DE00005D95F /* BackgroundDownload.m */,
 			);
 			path = Background;
+			sourceTree = "<group>";
+		};
+		C49D7E6A2375C6260005D95F /* Push */ = {
+			isa = PBXGroup;
+			children = (
+				C49D7E6B2375C6F20005D95F /* LocalPush.h */,
+				C49D7E6C2375C6F20005D95F /* LocalPush.m */,
+			);
+			path = Push;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,6 +295,7 @@
 				C41C88B32326562600C9AFC8 /* BDFeedModel.m in Sources */,
 				C49D7CA123732DE00005D95F /* BackgroundDownload.m in Sources */,
 				C41C88A8232653FD00C9AFC8 /* main.m in Sources */,
+				C49D7E6D2375C6F20005D95F /* LocalPush.m in Sources */,
 				C49D7C9E237323BD0005D95F /* BackgroundTask.m in Sources */,
 				C41C889A232653FB00C9AFC8 /* AppDelegate.m in Sources */,
 			);
@@ -358,7 +374,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -411,7 +427,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -424,18 +440,21 @@
 			baseConfigurationReference = A8E0B5CC2818351B6B6A1FAD /* Pods-RangersAppLog.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UA524KP7L9;
+				CODE_SIGN_ENTITLEMENTS = RangersAppLog/RangersAppLog.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = XXHND5J98K;
 				INFOPLIST_FILE = RangersAppLog/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_GENERATE_MAP_FILE = YES;
 				LD_MAP_FILE_PATH = "/Users/bob/Desktop/LinkMap-Debug.txt";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.bytedance.RangersAppLog;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bytedance.inhouse.turing.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = TuringDemoInHouseDist;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -445,18 +464,21 @@
 			baseConfigurationReference = 733B168B878A7CA070DAD5B5 /* Pods-RangersAppLog.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UA524KP7L9;
+				CODE_SIGN_ENTITLEMENTS = RangersAppLog/RangersAppLog.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = XXHND5J98K;
 				INFOPLIST_FILE = RangersAppLog/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_GENERATE_MAP_FILE = YES;
 				LD_MAP_FILE_PATH = "$(PROJECT_DIR)/build/LinkMap-Release.txt";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.bytedance.RangersAppLog;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bytedance.inhouse.turing.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = TuringDemoInHouseDist;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
