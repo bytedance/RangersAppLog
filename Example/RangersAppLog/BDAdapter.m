@@ -15,6 +15,7 @@ static NSString * const TestAPPID = @"159486";
 
 
 @property (nonatomic, strong) BDAutoTrack *track;
+@property (nonatomic, assign) NSUInteger eventIndex;
 
 @end
 
@@ -51,7 +52,7 @@ static NSString * const TestAPPID = @"159486";
                        name:UIApplicationWillTerminateNotification
                      object:nil];
 
-
+        self.eventIndex = 0;
         [self startAppLog];
     }
 
@@ -137,8 +138,10 @@ static NSString * const TestAPPID = @"159486";
 - (void)trackCallback:(NSString *)method state:(NSInteger)state {
     NSDictionary *param = @{@"method":method,
                             @"state":@(state),
+                            @"index":@(self.eventIndex),
 
     };
+    self.eventIndex += 1;
     [self.track eventV3:@"application" params:param];
 }
 
