@@ -50,9 +50,9 @@
 
     [array addObject:({
         BDFeedModel *model = [BDFeedModel new];
-        model.title = @"open rangersapplog pc";
+        model.title = @"open rangersapplog app";
         model.actionBlock = ^{
-            NSString *url = @"rangesapplog.byAx6uYt://rangesapplog/picker?qr_param=xxxx&time=1573194678&aid=159486&type=sync_query";
+            NSString *url = @"rangersapplo://rangersapplog";
             NSURL *URL = [NSURL URLWithString:url];
             if ([[UIApplication sharedApplication] canOpenURL:URL]) {
                 if (@available(iOS 10.0, *)) {
@@ -61,26 +61,6 @@
                     }];
                 } else {
                     
-                }
-            }
-        };
-
-        model;
-    })];
-
-    [array addObject:({
-        BDFeedModel *model = [BDFeedModel new];
-        model.title = @"open rangersapplog sdk";
-        model.actionBlock = ^{
-            NSString *url = @"rangesapplog.byAx6uYt://rangesapplog/picker?qr_param=xxxx&time=1573194678&aid=159486&type=bind_query";
-            NSURL *URL = [NSURL URLWithString:url];
-            if ([[UIApplication sharedApplication] canOpenURL:URL]) {
-                if (@available(iOS 10.0, *)) {
-                    [[UIApplication sharedApplication] openURL:URL options:@{} completionHandler:^(BOOL success) {
-                        NSLog(@"Open success");
-                    }];
-                } else {
-
                 }
             }
         };
