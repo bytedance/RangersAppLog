@@ -24,34 +24,6 @@ static NSString * const TestAPPID = @"159486";
 - (instancetype)init {
     self = [super init];
     if (self) {
-        NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-
-        [center addObserver:self
-                   selector:@selector(onDidFinishLaunchingNotification:)
-                       name:UIApplicationDidFinishLaunchingNotification
-                     object:nil];
-        [center addObserver:self
-                   selector:@selector(onWillEnterForegroundNotification:)
-                       name:UIApplicationWillEnterForegroundNotification
-                     object:nil];
-        [center addObserver:self
-                   selector:@selector(onDidBecomeActiveNotification:)
-                       name:UIApplicationDidBecomeActiveNotification
-                     object:nil];
-
-        [center addObserver:self
-                   selector:@selector(onWillResignActiveNotification:)
-                       name:UIApplicationWillResignActiveNotification
-                     object:nil];
-        [center addObserver:self
-                   selector:@selector(onDidEnterBackgroundNotification:)
-                       name:UIApplicationDidEnterBackgroundNotification
-                     object:nil];
-        [center addObserver:self
-                   selector:@selector(onWillTerminateNotification:)
-                       name:UIApplicationWillTerminateNotification
-                     object:nil];
-
         self.eventIndex = 0;
         [self startAppLog];
     }
@@ -143,38 +115,6 @@ static NSString * const TestAPPID = @"159486";
     };
     self.eventIndex += 1;
     [self.track eventV3:@"application" params:param];
-}
-
-#pragma mark - Notification
-
-- (void)onDidFinishLaunchingNotification:(NSNotification *)not  {
-    [self trackCallback:NSStringFromSelector(_cmd)
-                  state:[UIApplication sharedApplication].applicationState];
-}
-
-- (void)onWillEnterForegroundNotification:(NSNotification *)not  {
-    [self trackCallback:NSStringFromSelector(_cmd)
-                  state:[UIApplication sharedApplication].applicationState];
-}
-
-- (void)onDidBecomeActiveNotification:(NSNotification *)not  {
-    [self trackCallback:NSStringFromSelector(_cmd)
-                  state:[UIApplication sharedApplication].applicationState];
-}
-
-- (void)onWillResignActiveNotification:(NSNotification *)not  {
-    [self trackCallback:NSStringFromSelector(_cmd)
-                  state:[UIApplication sharedApplication].applicationState];
-}
-
-- (void)onDidEnterBackgroundNotification:(NSNotification *)not  {
-    [self trackCallback:NSStringFromSelector(_cmd)
-                  state:[UIApplication sharedApplication].applicationState];
-}
-
-- (void)onWillTerminateNotification:(NSNotification *)not  {
-    [self trackCallback:NSStringFromSelector(_cmd)
-                  state:[UIApplication sharedApplication].applicationState];
 }
 
 @end

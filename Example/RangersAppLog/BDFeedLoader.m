@@ -13,6 +13,7 @@
 #import "LocationTracker.h"
 #import "BackgroundDownload.h"
 #import "BackgroundTask.h"
+#import "LocalPush.h"
 
 @implementation BDFeedLoader
 
@@ -134,6 +135,26 @@
         model.title = @"开启一个10s后台任务";
         model.actionBlock = ^{
             [BackgroundTask sharedInstance].enabled = YES;
+        };
+
+        model;
+    })];
+
+    [array addObject:({
+        BDFeedModel *model = [BDFeedModel new];
+        model.title = @"开启本地通知";
+        model.actionBlock = ^{
+            [LocalPush sharedInstance].enabled = YES;
+        };
+
+        model;
+    })];
+
+    [array addObject:({
+        BDFeedModel *model = [BDFeedModel new];
+        model.title = @"关闭本地通知";
+        model.actionBlock = ^{
+            [LocalPush sharedInstance].enabled = NO;
         };
 
         model;
