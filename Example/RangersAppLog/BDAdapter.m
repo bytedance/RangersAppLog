@@ -7,6 +7,7 @@
 //
 
 #import "BDAdapter.h"
+#import "BDFeedModel.h"
 #import <RangersAppLog/RangersAppLogCore.h>
 
 static NSString * const TestAPPID = @"159486";
@@ -25,6 +26,7 @@ static NSString * const TestAPPID = @"159486";
     self = [super init];
     if (self) {
         self.eventIndex = 0;
+        self.events = [NSMutableArray new];
         [self startAppLog];
     }
 
@@ -113,6 +115,8 @@ static NSString * const TestAPPID = @"159486";
                             @"index":@(self.eventIndex),
 
     };
+    BDFeedModel *model = [BDFeedModel modelWithIndex:self.eventIndex method:method state:state];
+    [self.events addObject:model];
     self.eventIndex += 1;
     [self.track eventV3:@"application" params:param];
 }

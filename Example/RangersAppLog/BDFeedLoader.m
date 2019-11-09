@@ -22,29 +22,8 @@
     
     [array addObject:({
         BDFeedModel *model = [BDFeedModel new];
-        model.title = @"Login with an ID";
-        model.actionBlock = ^{
-            [BDAdapter login];
-        };
-        model;
-    })];
-
-    [array addObject:({
-        BDFeedModel *model = [BDFeedModel new];
-        model.title = @"Logout";
-        model.actionBlock = ^{
-            [BDAdapter logout];
-        };
-        model;
-    })];
-
-    [array addObject:({
-        BDFeedModel *model = [BDFeedModel new];
-        model.title = @"Read ABTest Value";
-        model.actionBlock = ^{
-            id value = [BDAdapter ABTestValue];
-            NSLog(@"value read from ABTest:(%@)",value);
-        };
+        model.title = @"Result";
+        model.nextVCName = @"BDResultViewController";
         
         model;
     })];

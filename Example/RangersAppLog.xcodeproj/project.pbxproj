@@ -27,6 +27,7 @@
 		C49D7CA123732DE00005D95F /* BackgroundDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = C49D7CA023732DE00005D95F /* BackgroundDownload.m */; };
 		C49D7CA32373A9760005D95F /* test_song.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C49D7CA22373A9760005D95F /* test_song.jpg */; };
 		C49D7E6D2375C6F20005D95F /* LocalPush.m in Sources */ = {isa = PBXBuildFile; fileRef = C49D7E6C2375C6F20005D95F /* LocalPush.m */; };
+		C49D7E702376795D0005D95F /* BDResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C49D7E6F2376795D0005D95F /* BDResultViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,8 @@
 		C49D7E692375C5660005D95F /* RangersAppLog.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RangersAppLog.entitlements; sourceTree = "<group>"; };
 		C49D7E6B2375C6F20005D95F /* LocalPush.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalPush.h; sourceTree = "<group>"; };
 		C49D7E6C2375C6F20005D95F /* LocalPush.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocalPush.m; sourceTree = "<group>"; };
+		C49D7E6E2376795D0005D95F /* BDResultViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BDResultViewController.h; sourceTree = "<group>"; };
+		C49D7E6F2376795D0005D95F /* BDResultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BDResultViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +147,8 @@
 				C41C88B8232656C800C9AFC8 /* BDBaseTableViewController.m */,
 				C41C88BA2326577600C9AFC8 /* BDDemoViewController.h */,
 				C41C88BB2326577600C9AFC8 /* BDDemoViewController.m */,
+				C49D7E6E2376795D0005D95F /* BDResultViewController.h */,
+				C49D7E6F2376795D0005D95F /* BDResultViewController.m */,
 			);
 			path = RangersAppLog;
 			sourceTree = "<group>";
@@ -291,6 +296,7 @@
 				C41C88B62326564600C9AFC8 /* BDFeedLoader.m in Sources */,
 				C41C88BC2326577600C9AFC8 /* BDDemoViewController.m in Sources */,
 				C41C88B0232655E800C9AFC8 /* BDAdapter.m in Sources */,
+				C49D7E702376795D0005D95F /* BDResultViewController.m in Sources */,
 				C49D7C9823731E760005D95F /* LocationTracker.m in Sources */,
 				C41C88B32326562600C9AFC8 /* BDFeedModel.m in Sources */,
 				C49D7CA123732DE00005D95F /* BackgroundDownload.m in Sources */,
