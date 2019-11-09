@@ -25,7 +25,7 @@
     if (!self.enabled) {
         return;
     }
-
+    self.enabled = NO;
     [self scheduleLocalNotification];
 }
 

@@ -16,6 +16,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)sharedInstance;
 
+- (void)startMonitor;
+- (void)stopMonitor ;
+
 - (void)requestAuthorization;
 
 + (BOOL)checkLocationAbility;

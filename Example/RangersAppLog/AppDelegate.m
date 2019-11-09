@@ -27,13 +27,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [BDAdapter trackCallback:NSStringFromSelector(_cmd) state:application.applicationState];
+    [application setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
+    [[LocalPush sharedInstance] registerUserNotification];
+    application.applicationIconBadgeNumber = 0;
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:[BDDemoViewController new]];
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
-    [application setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
-    [[LocalPush sharedInstance] registerUserNotification];
+
     
     if ([BackgroundTask backgroundAbility] && [LocationTracker checkLocationAbility]) {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{

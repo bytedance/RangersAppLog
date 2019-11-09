@@ -9,13 +9,15 @@
 #import "LocationTracker.h"
 #import <CoreLocation/CoreLocation.h>
 #import <UIKit/UIKit.h>
-
+#import "BDAdapter.h"
 #import "BackgroundTask.h"
 
 @interface LocationTracker ()<CLLocationManagerDelegate>
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, strong) BackgroundTask *task;
+@property (nonatomic, assign) CLLocationCoordinate2D center;
+
 
 @end
 
@@ -29,11 +31,13 @@
     if (!self.enabled) {
         return;
     }
+    self.enabled = NO;
     [self startBackgroundLocation];
 }
 
 - (void)onWillEnterForeground {
     [self stopLocation];
+    [self stopMonitor];
 }
 
 - (instancetype)init {
@@ -45,7 +49,7 @@
         locationManager.pausesLocationUpdatesAutomatically = NO;
         locationManager.delegate = self;
         locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
-        locationManager.distanceFilter = kCLDistanceFilterNone;
+        locationManager.distanceFilter = 100;
 
         self.locationManager = locationManager;
         self.task = [BackgroundTask new];
@@ -75,12 +79,40 @@
 
 - (void)startBackgroundLocation {
     [self startLocation];
-//    [self.task beginBackgroundTask];
 }
 
 - (void)startLocation {
     [self requestAuthorization];
     [self.locationManager startUpdatingLocation];
+}
+
+- (CLCircularRegion *)monitorRegion {
+
+    CLLocationDistance distance = 20;
+    CLCircularRegion *region = [[CLCircularRegion alloc] initWithCenter:self.center
+                                                                 radius:distance
+                                                             identifier:@"com.applog.location"];
+    region.notifyOnExit = YES;
+    region.notifyOnEntry = YES;
+
+    return region;
+}
+
+- (void)startMonitor {
+    if (![CLLocationManager isMonitoringAvailableForClass:CLCircularRegion.class]) {
+        return;
+    }
+    CLLocationManager *locationManager = self.locationManager;
+    [locationManager startMonitoringForRegion:[self monitorRegion]];
+}
+
+- (void)stopMonitor {
+    if (![CLLocationManager isMonitoringAvailableForClass:CLCircularRegion.class]) {
+        return;
+    }
+
+    CLLocationManager *locationManager = self.locationManager;
+    [locationManager stopMonitoringForRegion:[self monitorRegion]];
 }
 
 - (void)requestAuthorization {
@@ -93,18 +125,20 @@
 
 #pragma mark - CLLocationManagerDelegate
 
+- (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
+    [manager stopMonitoringForRegion:region];
+    [BDAdapter trackCallback:NSStringFromSelector(_cmd) state:[UIApplication sharedApplication].applicationState];
+}
+- (void)locationManager:(CLLocationManager *)manager
+          didExitRegion:(CLRegion *)region {
+    [manager stopMonitoringForRegion:region];
+    [BDAdapter trackCallback:NSStringFromSelector(_cmd) state:[UIApplication sharedApplication].applicationState];
+}
+
 - (void)locationManager:(CLLocationManager *)manager
      didUpdateLocations:(NSArray<CLLocation *> *)locations {
     CLLocation *location  = [locations lastObject];
-    NSLog(@"%@ %@",NSStringFromSelector(_cmd), location.description);
-}
-
-- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
-    NSLog(@"%@ %@",NSStringFromSelector(_cmd), error.description);
-}
-
-- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
-    NSLog(@"%@ %d",NSStringFromSelector(_cmd), status);
+    self.center = location.coordinate;
 }
 
 #pragma mark - Tool

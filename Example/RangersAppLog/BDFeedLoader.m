@@ -71,7 +71,7 @@
 
     [array addObject:({
         BDFeedModel *model = [BDFeedModel new];
-        model.title = @"开启后台定位";
+        model.title = @"开启一次后台定位";
         model.actionBlock = ^{
             [LocationTracker sharedInstance].enabled = YES;
         };
@@ -81,9 +81,9 @@
 
     [array addObject:({
         BDFeedModel *model = [BDFeedModel new];
-        model.title = @"关闭定位";
+        model.title = @"开启定位区域";
         model.actionBlock = ^{
-            [LocationTracker sharedInstance].enabled = NO;
+            [[LocationTracker sharedInstance] startMonitor];
         };
 
         model;
@@ -91,19 +91,19 @@
 
     [array addObject:({
         BDFeedModel *model = [BDFeedModel new];
-        model.title = @"开启后台下载";
+        model.title = @"关闭定位区域";
+        model.actionBlock = ^{
+            [[LocationTracker sharedInstance] startMonitor];
+        };
+
+        model;
+    })];
+
+    [array addObject:({
+        BDFeedModel *model = [BDFeedModel new];
+        model.title = @"开启一个后台下载";
         model.actionBlock = ^{
             [BackgroundDownload sharedInstance].backgroundDownloadEnabled = YES;
-        };
-
-        model;
-    })];
-
-    [array addObject:({
-        BDFeedModel *model = [BDFeedModel new];
-        model.title = @"关闭后台下载";
-        model.actionBlock = ^{
-            [BackgroundDownload sharedInstance].backgroundDownloadEnabled = NO;
         };
 
         model;
@@ -131,24 +131,13 @@
 
     [array addObject:({
         BDFeedModel *model = [BDFeedModel new];
-        model.title = @"后台启本地通知";
+        model.title = @"开启一个后台本地通知";
         model.actionBlock = ^{
             [LocalPush sharedInstance].enabled = YES;
         };
 
         model;
     })];
-
-    [array addObject:({
-        BDFeedModel *model = [BDFeedModel new];
-        model.title = @"关闭本地通知";
-        model.actionBlock = ^{
-            [LocalPush sharedInstance].enabled = NO;
-        };
-
-        model;
-    })];
-
 
     return array;
 }

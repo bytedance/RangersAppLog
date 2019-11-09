@@ -27,6 +27,7 @@
     if (!self.backgroundDownloadEnabled) {
         return;
     }
+    self.backgroundDownloadEnabled = NO;
     [self beginBackgroundDownload];
 }
 
