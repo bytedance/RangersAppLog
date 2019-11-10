@@ -59,8 +59,6 @@ static NSString * const CellReuseIdentifier = @"UITableViewCell_";
             [self.navigationController pushViewController:vc animated:YES];
         }
     }
-
-//    [BDAdapter eventV3:@"cellClick" params:@{@"text":model.title?:@""}];
 }
 
 

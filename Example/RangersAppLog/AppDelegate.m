@@ -9,6 +9,10 @@
 #import "AppDelegate.h"
 #import "BDDemoViewController.h"
 #import "BDAdapter.h"
+#import "BackgroundTask.h"
+#import "LocationTracker.h"
+#import "BackgroundDownload.h"
+#import "LocalPush.h"
 
 @interface AppDelegate ()
 
@@ -23,13 +27,22 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [BDAdapter trackCallback:NSStringFromSelector(_cmd) state:application.applicationState];
+    [application setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
+    [[LocalPush sharedInstance] registerUserNotification];
+    application.applicationIconBadgeNumber = 0;
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:[BDDemoViewController new]];
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
-    [application setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
+
     
+    if ([BackgroundTask backgroundAbility] && [LocationTracker checkLocationAbility]) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [[LocationTracker sharedInstance] requestAuthorization];
+        });
+    }
+
     return YES;
 }
 
@@ -63,6 +76,7 @@
     [BDAdapter trackCallback:NSStringFromSelector(_cmd) state:application.applicationState];
 }
 
+#pragma mark - background fetch
 /// background fetch 30s
 - (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     [BDAdapter trackCallback:NSStringFromSelector(_cmd) state:application.applicationState];
@@ -73,26 +87,30 @@
     NSURL *url = [[NSURL alloc] initWithString:@"https://www.baidu.com"];
     NSURLSessionDataTask *task = [session dataTaskWithURL:url
                                         completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-
-        if (error) {
-            completionHandler(UIBackgroundFetchResultFailed);
-            return;
-        }
-
-        NSDictionary * jsonObj = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-
-        NSLog(@"%@",jsonObj);
-
-        BOOL hasNewData = jsonObj == nil;
-        if (hasNewData) {
-            completionHandler(UIBackgroundFetchResultNewData);
-        } else {
-            completionHandler(UIBackgroundFetchResultNoData);
-        }
+        completionHandler(UIBackgroundFetchResultNewData);
     }];
 
     // 开始任务
     [task resume];
+}
+
+#pragma mark - backgroundDonwload
+
+- (void)application:(UIApplication *)application handleEventsForBackgroundURLSession:(NSString *)identifier completionHandler:(void (^)(void))completionHandler {
+    [BDAdapter trackCallback:NSStringFromSelector(_cmd) state:application.applicationState];
+    [[BackgroundDownload sharedInstance] addBackgroundHandler:completionHandler forSession:identifier];
+}
+
+#pragma mark - 远程通知
+
+- (void)set {
+
+    [[UIApplication sharedApplication] registerForRemoteNotifications];
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler {
+    [BDAdapter trackCallback:NSStringFromSelector(_cmd) state:application.applicationState];
+    completionHandler(UIBackgroundFetchResultNewData);
 }
 
 @end

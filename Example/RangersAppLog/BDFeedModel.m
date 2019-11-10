@@ -10,4 +10,15 @@
 
 @implementation BDFeedModel
 
++ (instancetype)modelWithIndex:(NSInteger)index
+                        method:(NSString *)method
+                         state:(NSInteger)state {
+    BDFeedModel *model = [self new];
+    model.eventIndex = index;
+    model.methodName = method;
+    model.state = state;
+
+    return model;
+}
+
 @end

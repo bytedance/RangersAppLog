@@ -7,10 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+@class BDFeedModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BDAdapter : NSObject
+
+@property (nonatomic, strong) NSMutableArray<BDFeedModel *> *events;
+
++ (instancetype)sharedInstance;
 
 + (void)startAppLog;
 

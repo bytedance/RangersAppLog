@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,6 +19,15 @@
 		C41C88B9232656C800C9AFC8 /* BDBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C41C88B8232656C800C9AFC8 /* BDBaseTableViewController.m */; };
 		C41C88BC2326577600C9AFC8 /* BDDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C41C88BB2326577600C9AFC8 /* BDDemoViewController.m */; };
 		C49D7BAC2372B4020005D95F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C49D7BAB2372B4020005D95F /* AVFoundation.framework */; };
+		C49D7C9023730D010005D95F /* test_song.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C49D7C8F23730D010005D95F /* test_song.mp3 */; };
+		C49D7C94237310410005D95F /* BDPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C49D7C93237310410005D95F /* BDPlayer.m */; };
+		C49D7C9823731E760005D95F /* LocationTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = C49D7C9723731E760005D95F /* LocationTracker.m */; };
+		C49D7C9A23731ED40005D95F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C49D7C9923731ED40005D95F /* CoreLocation.framework */; };
+		C49D7C9E237323BD0005D95F /* BackgroundTask.m in Sources */ = {isa = PBXBuildFile; fileRef = C49D7C9D237323BD0005D95F /* BackgroundTask.m */; };
+		C49D7CA123732DE00005D95F /* BackgroundDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = C49D7CA023732DE00005D95F /* BackgroundDownload.m */; };
+		C49D7CA32373A9760005D95F /* test_song.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C49D7CA22373A9760005D95F /* test_song.jpg */; };
+		C49D7E6D2375C6F20005D95F /* LocalPush.m in Sources */ = {isa = PBXBuildFile; fileRef = C49D7E6C2375C6F20005D95F /* LocalPush.m */; };
+		C49D7E702376795D0005D95F /* BDResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C49D7E6F2376795D0005D95F /* BDResultViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +53,22 @@
 		C41C88BA2326577600C9AFC8 /* BDDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BDDemoViewController.h; sourceTree = "<group>"; };
 		C41C88BB2326577600C9AFC8 /* BDDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BDDemoViewController.m; sourceTree = "<group>"; };
 		C49D7BAB2372B4020005D95F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		C49D7C8F23730D010005D95F /* test_song.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = test_song.mp3; sourceTree = "<group>"; };
+		C49D7C92237310410005D95F /* BDPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BDPlayer.h; sourceTree = "<group>"; };
+		C49D7C93237310410005D95F /* BDPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BDPlayer.m; sourceTree = "<group>"; };
+		C49D7C9623731E760005D95F /* LocationTracker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationTracker.h; sourceTree = "<group>"; };
+		C49D7C9723731E760005D95F /* LocationTracker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationTracker.m; sourceTree = "<group>"; };
+		C49D7C9923731ED40005D95F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		C49D7C9C237323BD0005D95F /* BackgroundTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BackgroundTask.h; sourceTree = "<group>"; };
+		C49D7C9D237323BD0005D95F /* BackgroundTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BackgroundTask.m; sourceTree = "<group>"; };
+		C49D7C9F23732DE00005D95F /* BackgroundDownload.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BackgroundDownload.h; sourceTree = "<group>"; };
+		C49D7CA023732DE00005D95F /* BackgroundDownload.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BackgroundDownload.m; sourceTree = "<group>"; };
+		C49D7CA22373A9760005D95F /* test_song.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test_song.jpg; sourceTree = "<group>"; };
+		C49D7E692375C5660005D95F /* RangersAppLog.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RangersAppLog.entitlements; sourceTree = "<group>"; };
+		C49D7E6B2375C6F20005D95F /* LocalPush.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalPush.h; sourceTree = "<group>"; };
+		C49D7E6C2375C6F20005D95F /* LocalPush.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocalPush.m; sourceTree = "<group>"; };
+		C49D7E6E2376795D0005D95F /* BDResultViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BDResultViewController.h; sourceTree = "<group>"; };
+		C49D7E6F2376795D0005D95F /* BDResultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BDResultViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C49D7C9A23731ED40005D95F /* CoreLocation.framework in Frameworks */,
 				C49D7BAC2372B4020005D95F /* AVFoundation.framework in Frameworks */,
 				C0A5599473AE031F08B59B7F /* libPods-RangersAppLog.a in Frameworks */,
 			);
@@ -62,6 +88,7 @@
 		7407FA501920B3165AE2CBE1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C49D7C9923731ED40005D95F /* CoreLocation.framework */,
 				C49D7BAB2372B4020005D95F /* AVFoundation.framework */,
 				4822380C4BF0D6CA9B1D97FD /* libPods-RangersAppLog.a */,
 			);
@@ -98,6 +125,11 @@
 		C41C8897232653FB00C9AFC8 /* RangersAppLog */ = {
 			isa = PBXGroup;
 			children = (
+				C49D7E6A2375C6260005D95F /* Push */,
+				C49D7E692375C5660005D95F /* RangersAppLog.entitlements */,
+				C49D7C9B237320D70005D95F /* Background */,
+				C49D7C9523731E0A0005D95F /* Location */,
+				C49D7C9123730FE90005D95F /* Music */,
 				C41C8898232653FB00C9AFC8 /* AppDelegate.h */,
 				C41C8899232653FB00C9AFC8 /* AppDelegate.m */,
 				C41C889E232653FB00C9AFC8 /* Main.storyboard */,
@@ -115,8 +147,50 @@
 				C41C88B8232656C800C9AFC8 /* BDBaseTableViewController.m */,
 				C41C88BA2326577600C9AFC8 /* BDDemoViewController.h */,
 				C41C88BB2326577600C9AFC8 /* BDDemoViewController.m */,
+				C49D7E6E2376795D0005D95F /* BDResultViewController.h */,
+				C49D7E6F2376795D0005D95F /* BDResultViewController.m */,
 			);
 			path = RangersAppLog;
+			sourceTree = "<group>";
+		};
+		C49D7C9123730FE90005D95F /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				C49D7CA22373A9760005D95F /* test_song.jpg */,
+				C49D7C8F23730D010005D95F /* test_song.mp3 */,
+				C49D7C92237310410005D95F /* BDPlayer.h */,
+				C49D7C93237310410005D95F /* BDPlayer.m */,
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
+		C49D7C9523731E0A0005D95F /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				C49D7C9623731E760005D95F /* LocationTracker.h */,
+				C49D7C9723731E760005D95F /* LocationTracker.m */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		C49D7C9B237320D70005D95F /* Background */ = {
+			isa = PBXGroup;
+			children = (
+				C49D7C9C237323BD0005D95F /* BackgroundTask.h */,
+				C49D7C9D237323BD0005D95F /* BackgroundTask.m */,
+				C49D7C9F23732DE00005D95F /* BackgroundDownload.h */,
+				C49D7CA023732DE00005D95F /* BackgroundDownload.m */,
+			);
+			path = Background;
+			sourceTree = "<group>";
+		};
+		C49D7E6A2375C6260005D95F /* Push */ = {
+			isa = PBXGroup;
+			children = (
+				C49D7E6B2375C6F20005D95F /* LocalPush.h */,
+				C49D7E6C2375C6F20005D95F /* LocalPush.m */,
+			);
+			path = Push;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,8 +252,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C41C88A5232653FD00C9AFC8 /* LaunchScreen.storyboard in Resources */,
+				C49D7C9023730D010005D95F /* test_song.mp3 in Resources */,
 				C41C88A2232653FD00C9AFC8 /* Assets.xcassets in Resources */,
 				C41C88A0232653FB00C9AFC8 /* Main.storyboard in Resources */,
+				C49D7CA32373A9760005D95F /* test_song.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,12 +291,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C49D7C94237310410005D95F /* BDPlayer.m in Sources */,
 				C41C88B9232656C800C9AFC8 /* BDBaseTableViewController.m in Sources */,
 				C41C88B62326564600C9AFC8 /* BDFeedLoader.m in Sources */,
 				C41C88BC2326577600C9AFC8 /* BDDemoViewController.m in Sources */,
 				C41C88B0232655E800C9AFC8 /* BDAdapter.m in Sources */,
+				C49D7E702376795D0005D95F /* BDResultViewController.m in Sources */,
+				C49D7C9823731E760005D95F /* LocationTracker.m in Sources */,
 				C41C88B32326562600C9AFC8 /* BDFeedModel.m in Sources */,
+				C49D7CA123732DE00005D95F /* BackgroundDownload.m in Sources */,
 				C41C88A8232653FD00C9AFC8 /* main.m in Sources */,
+				C49D7E6D2375C6F20005D95F /* LocalPush.m in Sources */,
+				C49D7C9E237323BD0005D95F /* BackgroundTask.m in Sources */,
 				C41C889A232653FB00C9AFC8 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,7 +380,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -351,7 +433,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -364,17 +446,22 @@
 			baseConfigurationReference = A8E0B5CC2818351B6B6A1FAD /* Pods-RangersAppLog.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = RangersAppLog/RangersAppLog.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UA524KP7L9;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = RangersAppLog/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_GENERATE_MAP_FILE = YES;
-				LD_MAP_FILE_PATH = "/Users/bob/Desktop/LinkMap-Debug.txt";
+				LD_MAP_FILE_PATH = "$(PROJECT_DIR)/build/LinkMap-Debug.txt";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.bytedance.RangersAppLog;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bytedance.rangersapplog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -384,17 +471,22 @@
 			baseConfigurationReference = 733B168B878A7CA070DAD5B5 /* Pods-RangersAppLog.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = RangersAppLog/RangersAppLog.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UA524KP7L9;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = RangersAppLog/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_GENERATE_MAP_FILE = YES;
 				LD_MAP_FILE_PATH = "$(PROJECT_DIR)/build/LinkMap-Release.txt";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.bytedance.RangersAppLog;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bytedance.rangersapplog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

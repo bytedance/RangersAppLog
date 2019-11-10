@@ -16,6 +16,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *nextVCName;
 @property (nonatomic, copy) dispatch_block_t actionBlock;
 
+@property (nonatomic, assign) NSInteger state;
+@property (nonatomic, assign) NSInteger eventIndex;
+@property (nonatomic, copy) NSString *methodName;
++ (instancetype)modelWithIndex:(NSInteger)index
+                        method:(NSString *)method
+                         state:(NSInteger)state;
+
 @end
 
 NS_ASSUME_NONNULL_END
