@@ -28,6 +28,15 @@ static NSString * const TestAPPID = @"159486";
         self.eventIndex = 0;
         self.events = [NSMutableArray new];
         [self startAppLog];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(onWillEnterForeground) name:UIApplicationWillEnterForegroundNotification
+                                                   object:nil];
+
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(onDidBecomeActive) name:UIApplicationDidBecomeActiveNotification
+                                                   object:nil];
+
+
     }
 
     return self;
@@ -61,7 +70,7 @@ static NSString * const TestAPPID = @"159486";
 
         BDAutoTrack *track = [BDAutoTrack trackWithConfig:config];
         /// change to your UserUniqueID if now is loged in
-        NSString *uniqueID = @"123456789";
+        NSString *uniqueID = @"12345679";
         [track setCurrentUserUniqueID:uniqueID];
         [track startTrack];
 
@@ -119,6 +128,14 @@ static NSString * const TestAPPID = @"159486";
     [self.events addObject:model];
     self.eventIndex += 1;
     [self.track eventV3:@"application" params:param];
+}
+
+- (void)onDidBecomeActive {
+    NSLog(@"app %@ %zd", NSStringFromSelector(_cmd), [UIApplication sharedApplication].applicationState);
+}
+
+- (void)onWillEnterForeground {
+    NSLog(@"app %@ %zd", NSStringFromSelector(_cmd), [UIApplication sharedApplication].applicationState);
 }
 
 @end

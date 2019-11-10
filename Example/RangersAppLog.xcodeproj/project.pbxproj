@@ -447,9 +447,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = RangersAppLog/RangersAppLog.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = XXHND5J98K;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UA524KP7L9;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = RangersAppLog/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -459,9 +459,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.bytedance.inhouse.turing.demo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bytedance.rangersapplog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = TuringDemoInHouseDist;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -472,9 +472,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = RangersAppLog/RangersAppLog.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = XXHND5J98K;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UA524KP7L9;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = RangersAppLog/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -484,9 +484,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.bytedance.inhouse.turing.demo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bytedance.rangersapplog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = TuringDemoInHouseDist;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

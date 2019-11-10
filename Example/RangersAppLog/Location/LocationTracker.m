@@ -84,6 +84,8 @@
 - (void)startLocation {
     [self requestAuthorization];
     [self.locationManager startUpdatingLocation];
+    /// 500 米一次
+    [self.locationManager startMonitoringSignificantLocationChanges];
 }
 
 - (CLCircularRegion *)monitorRegion {
