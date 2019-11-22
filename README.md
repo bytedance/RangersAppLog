@@ -18,8 +18,8 @@
 ## 版本说明
 
 1. Lite版，埋点版本，即 `subspecs => ['Core']`
-2. 无埋点版本，即 `subspecs => ['Core', 'UITracker']`
-3. 圈选Debug版本，即 `subspecs => ['Core', 'UITracker','Picker']`
+2. 无埋点版本，即 `subspecs => ['UITracker']`
+3. 圈选Debug版本，即 `subspecs => ['Picker']`
 
 ## 集成方式
 
@@ -32,17 +32,17 @@ source 'https://cdn.cocoapods.org/'
 
 # 接入无埋点版本
 target 'YourTarget' do
-  pod 'RangersAppLog', '~> 3.2.7'
+  pod 'RangersAppLog', '~> 3.2.8'
 end
 
 # 接入埋点版本
 target 'YourTarget' do
-  pod 'RangersAppLog/Core', '~> 3.2.7'
+  pod 'RangersAppLog/Core', '~> 3.2.8'
 end
 
 # 接入埋点版本 
 target 'YourTarget' do
-  pod 'RangersAppLog', '~> 3.2.7',:subspecs => ['Core']
+  pod 'RangersAppLog', '~> 3.2.8',:subspecs => ['Core']
 end
 
 ```
@@ -56,17 +56,17 @@ source 'https://cdn.cocoapods.org/'
 
 # 接入无埋点版本
 target 'YourTarget' do
-  pod 'RangersAppLog', '3.2.7-rc.0'
+  pod 'RangersAppLog', '3.2.8-rc.0'
 end
 
 # 接入埋点版本 
 target 'YourTarget' do
-  pod 'RangersAppLog/Core', '3.2.7-rc.0'
+  pod 'RangersAppLog/Core', '3.2.8-rc.0'
 end
 
 # 接入埋点版本 
 target 'YourTarget' do
-  pod 'RangersAppLog', '3.2.7-rc.0',:subspecs => ['Core']
+  pod 'RangersAppLog', '3.2.8-rc.0',:subspecs => ['Core']
 end
 
 ```
@@ -172,8 +172,14 @@ end
 
 ## 版本更新记录
 
+#### 3.2.8
+包括 3.2.8-rc.0
+
+- 优化Hook耗时
+- 优化游戏埋点接口
+
 #### 3.2.7
-包括 3.27-rc.0
+包括 3.2.7-rc.0
 
 - 增加预置性能埋点事件
 - 优化SDK启动性能
