@@ -12,7 +12,7 @@
 #import "BDAutoTrack.h"
 
 #import "BDAutoTrack+Game.h"
-#import "BDAutoTrack+GTGame.h"
+#import "BDAutoTrack+GameTrack.h"
 #import "BDAutoTrack+Special.h"
 
 #import "BDAutoTrackSchemeHandler.h"
