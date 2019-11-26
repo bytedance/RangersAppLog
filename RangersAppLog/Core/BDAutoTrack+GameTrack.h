@@ -59,7 +59,8 @@ typedef NS_ENUM(NSInteger, BDGTGameResultType) {
                         sceneID:(NSInteger)sceneID
                        sceneLev:(NSInteger)sceneLev
                            type:(NSString *)type
-                         codeID:(NSInteger)codeID;
+                         codeID:(NSInteger)codeID
+                    otherParams:(nullable NSDictionary *)otherParams;
 
 /**
  广告返回：gt_ad_send
@@ -76,7 +77,8 @@ typedef NS_ENUM(NSInteger, BDGTGameResultType) {
                     sceneLev:(NSInteger)sceneLev
                         type:(NSString *)type
                       codeID:(NSInteger)codeID
-                      adCode:(NSString *)adCode;
+                      adCode:(NSString *)adCode
+                 otherParams:(nullable NSDictionary *)otherParams;
 
 /**
  广告位按钮展示：gt_ad_button_show
@@ -95,7 +97,8 @@ typedef NS_ENUM(NSInteger, BDGTGameResultType) {
                               type:(NSString *)type
                       positionType:(NSString *)positionType
                           position:(NSString *)position
-                            codeID:(NSInteger)codeID;
+                            codeID:(NSInteger)codeID
+                       otherParams:(nullable NSDictionary *)otherParams;
 
 /**
  广告按钮点击：gt_ad_button_click
@@ -114,7 +117,8 @@ typedef NS_ENUM(NSInteger, BDGTGameResultType) {
                                type:(NSString *)type
                        positionType:(NSString *)positionType
                            position:(NSString *)position
-                             codeID:(NSInteger)codeID;
+                             codeID:(NSInteger)codeID
+                        otherParams:(nullable NSDictionary *)otherParams;
 
 /**
  广告开始展示：gt_ad_show
@@ -135,7 +139,8 @@ typedef NS_ENUM(NSInteger, BDGTGameResultType) {
                 positionType:(NSString *)positionType
                     position:(NSString *)position
                       codeID:(NSInteger)codeID
-                      adCode:(NSString *)adCode;
+                      adCode:(NSString *)adCode
+                 otherParams:(nullable NSDictionary *)otherParams;
 
 
 /**
@@ -157,7 +162,8 @@ typedef NS_ENUM(NSInteger, BDGTGameResultType) {
                    positionType:(NSString *)positionType
                        position:(NSString *)position
                          codeID:(NSInteger)codeID
-                         result:(NSString *)result;
+                         result:(NSString *)result
+                    otherParams:(nullable NSDictionary *)otherParams;
 
 /**
  （总等级）升级和经验：gt_levelup
@@ -174,7 +180,8 @@ typedef NS_ENUM(NSInteger, BDGTGameResultType) {
                      sceneLev:(NSInteger)sceneLev
                           exp:(NSInteger)exp
                        method:(NSString *)method
-                   afterLevel:(NSInteger)afterLevel;
+                   afterLevel:(NSInteger)afterLevel
+                  otherParams:(nullable NSDictionary *)otherParams;
 
 /**
  （分场景适用）升级和经验：gt_scene_levup
@@ -193,7 +200,8 @@ typedef NS_ENUM(NSInteger, BDGTGameResultType) {
                                exp:(NSInteger)exp
                             method:(NSString *)method
                         afterLevel:(NSInteger)afterLevel
-                             reset:(NSInteger)reset;
+                             reset:(NSInteger)reset
+                       otherParams:(nullable NSDictionary *)otherParams;
 
 /**
  开始玩法：gt_start_play
@@ -210,7 +218,8 @@ typedef NS_ENUM(NSInteger, BDGTGameResultType) {
                        sceneLev:(NSInteger)sceneLev
                      ecTypeType:(NSString *)ecTypeType
                        ecTypeID:(NSInteger)ecTypeID
-                     ecTypeName:(NSString *)ecTypeName;
+                     ecTypeName:(NSString *)ecTypeName
+                    otherParams:(nullable NSDictionary *)otherParams;
 
 /**
  结束玩法：gt_end_play
@@ -241,7 +250,8 @@ typedef NS_ENUM(NSInteger, BDGTGameResultType) {
                       killNum:(NSInteger)killNum
                        passed:(BOOL)passed
                    percentage:(NSInteger)percentage
-                         rank:(NSString *)rank;
+                         rank:(NSString *)rank
+                  otherParams:(nullable NSDictionary *)otherParams;
 
 /**
  内购充值相关：purchase
@@ -268,7 +278,8 @@ typedef NS_ENUM(NSInteger, BDGTGameResultType) {
                        channel:(NSString *)channel
                       currency:(NSString *)currency
                      isSuccess:(NSString *)isSuccess
-                currencyAmount:(NSInteger)currencyAmount;
+                currencyAmount:(NSInteger)currencyAmount
+                   otherParams:(nullable NSDictionary *)otherParams;
 
 /**
  初始化信息：gt_init_info
@@ -283,7 +294,8 @@ typedef NS_ENUM(NSInteger, BDGTGameResultType) {
                            sceneID:(NSInteger)sceneID
                           sceneLev:(NSInteger)sceneLev
                           coinType:(NSString *)coinType
-                          coinLeft:(NSInteger)coinLeft;
+                          coinLeft:(NSInteger)coinLeft
+                       otherParams:(nullable NSDictionary *)otherParams;
 
 @end
 
@@ -314,7 +326,8 @@ code_id     int 广告代码位id
                         sceneID:(NSInteger)sceneID
                        sceneLev:(NSInteger)sceneLev
                            type:(NSString *)type
-                         codeID:(NSInteger)codeID;
+                         codeID:(NSInteger)codeID
+                    otherParams:(nullable NSDictionary *)otherParams;
 
 /**
 广告返回：gt_ad_send
@@ -331,7 +344,8 @@ ad_code    string  SDK返回的响应码（包括错误码）
                     sceneLev:(NSInteger)sceneLev
                         type:(NSString *)type
                       codeID:(NSInteger)codeID
-                      adCode:(NSString *)adCode;
+                      adCode:(NSString *)adCode
+                 otherParams:(nullable NSDictionary *)otherParams;
 
 /**
 广告位按钮展示：gt_ad_button_show
@@ -350,7 +364,8 @@ code_id     int 广告代码位id
                               type:(NSString *)type
                       positionType:(NSString *)positionType
                           position:(NSString *)position
-                            codeID:(NSInteger)codeID;
+                            codeID:(NSInteger)codeID
+                       otherParams:(nullable NSDictionary *)otherParams;
 
 /**
 广告按钮点击：gt_ad_button_click
@@ -369,7 +384,8 @@ code_id     int 广告代码位id
                                type:(NSString *)type
                        positionType:(NSString *)positionType
                            position:(NSString *)position
-                             codeID:(NSInteger)codeID;
+                             codeID:(NSInteger)codeID
+                        otherParams:(nullable NSDictionary *)otherParams;
 
 /**
 广告开始展示：gt_ad_show
@@ -390,7 +406,8 @@ ad_code           string  SDK返回的响应码（包括错误码）
                 positionType:(NSString *)positionType
                     position:(NSString *)position
                       codeID:(NSInteger)codeID
-                      adCode:(NSString *)adCode;
+                      adCode:(NSString *)adCode
+                 otherParams:(nullable NSDictionary *)otherParams;
 
 /**
 广告结束展示：gt_ad_show_end
@@ -411,7 +428,8 @@ result            string  广告观看结果：跳过、成功、失败等，使
                    positionType:(NSString *)positionType
                        position:(NSString *)position
                          codeID:(NSInteger)codeID
-                         result:(NSString *)result;
+                         result:(NSString *)result
+                    otherParams:(nullable NSDictionary *)otherParams;
 
 /**
 （总等级）升级和经验：gt_levelup
@@ -428,7 +446,8 @@ aflev          int 用户获得经验后等级，如获得经验未导致升级�
                      sceneLev:(NSInteger)sceneLev
                           exp:(NSInteger)exp
                        method:(NSString *)method
-                   afterLevel:(NSInteger)afterLevel;
+                   afterLevel:(NSInteger)afterLevel
+                  otherParams:(nullable NSDictionary *)otherParams;
 
 /**
 （分场景适用）升级和经验：gt_scene_levup
@@ -447,7 +466,8 @@ reset          int 当前场景的等级是否重置，未重置=0，重置1次=
                                exp:(NSInteger)exp
                             method:(NSString *)method
                         afterLevel:(NSInteger)afterLevel
-                             reset:(NSInteger)reset;
+                             reset:(NSInteger)reset
+                       otherParams:(nullable NSDictionary *)otherParams;
 
 /**
 开始玩法：gt_start_play
@@ -464,7 +484,8 @@ ectype_name string  针对闯关性质玩法，标注关卡名称。如无特定
                        sceneLev:(NSInteger)sceneLev
                      ecTypeType:(NSString *)ecTypeType
                        ecTypeID:(NSInteger)ecTypeID
-                     ecTypeName:(NSString *)ecTypeName;
+                     ecTypeName:(NSString *)ecTypeName
+                    otherParams:(nullable NSDictionary *)otherParams;
 
 
 /**
@@ -496,7 +517,8 @@ ectype_name string  针对闯关性质玩法，标注关卡名称。如无特定
                       killNum:(NSInteger)killNum
                        passed:(BOOL)passed
                    percentage:(NSInteger)percentage
-                         rank:(NSString *)rank;
+                         rank:(NSString *)rank
+                  otherParams:(nullable NSDictionary *)otherParams;
 
 /**
 内购充值相关：purchase
@@ -523,7 +545,8 @@ currency_amount int 支付的金额，单位元
                        channel:(NSString *)channel
                       currency:(NSString *)currency
                      isSuccess:(NSString *)isSuccess
-                currencyAmount:(NSInteger)currencyAmount;
+                currencyAmount:(NSInteger)currencyAmount
+                   otherParams:(nullable NSDictionary *)otherParams;
 
 /**
 初始化信息：gt_init_info
@@ -538,7 +561,8 @@ coin_left   int 用户身上剩余的货币数量
                            sceneID:(NSInteger)sceneID
                           sceneLev:(NSInteger)sceneLev
                           coinType:(NSString *)coinType
-                          coinLeft:(NSInteger)coinLeft;
+                          coinLeft:(NSInteger)coinLeft
+                       otherParams:(nullable NSDictionary *)otherParams;
 
 @end
 NS_ASSUME_NONNULL_END

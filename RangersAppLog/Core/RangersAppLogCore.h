@@ -17,5 +17,6 @@
 
 #import "BDAutoTrackSchemeHandler.h"
 #import "BDAutoTrackNotifications.h"
+#import "BDAutoTrack+OhayooGameTrack.h"
 
 #endif /* RangersAppLogCore_h */
