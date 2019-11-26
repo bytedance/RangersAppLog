@@ -32,17 +32,12 @@ source 'https://cdn.cocoapods.org/'
 
 # 接入无埋点版本
 target 'YourTarget' do
-  pod 'RangersAppLog', '~> 3.2.8'
-end
-
-# 接入埋点版本
-target 'YourTarget' do
-  pod 'RangersAppLog/Core', '~> 3.2.8'
+  pod 'RangersAppLog', '~> 3.2.9'
 end
 
 # 接入埋点版本 
 target 'YourTarget' do
-  pod 'RangersAppLog', '~> 3.2.8',:subspecs => ['Core']
+  pod 'RangersAppLog', '~> 3.2.9',:subspecs => ['Core']
 end
 
 ```
@@ -56,17 +51,12 @@ source 'https://cdn.cocoapods.org/'
 
 # 接入无埋点版本
 target 'YourTarget' do
-  pod 'RangersAppLog', '3.2.8-rc.0'
+  pod 'RangersAppLog', '3.2.9-rc.0'
 end
 
 # 接入埋点版本 
 target 'YourTarget' do
-  pod 'RangersAppLog/Core', '3.2.8-rc.0'
-end
-
-# 接入埋点版本 
-target 'YourTarget' do
-  pod 'RangersAppLog', '3.2.8-rc.0',:subspecs => ['Core']
+  pod 'RangersAppLog', '3.2.9-rc.0',:subspecs => ['Core']
 end
 
 ```
@@ -171,14 +161,21 @@ end
 ```
 
 ## 版本更新记录
+### 3.2.9
 
-#### 3.2.8
+包括 3.2.9-rc.0
+
+
+- 优化游戏埋点接口
+
+
+### 3.2.8
 包括 3.2.8-rc.0
 
 - 优化Hook耗时
 - 优化游戏埋点接口
 
-#### 3.2.7
+### 3.2.7
 包括 3.2.7-rc.0
 
 - 增加预置性能埋点事件
@@ -186,7 +183,7 @@ end
 - 新增简化初始化接口
 - 优化Reachability卡顿问题
 
-#### 3.2.6
+### 3.2.6
 
 - 修复日志重复多报问题
 - 修复多AppID时Session事件异常问题
