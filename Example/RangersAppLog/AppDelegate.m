@@ -14,6 +14,8 @@
 #import "BackgroundDownload.h"
 #import "LocalPush.h"
 
+#import <SSZipArchive/SSZipArchive.h>
+
 @interface AppDelegate ()
 
 @end

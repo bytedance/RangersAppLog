@@ -1,8 +1,10 @@
 source 'https://cdn.cocoapods.org/'
+install! 'cocoapods', :disable_input_output_paths => true
 platform :ios, '10.0'
 
 target 'RangersAppLog' do
   pod 'RangersAppLog/Picker',:path => '../'
+  pod 'SSZipArchive','2.2.2'
 end
 
 
