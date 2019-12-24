@@ -31,12 +31,12 @@ source 'https://cdn.cocoapods.org/'
 
 # 接入无埋点版本
 target 'YourTarget' do
-  pod 'RangersAppLog', '~> 3.2.9'
+  pod 'RangersAppLog', '~> 3.2.10'
 end
 
 # 接入埋点版本 
 target 'YourTarget' do
-  pod 'RangersAppLog', '~> 3.2.9',:subspecs => ['Core']
+  pod 'RangersAppLog', '~> 3.2.10',:subspecs => ['Core']
 end
 
 ```
