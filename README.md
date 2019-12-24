@@ -23,7 +23,6 @@
 
 ## 集成方式
 
-### Xcode 11
 
 或者参照Demo工程的Podfile
 
@@ -41,31 +40,6 @@ target 'YourTarget' do
 end
 
 ```
-
-### Xcode 10
-
-后缀-rc作为Xcode 10 打包的二进制版本
-
-```Rbuy
-source 'https://cdn.cocoapods.org/'
-
-# 接入无埋点版本
-target 'YourTarget' do
-  pod 'RangersAppLog', '3.2.9-rc.0'
-end
-
-# 接入埋点版本 
-target 'YourTarget' do
-  pod 'RangersAppLog', '3.2.9-rc.0',:subspecs => ['Core']
-end
-
-```
-
-**特别说明：Xcode10和Xcode11的二进制不兼容，不能相互使用**
-
-- `@available`在Xcode10和Xcode11打包的二进制中不一样
-- UIWindowScene等特性需要使用iOS 13，即要求Xcode11打包
-- 应苹果爸爸要求，大家还是推荐升级到Xcode 11
 
 ## 集成指南
 
@@ -161,6 +135,13 @@ end
 ```
 
 ## 版本更新记录
+
+### 3.2.10
+
+- 优化多线程卡顿问题
+- 修复序列化crash问题
+
+
 ### 3.2.9
 
 包括 3.2.9-rc.0
@@ -174,30 +155,6 @@ end
 
 - 优化Hook耗时
 - 优化游戏埋点接口
-
-### 3.2.7
-包括 3.2.7-rc.0
-
-- 增加预置性能埋点事件
-- 优化SDK启动性能
-- 新增简化初始化接口
-- 优化Reachability卡顿问题
-
-### 3.2.6
-
-- 修复日志重复多报问题
-- 修复多AppID时Session事件异常问题
-- AppLog支持多AppID实例
-- 修复写数据库trackGlobalEventID卡顿问题
-- 修复 OpenUdid 初始化性能问题
-- 新增Universal Link上报接口
-- 移除对 UIWebView 无埋点支持
-- 移除UIAlertView和UIActionSheet的无埋点支持
-- 修复`cydia.app` 敏感字符串检测
-- 增加subspec
-	- Core模块是埋点事件
-	- UITracker模块包含无埋点事件采集，依赖 Core
-	- Picker模块是圈选SDK，依赖 UITracker
 
 
 ## 证书
