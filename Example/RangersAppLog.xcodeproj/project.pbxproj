@@ -470,7 +470,7 @@
 				INFOPLIST_FILE = RangersAppLog/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_GENERATE_MAP_FILE = YES;
-				LD_MAP_FILE_PATH = "$(PROJECT_DIR)/build/LinkMap-Debug.txt";
+				LD_MAP_FILE_PATH = "$(PROJECT_DIR)/LinkMap-Debug.txt";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -495,7 +495,7 @@
 				INFOPLIST_FILE = RangersAppLog/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_GENERATE_MAP_FILE = YES;
-				LD_MAP_FILE_PATH = "$(PROJECT_DIR)/build/LinkMap-Release.txt";
+				LD_MAP_FILE_PATH = "$(PROJECT_DIR)/LinkMap-Release.txt";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
