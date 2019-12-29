@@ -14,7 +14,7 @@
 #import "BackgroundDownload.h"
 #import "LocalPush.h"
 
-#import <SSZipArchive/SSZipArchive.h>
+#import <RangersAppLog/RangersAppLogCore.h>
 
 @interface AppDelegate ()
 
@@ -53,9 +53,12 @@
             options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options {
 
     [BDAdapter trackCallback:NSStringFromSelector(_cmd) state:application.applicationState];
-    NSLog(@"%@",url.absoluteString);
+    
+    if ([[BDAutoTrackSchemeHandler sharedHandler] handleURL:url appID:@"159486" scene:nil]) {
+        return YES;
+    }
 
-    return YES;
+    return NO;
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
