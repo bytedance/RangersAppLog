@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'RangersAppLog'
-  s.version          = '3.2.10'
+  s.version          = '4.1.0'
   s.summary          = 'ByteDance Rangers AppLog.'
   s.description      = 'ByteDance Rangers AppLog SDK.'
   s.homepage         = 'https://github.com/bytedance/RangersAppLog'
@@ -11,7 +11,6 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '8.0'
   s.requires_arc = true
   s.static_framework = true
-  s.default_subspec = 'UITracker'
   s.pod_target_xcconfig = { 'OTHER_LDFLAGS' => '-lObjC' }
 
   s.subspec 'Core' do |core|

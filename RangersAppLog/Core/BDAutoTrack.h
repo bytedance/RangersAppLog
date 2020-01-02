@@ -30,22 +30,6 @@ FOUNDATION_EXTERN BDAutoTrackRequestURLType const BDAutoTrackRequestURLLogBackup
  */
 typedef NSString * _Nullable (^BDAutoTrackRequestURLBlock)(BDAutoTrackServiceVendor vendor, BDAutoTrackRequestURLType requestURLType);
 
-/*! @abstract ABTest配置拉取回调
- @param ABTestEnabled ABTest是否开启
- @param allConfigs 后台返回的全部配置
- @discussion ABTestEnabled如果未开启，则，即使有config，SDK也会返回默认值；如果无网络或者其他原因注册失败，不会回调
- */
-typedef void(^BDAutoTrackABTestFinishBlock)(BOOL ABTestEnabled, NSDictionary * _Nullable  allConfigs);
-
-/*! @abstract 设备注册回调
- @param deviceID did
- @param installID iid
- @param ssID ssid
- @param userUniqueID userUniqueID
- @discussion 可能为空，如果无网络或者其他原因注册失败，不会回调
- */
-typedef void(^BDAutoTrackRegisterFinishBlock)(NSString * _Nullable deviceID, NSString * _Nullable installID, NSString * _Nullable ssID, NSString *_Nullable userUniqueID);
-
 /*! @abstract 自定义上报信息
  @discussion 每次上报都会回调，设置一次即可，格式要求同日志要求，需要可序列化；如果无法序列化，会被丢弃
  @result NSDictionary custom数据
@@ -81,16 +65,11 @@ SDK版本号.
 @property (class, nonatomic, copy, readonly) NSString *sdkVersion;
 
 /*! @abstract
- 针对每个AppID 设备唯一device ID. 非数字，随机字符串，一般情况请不要存储，从SDK接口获取即可。
+ 针对每个AppID 设备唯一byteDance device ID. 非数字，随机字符串，一般情况请不要存储，从SDK接口获取即可。
+ @discussion 针对不同的AppID如果是同一个集团，则有可能是一样的。原来的device ID已经废弃移除
+ @discussion 特别说明，bytedanceDeviceID和deviceID 不是一个值，是不一样的
  */
-@property (nonatomic, copy, readonly, nullable) NSString *deviceID __attribute__((deprecated("过期属性，后续版本可能不会再提供此接口")));
-
-///*! @abstract
-// 针对每个AppID 设备唯一byteDance device ID. 非数字，随机字符串，一般情况请不要存储，从SDK接口获取即可。
-// @discussion 针对不同的AppID如果是同一个集团，则有可能是一样的。原来的device ID已经废弃移除
-// @discussion 特别说明，bytedanceDeviceID和deviceID 不是一个值，是不一样的
-// */
-//@property (nonatomic, copy, readonly, nullable) NSString *bytedanceDeviceID;
+@property (nonatomic, copy, readonly, nullable) NSString *bytedanceDeviceID;
 
 /*! @abstract
  安装ID，是数字字符串，可以转化为数字。
@@ -180,13 +159,6 @@ SDK版本号.
  */
 - (void)setAppLauguage:(nullable NSString *)appLauguage;
 
-/*! @abstract 设置注册成功回调
- @param registerFinishBlock id发生变化可能重新触发请求，请求回调。
- @discussion registerFinishBlock 会覆盖之前的初始化或者上一次设置的回调，如果为nil会清空回调
- @discussion block在初始化之前设置一次即可，每次拉取成功都会回调，请勿一直重复设置
- @discussion 推荐使用通知，请参考 <RangersAppLog/BDAutoTrackNotifications.h>注释，后续版本可能会移除此block
- */
-- (void)setRegisterFinishBlock:(nullable BDAutoTrackRegisterFinishBlock)registerFinishBlock __attribute__((deprecated("请使用通知来监听回调")));
 
 /*! @abstract 添加自定义上报信息
  @param customHeaderBlock 自定义上报信息
@@ -210,14 +182,6 @@ SDK版本号.
 - (BOOL)eventV3:(NSString *)event;
 
 #pragma mark - ABTest
-
-/*! @abstract 设置注册成功回调
- @param ABTestFinishBlock ABTest配置拉取，请求回调。回调在子线程，不是主线程
- @discussion ABTestFinishBlock 会覆盖之前的初始化或者上一次设置的回调，如果为nil会清空回调
- @discussion block在初始化之前设置一次即可，每次拉取成功都会回调，请勿一直重复设置。此回调会定时回调，并非一次性回调
- @discussion 推荐使用通知，请参考 <RangersAppLog/BDAutoTrackNotifications.h>注释，后续版本可能会移除此block
- */
-- (void)setABTestFinishBlock:(nullable BDAutoTrackABTestFinishBlock)ABTestFinishBlock __attribute__((deprecated("请使用通知来监听回调")));
 
 /*! @abstract 手动触发获取ABTest的配置值请求
  @discussion 手动触发请求
@@ -300,16 +264,11 @@ BDAutoTrack 里面引用住一个BDAutoTrack单例，方便过渡期使用。推
 @interface BDAutoTrack (SharedInstance)
 
 /*! @abstract
- 针对每个AppID 设备唯一device ID. 非数字，随机字符串，一般情况请不要存储，从SDK接口获取即可。
+ 针对每个AppID 设备唯一bytedance device ID. 非数字，随机字符串，一般情况请不要存储，从SDK接口获取即可。
+ @discussion 针对不同的AppID如果是同一个集团，则有可能是一样的。原来的device ID已经废弃移除
+ @discussion 特别说明，bytedanceDeviceID和deviceID不是一个值，可能是不一样的
  */
-@property (class, nonatomic, copy, readonly, nullable) NSString *deviceID __attribute__((deprecated("过期属性，后续版本可能不会再提供此接口")));
-
-///*! @abstract
-// 针对每个AppID 设备唯一bytedance device ID. 非数字，随机字符串，一般情况请不要存储，从SDK接口获取即可。
-// @discussion 针对不同的AppID如果是同一个集团，则有可能是一样的。原来的device ID已经废弃移除
-// @discussion 特别说明，bytedanceDeviceID和deviceID不是一个值，可能是不一样的
-// */
-//@property (class, nonatomic, copy, readonly, nullable) NSString *bytedanceDeviceID;
+@property (class, nonatomic, copy, readonly, nullable) NSString *bytedanceDeviceID;
 
 /*! @abstract
  安装ID，是数字字符串，可以转化为数字。
@@ -399,14 +358,6 @@ BDAutoTrack 里面引用住一个BDAutoTrack单例，方便过渡期使用。推
 + (BOOL)eventV3:(NSString *)event params:(nullable NSDictionary *)params;
 
 #pragma mark - ABTest
-
-/*! @abstract 设置注册成功回调
- @param ABTestFinishBlock ABTest配置拉取，请求回调。回调在子线程，不是主线程
- @discussion ABTestFinishBlock 会覆盖之前的初始化或者上一次设置的回调，如果为nil会清空回调
- @discussion block在startTrack 之前 设置一次即可，每次拉取成功都会回调，请勿一直重复设置。此回调会定时回调，并非一次性回调
- @discussion 推荐使用通知，请参考 <RangersAppLog/BDAutoTrackNotifications.h>注释，后续版本可能会移除此block
- */
-+ (void)setABTestFinishBlock:(nullable BDAutoTrackABTestFinishBlock)ABTestFinishBlock __attribute__((deprecated("请使用通知来监听回调")));
 
 /*! @abstract 获取ABTest的配置值，在初始化之后设置才能调用
  @param key ABTest的key

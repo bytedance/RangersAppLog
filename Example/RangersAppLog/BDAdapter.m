@@ -29,11 +29,22 @@ static NSString * const TestAPPID = @"159486";
         self.events = [NSMutableArray new];
         [self startAppLog];
         [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(onWillEnterForeground) name:UIApplicationWillEnterForegroundNotification
+                                                 selector:@selector(onWillEnterForeground)
+                                                     name:UIApplicationWillEnterForegroundNotification
                                                    object:nil];
 
         [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(onDidBecomeActive) name:UIApplicationDidBecomeActiveNotification
+                                                 selector:@selector(onDidBecomeActive)
+                                                     name:UIApplicationDidBecomeActiveNotification
+                                                   object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(onRegisterSuccess:)
+                                                     name:BDAutoTrackNotificationRegisterSuccess
+                                                   object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(onABTestSuccess)
+                                                     name:BDAutoTrackNotificationABTestSuccess
                                                    object:nil];
 
 
@@ -63,7 +74,7 @@ static NSString * const TestAPPID = @"159486";
 
         /// show debug log
         config.showDebugLog = YES;
-        config.logNeedEncrypt = NO;
+        config.logNeedEncrypt = YES;
         config.logger = ^(NSString * _Nullable log) {
             NSLog(@"%@",log);
         };
@@ -136,6 +147,17 @@ static NSString * const TestAPPID = @"159486";
 
 - (void)onWillEnterForeground {
     NSLog(@"app %@ %zd", NSStringFromSelector(_cmd), [UIApplication sharedApplication].applicationState);
+}
+
+- (void)onRegisterSuccess:(NSNotification *)not  {
+    NSLog(@"NSNotification onRegisterSuccess did = %@",self.track.bytedanceDeviceID);
+    NSLog(@"NSNotification onRegisterSuccess iid = %@",self.track.installID);
+    NSLog(@"NSNotification onRegisterSuccess uuid = %@",self.track.userUniqueID);
+    NSLog(@"NSNotification onRegisterSuccess ssid = %@",self.track.ssID);
+}
+
+- (void)onABTestSuccess  {
+    NSLog(@"NSNotification onABTestSuccess");
 }
 
 @end
