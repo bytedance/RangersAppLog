@@ -31,10 +31,8 @@ Pod::Spec.new do |s|
 
    s.subspec 'Picker' do |picker|
         picker.vendored_library = 'RangersAppLog/Picker/*.a'
-        picker.source_files = 'RangersAppLog/Picker/*.h'
         picker.frameworks = 'CoreGraphics','CoreServices','MobileCoreServices','QuartzCore','CoreText'
         picker.dependency 'RangersAppLog/UITracker'
-        picker.public_header_files = 'RangersAppLog/Picker/*.h'
         picker.resource_bundles = {
           'RangersAppLog' => ['RangersAppLog/Assets/*.xcassets']
         }
