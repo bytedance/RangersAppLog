@@ -31,12 +31,12 @@ source 'https://cdn.cocoapods.org/'
 
 # 接入无埋点版本
 target 'YourTarget' do
-  pod 'RangersAppLog', '~> 3.2.10'
+  pod 'RangersAppLog', '~> 4.2.0'
 end
 
 # 接入埋点版本 
 target 'YourTarget' do
-  pod 'RangersAppLog', '~> 3.2.10',:subspecs => ['Core']
+  pod 'RangersAppLog', '~> 4.2.0',:subspecs => ['Core']
 end
 
 ```
@@ -136,6 +136,10 @@ end
 
 ## 版本更新记录
 
+### 4.2.0
+
+- 调整游戏预置埋点，接口不与上个版本兼容
+
 ### 4.1.0
 
 - 通过Scheme打开圈选开关
@@ -148,20 +152,6 @@ end
 - 优化多线程卡顿问题
 - 修复序列化crash问题
 
-
-### 3.2.9
-
-包括 3.2.9-rc.0
-
-
-- 优化游戏埋点接口
-
-
-### 3.2.8
-包括 3.2.8-rc.0
-
-- 优化Hook耗时
-- 优化游戏埋点接口
 
 
 ## 证书
