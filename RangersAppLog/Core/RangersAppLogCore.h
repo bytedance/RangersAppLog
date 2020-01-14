@@ -14,6 +14,7 @@
 #import "BDAutoTrack+Game.h"
 #import "BDAutoTrack+GameTrack.h"
 #import "BDAutoTrack+Special.h"
+#import "BDAutoTrack+OhayooGameTrack.h"
 
 #import "BDAutoTrackSchemeHandler.h"
 #import "BDAutoTrackNotifications.h"

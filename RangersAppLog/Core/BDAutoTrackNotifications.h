@@ -23,11 +23,11 @@ FOUNDATION_EXTERN NSString * const kBDAutoTrackSwitchIsBack;
 
 /*! @abstract SDK 注册成功通知
  userInfo
- @{ kBDAutoTrackNotificationAppID           :appID,
-    kBDAutoTrackNotificationBytedanceDid    :did,
-    kBDAutoTrackNotificationSSID            :ssid,
-    kBDAutoTrackNotificationInstallID       :iid
-    kBDAutoTrackNotificationUserUniqueID    :uuid
+ @{ kBDAutoTrackNotificationAppID                       :appID,
+    kBDAutoTrackNotificationRangersDeviceID    :did,
+    kBDAutoTrackNotificationSSID                        :ssid,
+    kBDAutoTrackNotificationInstallID                   :iid
+    kBDAutoTrackNotificationUserUniqueID          :uuid
  };
 @discussion 通知在子线程，uuid可能为 nil.
 @discussion 初始化 SDK 的时候，如果本地已经有 ID 值，会有一次通知
@@ -62,7 +62,7 @@ FOUNDATION_EXTERN NSString * const BDAutoTrackNotificationABTestSuccess;
 /*! @abstract SDK通知的userInfo的 key 定义
 */
 FOUNDATION_EXTERN NSString * const kBDAutoTrackNotificationAppID;
-FOUNDATION_EXTERN NSString * const kBDAutoTrackNotificationBytedanceDid;
+FOUNDATION_EXTERN NSString * const kBDAutoTrackNotificationRangersDeviceID;
 FOUNDATION_EXTERN NSString * const kBDAutoTrackNotificationSSID;
 FOUNDATION_EXTERN NSString * const kBDAutoTrackNotificationInstallID;
 FOUNDATION_EXTERN NSString * const kBDAutoTrackNotificationUserUniqueID;

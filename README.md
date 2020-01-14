@@ -31,12 +31,12 @@ source 'https://cdn.cocoapods.org/'
 
 # 接入无埋点版本
 target 'YourTarget' do
-  pod 'RangersAppLog', '~> 4.2.0'
+  pod 'RangersAppLog', '>= 4.3.0'
 end
 
 # 接入埋点版本 
 target 'YourTarget' do
-  pod 'RangersAppLog', '~> 4.2.0',:subspecs => ['Core']
+  pod 'RangersAppLog', '>= 4.3.0',:subspecs => ['Core']
 end
 
 ```
@@ -136,7 +136,7 @@ end
 
 ## 版本更新记录
 
-### 4.2.0
+### 4.3.0
 
 - 调整游戏预置埋点，接口不与上个版本兼容
 

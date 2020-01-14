@@ -150,7 +150,7 @@ static NSString * const TestAPPID = @"159486";
 }
 
 - (void)onRegisterSuccess:(NSNotification *)not  {
-    NSLog(@"NSNotification onRegisterSuccess did = %@",self.track.bytedanceDeviceID);
+    NSLog(@"NSNotification onRegisterSuccess did = %@",self.track.rangersDeviceID);
     NSLog(@"NSNotification onRegisterSuccess iid = %@",self.track.installID);
     NSLog(@"NSNotification onRegisterSuccess uuid = %@",self.track.userUniqueID);
     NSLog(@"NSNotification onRegisterSuccess ssid = %@",self.track.ssID);

@@ -65,11 +65,10 @@ SDK版本号.
 @property (class, nonatomic, copy, readonly) NSString *sdkVersion;
 
 /*! @abstract
- 针对每个AppID 设备唯一byteDance device ID. 非数字，随机字符串，一般情况请不要存储，从SDK接口获取即可。
- @discussion 针对不同的AppID如果是同一个集团，则有可能是一样的。原来的device ID已经废弃移除
- @discussion 特别说明，bytedanceDeviceID和deviceID 不是一个值，是不一样的
+ 针对每个AppID 设备唯一rangers Device ID. 非数字，随机字符串，一般情况请不要存储，从SDK接口获取即可。
+ @discussion 特别说明，rangersDeviceID是字符串，不是数字
  */
-@property (nonatomic, copy, readonly, nullable) NSString *bytedanceDeviceID;
+@property (nonatomic, copy, readonly, nullable) NSString *rangersDeviceID;
 
 /*! @abstract
  安装ID，是数字字符串，可以转化为数字。
@@ -264,11 +263,10 @@ BDAutoTrack 里面引用住一个BDAutoTrack单例，方便过渡期使用。推
 @interface BDAutoTrack (SharedInstance)
 
 /*! @abstract
- 针对每个AppID 设备唯一bytedance device ID. 非数字，随机字符串，一般情况请不要存储，从SDK接口获取即可。
- @discussion 针对不同的AppID如果是同一个集团，则有可能是一样的。原来的device ID已经废弃移除
- @discussion 特别说明，bytedanceDeviceID和deviceID不是一个值，可能是不一样的
- */
-@property (class, nonatomic, copy, readonly, nullable) NSString *bytedanceDeviceID;
+针对每个AppID 设备唯一rangers Device ID. 非数字，随机字符串，一般情况请不要存储，从SDK接口获取即可。
+@discussion 特别说明，rangersDeviceID是字符串，不是数字
+*/
+@property (class, nonatomic, copy, readonly, nullable) NSString *rangersDeviceID;
 
 /*! @abstract
  安装ID，是数字字符串，可以转化为数字。
