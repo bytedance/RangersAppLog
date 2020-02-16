@@ -24,14 +24,18 @@
     config.logger = ^(NSString * _Nullable log) {
         NSLog(@"%@",log);
     };
-
+//    config.autoActiveUser = NO;
+    config.logNeedEncrypt = NO;
     [BDAutoTrack setABTestFinishBlock:^(BOOL ABTestEnabled, NSDictionary * allConfigs) {
-        NSLog(@"-- ABTestEnabled(%tu)",ABTestEnabled);
+        
     }];
     /// change to your UserUniqueID if now is loged in
     NSString *uniqueID = @"12345";
     [BDAutoTrack setCurrentUserUniqueID:uniqueID];
     [BDAutoTrack startTrackWithConfig:config];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        [BDAutoTrack activeUser];
+    });
 }
 
 + (id)ABTestValue {

@@ -1,0 +1,20 @@
+PODS:
+  - RangersAppLog/Core (3.2.5.1)
+  - RangersAppLog/Picker (3.2.5.1):
+    - RangersAppLog/UITracker
+  - RangersAppLog/UITracker (3.2.5.1):
+    - RangersAppLog/Core
+
+DEPENDENCIES:
+  - RangersAppLog/Picker (from `../`)
+
+EXTERNAL SOURCES:
+  RangersAppLog:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  RangersAppLog: 8d4042e658122ec5d789c2bab4636515e538e214
+
+PODFILE CHECKSUM: 8da9808384979328cf0d3ec814c4f509cf9d460d
+
+COCOAPODS: 1.8.4
