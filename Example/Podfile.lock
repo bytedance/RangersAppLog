@@ -1,20 +1,25 @@
 PODS:
+  - Aspects (1.4.1)
+  - RangersAppLog (3.2.5.1):
+    - RangersAppLog/Core (= 3.2.5.1)
   - RangersAppLog/Core (3.2.5.1)
-  - RangersAppLog/Picker (3.2.5.1):
-    - RangersAppLog/UITracker
-  - RangersAppLog/UITracker (3.2.5.1):
-    - RangersAppLog/Core
 
 DEPENDENCIES:
-  - RangersAppLog/Picker (from `../`)
+  - Aspects (~> 1.4.1)
+  - RangersAppLog (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - Aspects
 
 EXTERNAL SOURCES:
   RangersAppLog:
     :path: "../"
 
 SPEC CHECKSUMS:
-  RangersAppLog: 8d4042e658122ec5d789c2bab4636515e538e214
+  Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
+  RangersAppLog: 20f8b84a71841251d203aeb658791fe201236236
 
-PODFILE CHECKSUM: 8da9808384979328cf0d3ec814c4f509cf9d460d
+PODFILE CHECKSUM: b3b1f8ed09390e3d4b099975ad24407010048673
 
 COCOAPODS: 1.8.4

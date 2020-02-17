@@ -9,6 +9,23 @@
 #import "BDAdapter.h"
 #import <RangersAppLog/BDAutoTrack.h>
 #import <RangersAppLog/BDAutoTrackConfig.h>
+#import <Aspects/Aspects.h>
+#import <objc/message.h>
+
+IMP test_swizzle_class_methodWithBlock(Class cls, SEL originalSelector, id block) {
+    Class metaClass = object_getClass(cls);
+    Method origMethod = class_getClassMethod(metaClass, originalSelector);
+    IMP newIMP = imp_implementationWithBlock(block);
+
+    BOOL didAddMethod = class_addMethod(metaClass,originalSelector, newIMP,method_getTypeEncoding(origMethod));
+
+    if (didAddMethod) {
+        return method_getImplementation(origMethod);
+    } else {
+        return method_setImplementation(origMethod, newIMP);
+    }
+}
+
 
 @implementation BDAdapter
 
@@ -24,7 +41,7 @@
     config.logger = ^(NSString * _Nullable log) {
         NSLog(@"%@",log);
     };
-//    config.autoActiveUser = NO;
+    config.autoActiveUser = NO;
     config.logNeedEncrypt = NO;
     [BDAutoTrack setABTestFinishBlock:^(BOOL ABTestEnabled, NSDictionary * allConfigs) {
         
@@ -33,8 +50,17 @@
     NSString *uniqueID = @"12345";
     [BDAutoTrack setCurrentUserUniqueID:uniqueID];
     [BDAutoTrack startTrackWithConfig:config];
+    
+    static IMP original_Method_Imp = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        original_Method_Imp = test_swizzle_class_methodWithBlock([BDAutoTrack class], @selector(activeUser), ^void (Class *_self){
+            NSLog(@"");
+        });
+    });
+    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        [BDAutoTrack activeUser];
+        [BDAutoTrack activeUser];
     });
 }
 
