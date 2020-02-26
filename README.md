@@ -19,7 +19,7 @@
 
 1. Lite版，埋点版本，即 `subspecs => ['Core']`
 2. 无埋点版本，即 `subspecs => ['UITracker']`
-3. 圈选Debug版本，即 `subspecs => ['Picker']`
+3. 圈选版本，即 `subspecs => ['Picker']`
 
 ## 集成方式
 
@@ -31,12 +31,12 @@ source 'https://cdn.cocoapods.org/'
 
 # 接入无埋点版本
 target 'YourTarget' do
-  pod 'RangersAppLog', '>= 4.3.0'
+  pod 'RangersAppLog', '>= 4.4.0'
 end
 
 # 接入埋点版本 
 target 'YourTarget' do
-  pod 'RangersAppLog', '>= 4.3.0',:subspecs => ['Core']
+  pod 'RangersAppLog', '>= 4.4.0',:subspecs => ['Core']
 end
 
 ```
