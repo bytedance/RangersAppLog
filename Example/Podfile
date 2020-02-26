@@ -2,10 +2,17 @@ source 'https://cdn.cocoapods.org/'
 install! 'cocoapods', :disable_input_output_paths => true
 platform :ios, '10.0'
 
-target 'RangersAppLog' do
-  pod 'RangersAppLog/Picker',:path => '../'
+#use_frameworks!
+def common
+  pod 'RangersAppLog',:path => '../'
+end
+target 'OCDemo' do
+  common
 end
 
+target 'SwiftDemo' do
+  common
+end
 
 post_install do |installer|
   installer.pods_project.targets.each do |target|

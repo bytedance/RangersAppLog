@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		390DF226A10BE45D147A2B4A /* libPods-RangersAppLog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29DFEF9F98A2D3A6D5C93AFF /* libPods-RangersAppLog.a */; };
+		2D47F04E013206DBA16C85CE /* libPods-OCDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E033C960A599F828AE4D992 /* libPods-OCDemo.a */; };
 		C41C889A232653FB00C9AFC8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C41C8899232653FB00C9AFC8 /* AppDelegate.m */; };
 		C41C88A0232653FB00C9AFC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C41C889E232653FB00C9AFC8 /* Main.storyboard */; };
 		C41C88A2232653FD00C9AFC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C41C88A1232653FD00C9AFC8 /* Assets.xcassets */; };
@@ -18,6 +18,11 @@
 		C41C88B62326564600C9AFC8 /* BDFeedLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = C41C88B52326564600C9AFC8 /* BDFeedLoader.m */; };
 		C41C88B9232656C800C9AFC8 /* BDBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C41C88B8232656C800C9AFC8 /* BDBaseTableViewController.m */; };
 		C41C88BC2326577600C9AFC8 /* BDDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C41C88BB2326577600C9AFC8 /* BDDemoViewController.m */; };
+		C457C07724067CA400140158 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C457C07624067CA400140158 /* AppDelegate.swift */; };
+		C457C07B24067CA400140158 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C457C07A24067CA400140158 /* ViewController.swift */; };
+		C457C07E24067CA400140158 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C457C07C24067CA400140158 /* Main.storyboard */; };
+		C457C08024067CA400140158 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C457C07F24067CA400140158 /* Assets.xcassets */; };
+		C457C08324067CA400140158 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C457C08124067CA400140158 /* LaunchScreen.storyboard */; };
 		C49D7BAC2372B4020005D95F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C49D7BAB2372B4020005D95F /* AVFoundation.framework */; };
 		C49D7C9023730D010005D95F /* test_song.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C49D7C8F23730D010005D95F /* test_song.mp3 */; };
 		C49D7C94237310410005D95F /* BDPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C49D7C93237310410005D95F /* BDPlayer.m */; };
@@ -28,13 +33,16 @@
 		C49D7CA32373A9760005D95F /* test_song.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C49D7CA22373A9760005D95F /* test_song.jpg */; };
 		C49D7E6D2375C6F20005D95F /* LocalPush.m in Sources */ = {isa = PBXBuildFile; fileRef = C49D7E6C2375C6F20005D95F /* LocalPush.m */; };
 		C49D7E702376795D0005D95F /* BDResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C49D7E6F2376795D0005D95F /* BDResultViewController.m */; };
+		CEC9CF9B498110F2DE280481 /* libPods-SwiftDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 71AA89849E14C7B637C0A59C /* libPods-SwiftDemo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		29DFEF9F98A2D3A6D5C93AFF /* libPods-RangersAppLog.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RangersAppLog.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4C491C5F133965B5626423D2 /* Pods-RangersAppLog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RangersAppLog.release.xcconfig"; path = "Target Support Files/Pods-RangersAppLog/Pods-RangersAppLog.release.xcconfig"; sourceTree = "<group>"; };
-		8187740B1580DDB49896E8B6 /* Pods-RangersAppLog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RangersAppLog.debug.xcconfig"; path = "Target Support Files/Pods-RangersAppLog/Pods-RangersAppLog.debug.xcconfig"; sourceTree = "<group>"; };
-		C41C8895232653FB00C9AFC8 /* RangersAppLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RangersAppLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B202045E482C9FF09BF2F87 /* Pods-OCDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCDemo.debug.xcconfig"; path = "Target Support Files/Pods-OCDemo/Pods-OCDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		71AA89849E14C7B637C0A59C /* libPods-SwiftDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SwiftDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E033C960A599F828AE4D992 /* libPods-OCDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OCDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9EFDFB1B691CAE432593C784 /* Pods-OCDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCDemo.release.xcconfig"; path = "Target Support Files/Pods-OCDemo/Pods-OCDemo.release.xcconfig"; sourceTree = "<group>"; };
+		B3E31BA3BEC406581EDA2C1D /* Pods-SwiftDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftDemo.debug.xcconfig"; path = "Target Support Files/Pods-SwiftDemo/Pods-SwiftDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		C41C8895232653FB00C9AFC8 /* OCDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OCDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C41C8898232653FB00C9AFC8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C41C8899232653FB00C9AFC8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C41C889F232653FB00C9AFC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -52,6 +60,13 @@
 		C41C88B8232656C800C9AFC8 /* BDBaseTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BDBaseTableViewController.m; sourceTree = "<group>"; };
 		C41C88BA2326577600C9AFC8 /* BDDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BDDemoViewController.h; sourceTree = "<group>"; };
 		C41C88BB2326577600C9AFC8 /* BDDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BDDemoViewController.m; sourceTree = "<group>"; };
+		C457C07424067CA400140158 /* SwiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C457C07624067CA400140158 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C457C07A24067CA400140158 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C457C07D24067CA400140158 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C457C07F24067CA400140158 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C457C08224067CA400140158 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C457C08424067CA400140158 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C49D7BAB2372B4020005D95F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		C49D7C8F23730D010005D95F /* test_song.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = test_song.mp3; sourceTree = "<group>"; };
 		C49D7C92237310410005D95F /* BDPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BDPlayer.h; sourceTree = "<group>"; };
@@ -69,6 +84,7 @@
 		C49D7E6C2375C6F20005D95F /* LocalPush.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocalPush.m; sourceTree = "<group>"; };
 		C49D7E6E2376795D0005D95F /* BDResultViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BDResultViewController.h; sourceTree = "<group>"; };
 		C49D7E6F2376795D0005D95F /* BDResultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BDResultViewController.m; sourceTree = "<group>"; };
+		D6714913361245AB6EE92C18 /* Pods-SwiftDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftDemo.release.xcconfig"; path = "Target Support Files/Pods-SwiftDemo/Pods-SwiftDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +94,15 @@
 			files = (
 				C49D7C9A23731ED40005D95F /* CoreLocation.framework in Frameworks */,
 				C49D7BAC2372B4020005D95F /* AVFoundation.framework in Frameworks */,
-				390DF226A10BE45D147A2B4A /* libPods-RangersAppLog.a in Frameworks */,
+				2D47F04E013206DBA16C85CE /* libPods-OCDemo.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C457C07124067CA400140158 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEC9CF9B498110F2DE280481 /* libPods-SwiftDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,7 +114,8 @@
 			children = (
 				C49D7C9923731ED40005D95F /* CoreLocation.framework */,
 				C49D7BAB2372B4020005D95F /* AVFoundation.framework */,
-				29DFEF9F98A2D3A6D5C93AFF /* libPods-RangersAppLog.a */,
+				71AA89849E14C7B637C0A59C /* libPods-SwiftDemo.a */,
+				8E033C960A599F828AE4D992 /* libPods-OCDemo.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -98,8 +123,10 @@
 		AB26E4AEFC68042C881FA477 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				8187740B1580DDB49896E8B6 /* Pods-RangersAppLog.debug.xcconfig */,
-				4C491C5F133965B5626423D2 /* Pods-RangersAppLog.release.xcconfig */,
+				B3E31BA3BEC406581EDA2C1D /* Pods-SwiftDemo.debug.xcconfig */,
+				D6714913361245AB6EE92C18 /* Pods-SwiftDemo.release.xcconfig */,
+				1B202045E482C9FF09BF2F87 /* Pods-OCDemo.debug.xcconfig */,
+				9EFDFB1B691CAE432593C784 /* Pods-OCDemo.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -108,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				C41C8897232653FB00C9AFC8 /* RangersAppLog */,
+				C457C07524067CA400140158 /* SwiftDemo */,
 				C41C8896232653FB00C9AFC8 /* Products */,
 				AB26E4AEFC68042C881FA477 /* Pods */,
 				7407FA501920B3165AE2CBE1 /* Frameworks */,
@@ -117,7 +145,8 @@
 		C41C8896232653FB00C9AFC8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C41C8895232653FB00C9AFC8 /* RangersAppLog.app */,
+				C41C8895232653FB00C9AFC8 /* OCDemo.app */,
+				C457C07424067CA400140158 /* SwiftDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -151,6 +180,19 @@
 				C49D7E6F2376795D0005D95F /* BDResultViewController.m */,
 			);
 			path = RangersAppLog;
+			sourceTree = "<group>";
+		};
+		C457C07524067CA400140158 /* SwiftDemo */ = {
+			isa = PBXGroup;
+			children = (
+				C457C07624067CA400140158 /* AppDelegate.swift */,
+				C457C07A24067CA400140158 /* ViewController.swift */,
+				C457C07C24067CA400140158 /* Main.storyboard */,
+				C457C07F24067CA400140158 /* Assets.xcassets */,
+				C457C08124067CA400140158 /* LaunchScreen.storyboard */,
+				C457C08424067CA400140158 /* Info.plist */,
+			);
+			path = SwiftDemo;
 			sourceTree = "<group>";
 		};
 		C49D7C9123730FE90005D95F /* Music */ = {
@@ -196,23 +238,42 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C41C8894232653FB00C9AFC8 /* RangersAppLog */ = {
+		C41C8894232653FB00C9AFC8 /* OCDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C41C88AB232653FD00C9AFC8 /* Build configuration list for PBXNativeTarget "RangersAppLog" */;
+			buildConfigurationList = C41C88AB232653FD00C9AFC8 /* Build configuration list for PBXNativeTarget "OCDemo" */;
 			buildPhases = (
 				E22E2902B6117BD44AC92913 /* [CP] Check Pods Manifest.lock */,
 				C41C8891232653FB00C9AFC8 /* Sources */,
 				C41C8892232653FB00C9AFC8 /* Frameworks */,
 				C41C8893232653FB00C9AFC8 /* Resources */,
-				EE7075D559C9EEC3A7B9EBDB /* [CP] Copy Pods Resources */,
+				3E742A23FDCE96B4DDEB4A4D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = RangersAppLog;
+			name = OCDemo;
 			productName = RangersAppLog;
-			productReference = C41C8895232653FB00C9AFC8 /* RangersAppLog.app */;
+			productReference = C41C8895232653FB00C9AFC8 /* OCDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C457C07324067CA400140158 /* SwiftDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C457C08724067CA400140158 /* Build configuration list for PBXNativeTarget "SwiftDemo" */;
+			buildPhases = (
+				03B4CD887A20C9D2CD287E3A /* [CP] Check Pods Manifest.lock */,
+				C457C07024067CA400140158 /* Sources */,
+				C457C07124067CA400140158 /* Frameworks */,
+				C457C07224067CA400140158 /* Resources */,
+				36D983B02E9043E5163DC140 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftDemo;
+			productName = SwiftDemo;
+			productReference = C457C07424067CA400140158 /* SwiftDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -221,11 +282,15 @@
 		C41C888D232653FA00C9AFC8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1030;
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = Bytedance;
 				TargetAttributes = {
 					C41C8894232653FB00C9AFC8 = {
 						CreatedOnToolsVersion = 10.3;
+					};
+					C457C07324067CA400140158 = {
+						CreatedOnToolsVersion = 11.3;
 					};
 				};
 			};
@@ -242,7 +307,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C41C8894232653FB00C9AFC8 /* RangersAppLog */,
+				C41C8894232653FB00C9AFC8 /* OCDemo */,
+				C457C07324067CA400140158 /* SwiftDemo */,
 			);
 		};
 /* End PBXProject section */
@@ -260,9 +326,71 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C457C07224067CA400140158 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C457C08324067CA400140158 /* LaunchScreen.storyboard in Resources */,
+				C457C08024067CA400140158 /* Assets.xcassets in Resources */,
+				C457C07E24067CA400140158 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		03B4CD887A20C9D2CD287E3A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SwiftDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		36D983B02E9043E5163DC140 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftDemo/Pods-SwiftDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3E742A23FDCE96B4DDEB4A4D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OCDemo/Pods-OCDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		E22E2902B6117BD44AC92913 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -278,26 +406,11 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-RangersAppLog-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-OCDemo-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EE7075D559C9EEC3A7B9EBDB /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RangersAppLog/Pods-RangersAppLog-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -323,6 +436,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C457C07024067CA400140158 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C457C07B24067CA400140158 /* ViewController.swift in Sources */,
+				C457C07724067CA400140158 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
@@ -338,6 +460,22 @@
 			isa = PBXVariantGroup;
 			children = (
 				C41C88A4232653FD00C9AFC8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		C457C07C24067CA400140158 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C457C07D24067CA400140158 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C457C08124067CA400140158 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C457C08224067CA400140158 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -453,13 +591,14 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		C41C88AC232653FD00C9AFC8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8187740B1580DDB49896E8B6 /* Pods-RangersAppLog.debug.xcconfig */;
+			baseConfigurationReference = 1B202045E482C9FF09BF2F87 /* Pods-OCDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = RangersAppLog/RangersAppLog.entitlements;
@@ -475,7 +614,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.bytedance.rangersapplog;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rangers.RangersAppLog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -484,7 +623,7 @@
 		};
 		C41C88AD232653FD00C9AFC8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4C491C5F133965B5626423D2 /* Pods-RangersAppLog.release.xcconfig */;
+			baseConfigurationReference = 9EFDFB1B691CAE432593C784 /* Pods-OCDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = RangersAppLog/RangersAppLog.entitlements;
@@ -500,9 +639,51 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.bytedance.rangersapplog;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rangers.RangersAppLog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C457C08524067CA400140158 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3E31BA3BEC406581EDA2C1D /* Pods-SwiftDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SwiftDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rangers.SwiftDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C457C08624067CA400140158 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D6714913361245AB6EE92C18 /* Pods-SwiftDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SwiftDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rangers.SwiftDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -519,11 +700,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C41C88AB232653FD00C9AFC8 /* Build configuration list for PBXNativeTarget "RangersAppLog" */ = {
+		C41C88AB232653FD00C9AFC8 /* Build configuration list for PBXNativeTarget "OCDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C41C88AC232653FD00C9AFC8 /* Debug */,
 				C41C88AD232653FD00C9AFC8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C457C08724067CA400140158 /* Build configuration list for PBXNativeTarget "SwiftDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C457C08524067CA400140158 /* Debug */,
+				C457C08624067CA400140158 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

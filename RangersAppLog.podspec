@@ -11,31 +11,35 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '8.0'
   s.requires_arc = true
   s.static_framework = true
-  s.pod_target_xcconfig = {'OTHER_LDFLAGS' => '-lObjC', 'DEFINES_MODULE' => 'YES'}
+  s.source_files = 'RangersAppLog/*.{h,m}'
+  s.pod_target_xcconfig = {
+    'OTHER_LDFLAGS' => '-lObjC',
+    'DEFINES_MODULE' => 'YES',
+  }
 
-  s.subspec 'Core' do |core|
-        core.source_files = 'RangersAppLog/Core/*.h'
-        core.vendored_library = 'RangersAppLog/Core/*.a'
-        core.frameworks = 'Foundation','Security','AdSupport','CoreTelephony','CoreFoundation','SystemConfiguration'
-        core.library = 'z','sqlite3'
-        core.public_header_files = 'RangersAppLog/Core/*.h'
+  s.subspec 'Core' do |bd|
+    bd.source_files = 'RangersAppLog/Core/*.h'
+    bd.vendored_library = 'RangersAppLog/Core/*.a'
+    bd.frameworks = 'Foundation','Security','AdSupport','CoreTelephony','CoreFoundation','SystemConfiguration'
+    bd.library = 'z','sqlite3'
+    bd.public_header_files = 'RangersAppLog/Core/*.h'
   end
 
-  s.subspec 'UITracker' do |tracker|
-        tracker.vendored_library = 'RangersAppLog/UITracker/*.a'
-        tracker.source_files = 'RangersAppLog/UITracker/*.h'
-        tracker.frameworks = 'UIKit','WebKit'
-        tracker.public_header_files = 'RangersAppLog/UITracker/*.h'
-        tracker.dependency 'RangersAppLog/Core'
+  s.subspec 'UITracker' do |bd|
+    bd.vendored_library = 'RangersAppLog/UITracker/*.a'
+    bd.source_files = 'RangersAppLog/UITracker/*.h'
+    bd.frameworks = 'UIKit','WebKit'
+    bd.public_header_files = 'RangersAppLog/UITracker/*.h'
+    bd.dependency 'RangersAppLog/Core'
   end
 
-   s.subspec 'Picker' do |picker|
-        picker.vendored_library = 'RangersAppLog/Picker/*.a'
-        picker.frameworks = 'CoreGraphics','CoreServices','MobileCoreServices','QuartzCore','CoreText'
-        picker.dependency 'RangersAppLog/UITracker'
-        picker.resource_bundles = {
-          'RangersAppLog' => ['RangersAppLog/Assets/*.xcassets']
-        }
+  s.subspec 'Picker' do |bd|
+    bd.vendored_library = 'RangersAppLog/Picker/*.a'
+    bd.frameworks = 'CoreGraphics','CoreServices','MobileCoreServices','QuartzCore','CoreText'
+    bd.dependency 'RangersAppLog/UITracker'
+    bd.resource_bundles = {
+      'RangersAppLog' => ['RangersAppLog/Assets/*.xcassets']
+    }
   end
 
 end
