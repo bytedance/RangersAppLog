@@ -182,11 +182,6 @@ SDK版本号.
 
 #pragma mark - ABTest
 
-/*! @abstract 手动触发获取ABTest的配置值请求
- @discussion 手动触发请求
- */
-- (void)startFetchABTestConfiguration __attribute__((deprecated("SDK会自动拉取，此接口是内部开发过程中开发调试。后续会移除")));
-
 /*! @abstract 获取ABTest的配置值
  @param key ABTest的key
  @param defaultValue 默认值，如果没有配置，或者未开启ABTest则返回默认值
@@ -196,29 +191,17 @@ SDK版本号.
  */
 - (nullable id)ABTestConfigValueForKey:(NSString *)key defaultValue:(nullable id)defaultValue;
 
-/*! @abstract 设置日志上报ABTest属性
- @param versions 设置完versions且ABTest开启的状态下，每条日志都会带上这个属性,对应ab_sdk_version字段
- @discussion 原来接口 +[BDAutoTrack setABServerVersions]
-*/
-- (void)setABSDKVersions:(nullable NSString *)versions;
-
 /*! @abstract 获取ABTest相关配置
- @result 返回ABTest的abServerVersions值，此值就是之前setABSDKVersions:接口设置进来的
+@result 返回ABTest的vids值
  @discussion 此值不需要设置到上报的event中，SDK会自动给每个event添加
  */
-- (nullable NSString *)abSDKVersions;
+- (nullable NSString *)abVids;
 
 /*! @abstract 获取ABTest相关配置
-@result 返回ABTest的abVersions值
- @discussion 此值不需要设置到上报的event中，SDK会自动给每个event添加
- */
-- (nullable NSString *)abVersions;
-
-/*! @abstract 获取ABTest相关配置
- @result 返回ABTest的所有的abVersions值
+ @result 返回ABTest的所有的vids值
  @discussion 此接口不会触发曝光，可以随意读取
  */
-- (nullable NSString *)allAbVersions;
+- (nullable NSString *)allAbVids;
 
 /*! @abstract 获取ABTest相关配置
  @result 返回ABTest的所有的Configs值
@@ -367,29 +350,17 @@ BDAutoTrack 里面引用住一个BDAutoTrack单例，方便过渡期使用。推
  */
 + (nullable id)ABTestConfigValueForKey:(NSString *)key defaultValue:(nullable id)defaultValue;
 
-/*! @abstract 设置日志上报ABTest属性，在初始化之后设置才能调用
- @param versions 设置完versions且ABTest开启的状态下，每条日志都会带上这个属性,对应ab_sdk_version字段
- @discussion 原来接口 +[BDAutoTrack setABServerVersions]
-*/
-+ (void)setABSDKVersions:(nullable NSString *)versions;
-
 /*! @abstract 获取ABTest相关配置，在初始化之后设置才能调用
- @result 返回ABTest的abServerVersions值，此值就是之前setABSDKVersions:接口设置进来的
+@result 返回ABTest的vid值
  @discussion 此值不需要设置到上报的event中，SDK会自动给每个event添加
  */
-+ (nullable NSString *)abSDKVersions;
++ (nullable NSString *)abVids;
 
 /*! @abstract 获取ABTest相关配置，在初始化之后设置才能调用
-@result 返回ABTest的abVersions值
- @discussion 此值不需要设置到上报的event中，SDK会自动给每个event添加
- */
-+ (nullable NSString *)abVersions;
-
-/*! @abstract 获取ABTest相关配置，在初始化之后设置才能调用
- @result 返回ABTest的所有的abVersions值
+ @result 返回ABTest的所有的vids值
  @discussion 此接口不会触发曝光，可以随意读取
  */
-+ (nullable NSString *)allAbVersions;
++ (nullable NSString *)allAbVids;
 
 /*! @abstract 获取ABTest相关配置，在初始化之后设置才能调用
  @result 返回ABTest的所有的Configs值

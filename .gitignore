@@ -62,4 +62,3 @@ fastlane/test_output
 
 iOSInjectionProject/
 *.zip
-make_ipa.sh

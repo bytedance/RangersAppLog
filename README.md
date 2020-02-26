@@ -136,6 +136,12 @@ end
 
 ## 版本更新记录
 
+### 4.4.0
+
+- 解决无埋点hook与ReSwift、RxCocoa、RxDataSources等第三方SDK的冲突
+- 移除ABVersion相关的接口
+- 优化OOM问题
+
 ### 4.3.0
 
 - 调整游戏预置埋点，接口不与上个版本兼容
@@ -147,10 +153,7 @@ end
 - 去掉did接口，新增BytedanceDeviceID接口
 - 安装包 795.99 KB
 
-### 3.2.10
 
-- 优化多线程卡顿问题
-- 修复序列化crash问题
 
 
 
