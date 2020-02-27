@@ -28,6 +28,7 @@
 
 ```Rbuy
 source 'https://cdn.cocoapods.org/'
+source 'https://github.com/CocoaPods/Specs.git'
 
 # 接入无埋点版本
 target 'YourTarget' do
