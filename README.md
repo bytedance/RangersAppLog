@@ -32,12 +32,12 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 # 接入无埋点版本
 target 'YourTarget' do
-  pod 'RangersAppLog', '>= 4.4.0'
+  pod 'RangersAppLog', '>= 4.4.1'
 end
 
 # 接入埋点版本 
 target 'YourTarget' do
-  pod 'RangersAppLog', '>= 4.4.0',:subspecs => ['Core']
+  pod 'RangersAppLog', '>= 4.4.1',:subspecs => ['Core']
 end
 
 ```
@@ -147,7 +147,7 @@ end
 
 - 调整游戏预置埋点，接口不与上个版本兼容
 
-### 4.1.0
+### 4.1.1
 
 - 通过Scheme打开圈选开关
 - 默认subspec集成所有功能
