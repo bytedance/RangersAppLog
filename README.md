@@ -27,17 +27,16 @@
 或者参照Demo工程的Podfile
 
 ```Rbuy
-source 'https://cdn.cocoapods.org/'
-source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/bytedance/cocoapods_sdk_source_repo.git'
 
 # 接入无埋点版本
 target 'YourTarget' do
-  pod 'RangersAppLog', '>= 4.4.1'
+  pod 'RangersAppLog', '>= 4.5.0'
 end
 
 # 接入埋点版本 
 target 'YourTarget' do
-  pod 'RangersAppLog', '>= 4.4.1',:subspecs => ['Core']
+  pod 'RangersAppLog', '>= 4.5.0',:subspecs => ['Core']
 end
 
 ```

@@ -1,10 +1,12 @@
-source 'https://cdn.cocoapods.org/'
+source 'https://github.com/bytedance/cocoapods_sdk_source_repo.git'
+
 install! 'cocoapods', :disable_input_output_paths => true
 platform :ios, '10.0'
 
 #use_frameworks!
 def common
   pod 'RangersAppLog',:path => '../'
+#  pod 'RangersAppLog','4.5.0'
 end
 target 'OCDemo' do
   common
