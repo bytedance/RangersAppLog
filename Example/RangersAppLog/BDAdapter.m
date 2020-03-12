@@ -74,7 +74,7 @@ static NSString * const TestAPPID = @"159486";
 
         /// show debug log
         config.showDebugLog = YES;
-        config.logNeedEncrypt = YES;
+        config.logNeedEncrypt = NO;
         config.logger = ^(NSString * _Nullable log) {
             NSLog(@"%@",log);
         };
@@ -83,7 +83,11 @@ static NSString * const TestAPPID = @"159486";
         /// change to your UserUniqueID if now is loged in
         NSString *uniqueID = @"12345679";
         [track setCurrentUserUniqueID:uniqueID];
+        [track setRequestHostBlock:^NSString *(BDAutoTrackServiceVendor vendor, BDAutoTrackRequestURLType requestURLType) {
+            return @"https://toblog.ctobsnssdk.com/";
+        }];
         [track startTrack];
+        [track setExternalABVersion:@"9,10,31"];
 
         self.track = track;
     });

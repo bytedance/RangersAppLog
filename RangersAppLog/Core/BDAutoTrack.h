@@ -21,6 +21,7 @@ FOUNDATION_EXTERN BDAutoTrackRequestURLType const BDAutoTrackRequestURLSettings;
 FOUNDATION_EXTERN BDAutoTrackRequestURLType const BDAutoTrackRequestURLABTest;   /// ABTest配置
 FOUNDATION_EXTERN BDAutoTrackRequestURLType const BDAutoTrackRequestURLLog;      /// 日志上报
 FOUNDATION_EXTERN BDAutoTrackRequestURLType const BDAutoTrackRequestURLLogBackup;/// 日志上报备用
+FOUNDATION_EXTERN BDAutoTrackRequestURLType const BDAutoTrackRequestURLSuccessRatio; /// 成功率日志上报
 
 /*! @abstract 自定义请求链接，把相关请求发送到对应的自定义的URL上
  @param vendor 地区
@@ -29,6 +30,15 @@ FOUNDATION_EXTERN BDAutoTrackRequestURLType const BDAutoTrackRequestURLLogBackup
  @result 返回自定义的URL
  */
 typedef NSString * _Nullable (^BDAutoTrackRequestURLBlock)(BDAutoTrackServiceVendor vendor, BDAutoTrackRequestURLType requestURLType);
+
+/*! @abstract 自定义请求链接的Host，把相关请求发送到对应的自定义的Host上，path仍然按照SDK规则拼接
+ @param vendor 地区
+ @param requestURLType 上面的六个枚举值
+ @discussion 一般情况不需要实现；如果实现，返回值类似  https://github.com/
+ @result 返回自定义的URL
+ */
+typedef NSString * _Nullable (^BDAutoTrackRequestHostBlock)(BDAutoTrackServiceVendor vendor, BDAutoTrackRequestURLType requestURLType);
+
 
 /*! @abstract 自定义上报信息
  @discussion 每次上报都会回调，设置一次即可，格式要求同日志要求，需要可序列化；如果无法序列化，会被丢弃
@@ -144,6 +154,13 @@ SDK版本号.
  */
 - (void)setRequestURLBlock:(nullable BDAutoTrackRequestURLBlock)requestURLBlock;
 
+/*! @abstract 设置自定义的URL回调
+ @param requestHostBlock 回调block，设置一次即可，不需要多次设置
+ @discussion requestHostBlock 会覆盖之前的初始化或者上一次设置的回调，如果为nil会清空回调
+ @discussion requestURLBlock会优先于requestHostBlock
+ */
+- (void)setRequestHostBlock:(nullable BDAutoTrackRequestHostBlock)requestHostBlock;
+
 /*! @abstract 地区
  @discussion 如果设置过，会保存值，直到下次改变或者清空
  @discussion 如果没有值，默认会读取 `[[NSLocale currentLocale] objectForKey:NSLocaleCountryCode]`
@@ -190,6 +207,12 @@ SDK版本号.
  @result 返回ABTest的配置值
  */
 - (nullable id)ABTestConfigValueForKey:(NSString *)key defaultValue:(nullable id)defaultValue;
+
+/*! @abstract 获取ABTest 额外的vids
+@param versions 额外的vids。格式比如 @"1,2,3"。是逗号（英文）分割，逗号之间是数字
+@discussion 如果要清空上次设置，直接传nil；每次设置都会覆盖上次设置
+*/
+- (void)setExternalABVersion:(nullable NSString *)versions;
 
 /*! @abstract 获取ABTest相关配置
 @result 返回ABTest的vids值
@@ -309,6 +332,13 @@ BDAutoTrack 里面引用住一个BDAutoTrack单例，方便过渡期使用。推
  */
 + (void)setRequestURLBlock:(nullable BDAutoTrackRequestURLBlock)requestURLBlock;
 
+/*! @abstract 设置自定义的URL回调
+ @param requestHostBlock 回调block，设置一次即可，不需要多次设置
+ @discussion requestHostBlock 会覆盖之前的初始化或者上一次设置的回调，如果为nil会清空回调
+ @discussion requestURLBlock会优先于requestHostBlock
+ */
++ (void)setRequestHostBlock:(nullable BDAutoTrackRequestHostBlock)requestHostBlock;
+
 /*! @abstract 地区 在初始化之后设置
  @discussion 如果设置过，会保存值，直到下次改变或者清空
  @discussion 如果没有值，默认会读取 `[[NSLocale currentLocale] objectForKey:NSLocaleCountryCode]`
@@ -349,6 +379,12 @@ BDAutoTrack 里面引用住一个BDAutoTrack单例，方便过渡期使用。推
  @result 返回ABTest的配置值
  */
 + (nullable id)ABTestConfigValueForKey:(NSString *)key defaultValue:(nullable id)defaultValue;
+
+/*! @abstract 获取ABTest 额外的vids
+@param versions 额外的vids。格式比如 @"1,2,3"。是逗号（英文）分割，逗号之间是数字
+@discussion 如果要清空上次设置，直接传nil；每次设置都会覆盖上次设置
+*/
++ (void)setExternalABVersion:(nullable NSString *)versions;
 
 /*! @abstract 获取ABTest相关配置，在初始化之后设置才能调用
 @result 返回ABTest的vid值
