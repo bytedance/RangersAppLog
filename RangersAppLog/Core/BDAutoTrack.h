@@ -6,50 +6,17 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "BDAutoTrackConfig.h"
+#import "BDCommonDefine.h"
+#import "BDAutoTrackConfig+AppLog.h"
+
+@class BDAutoTrackConfig;
 
 NS_ASSUME_NONNULL_BEGIN
-
-/*!
- 请求URL type
- */
-typedef NSInteger BDAutoTrackRequestURLType NS_TYPED_ENUM;
-
-FOUNDATION_EXTERN BDAutoTrackRequestURLType const BDAutoTrackRequestURLRegister; /// 注册
-FOUNDATION_EXTERN BDAutoTrackRequestURLType const BDAutoTrackRequestURLActivate; /// 激活
-FOUNDATION_EXTERN BDAutoTrackRequestURLType const BDAutoTrackRequestURLSettings; /// 基本配置
-FOUNDATION_EXTERN BDAutoTrackRequestURLType const BDAutoTrackRequestURLABTest;   /// ABTest配置
-FOUNDATION_EXTERN BDAutoTrackRequestURLType const BDAutoTrackRequestURLLog;      /// 日志上报
-FOUNDATION_EXTERN BDAutoTrackRequestURLType const BDAutoTrackRequestURLLogBackup;/// 日志上报备用
-FOUNDATION_EXTERN BDAutoTrackRequestURLType const BDAutoTrackRequestURLSuccessRatio; /// 成功率日志上报
-
-/*! @abstract 自定义请求链接，把相关请求发送到对应的自定义的URL上
- @param vendor 地区
- @param requestURLType 上面的六个枚举值
- @discussion 一般情况不需要实现；如果实现，针对想改变的枚举值返回一个准确的URL，其他不想修改的返回nil即可
- @result 返回自定义的URL
- */
-typedef NSString * _Nullable (^BDAutoTrackRequestURLBlock)(BDAutoTrackServiceVendor vendor, BDAutoTrackRequestURLType requestURLType);
-
-/*! @abstract 自定义请求链接的Host，把相关请求发送到对应的自定义的Host上，path仍然按照SDK规则拼接
- @param vendor 地区
- @param requestURLType 上面的六个枚举值
- @discussion 一般情况不需要实现；如果实现，返回值类似  https://github.com/
- @result 返回自定义的URL
- */
-typedef NSString * _Nullable (^BDAutoTrackRequestHostBlock)(BDAutoTrackServiceVendor vendor, BDAutoTrackRequestURLType requestURLType);
-
-
-/*! @abstract 自定义上报信息
- @discussion 每次上报都会回调，设置一次即可，格式要求同日志要求，需要可序列化；如果无法序列化，会被丢弃
- @result NSDictionary custom数据
- */
-typedef NSDictionary<NSString*, id> *_Nonnull (^BDAutoTrackCustomHeaderBlock)(void);
 
 /*! @abstract
 BDAutoTrack 增加多实例支持
  使用示例1：
-  BDAutoTrackConfig *config = [BDAutoTrackConfig new];
+  BDAutoTrackConfig *config = [BDAutoTrackConfig configWithSecondAppID:@"appid"];
   config.xxx = xxx;
   ...
  // 初始化完成之后，可以调用其他接口
@@ -117,11 +84,6 @@ SDK版本号.
  @discussion 需要在`[BDAutoTrack trackWithConfig:]`初始化之后手动调用此方法。调用此方法之前，可以做一些额外的配置
  */
 - (void)startTrack;
-
-/*! @abstract 手动触发获取SDK上报配置值请求
- @discussion 手动触发请求
- */
-- (void)startFetchTrackerConfiguration __attribute__((deprecated("SDK会自动拉取，此接口是内部开发过程中开发调试。后续会移除")));
 
 /*! @abstract userAgent
  @discussion 每次启动SDK的时候设置一次，发生变化的时候设置即可。一般不会发生变化，只需要设置一次即可

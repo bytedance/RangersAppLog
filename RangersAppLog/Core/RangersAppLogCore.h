@@ -8,7 +8,10 @@
 #ifndef RangersAppLogCore_h
 #define RangersAppLogCore_h
 
+#import "BDCommonDefine.h"
 #import "BDAutoTrackConfig.h"
+#import "BDAutoTrackConfig+AppLog.h"
+
 #import "BDAutoTrack.h"
 
 #import "BDAutoTrack+Game.h"

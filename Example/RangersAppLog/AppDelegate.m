@@ -14,7 +14,7 @@
 #import "BackgroundDownload.h"
 #import "LocalPush.h"
 
-#import <RangersAppLog/RangersAppLogCore.h>
+#import <RangersAppLog/RangersAppLog.h>
 
 @interface AppDelegate ()
 

@@ -8,7 +8,7 @@
 
 #import "BDAdapter.h"
 #import "BDFeedModel.h"
-#import <RangersAppLog/RangersAppLogCore.h>
+#import <RangersAppLog/RangersAppLog.h>
 
 static NSString * const TestAPPID = @"159486";
 

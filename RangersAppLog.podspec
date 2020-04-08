@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'RangersAppLog'
-  s.version          = '4.5.0'
+  s.version          = '5.0.0'
   s.summary          = 'ByteDance Rangers AppLog.'
   s.description      = 'ByteDance Rangers AppLog SDK.'
   s.homepage         = 'https://github.com/bytedance/RangersAppLog'
@@ -18,25 +18,27 @@ Pod::Spec.new do |s|
   }
 
   s.subspec 'Core' do |bd|
-    bd.source_files = 'RangersAppLog/Core/*.h'
+    bd.source_files = 'RangersAppLog/Core/*.{h,m,c}'
     bd.vendored_library = 'RangersAppLog/Core/*.a'
-    bd.frameworks = 'Foundation','Security','AdSupport','CoreTelephony','CoreFoundation','SystemConfiguration'
+    bd.frameworks = 'UIKit','Foundation','Security','AdSupport','CoreTelephony','CoreFoundation','SystemConfiguration','CoreGraphics'
     bd.library = 'z','sqlite3'
     bd.public_header_files = 'RangersAppLog/Core/*.h'
   end
 
   s.subspec 'UITracker' do |bd|
     bd.vendored_library = 'RangersAppLog/UITracker/*.a'
-    bd.source_files = 'RangersAppLog/UITracker/*.h'
-    bd.frameworks = 'UIKit','WebKit'
+    bd.source_files = 'RangersAppLog/UITracker/*.{h,m,c}'
+    bd.frameworks = 'Foundation','UIKit','WebKit'
     bd.public_header_files = 'RangersAppLog/UITracker/*.h'
     bd.dependency 'RangersAppLog/Core'
   end
 
   s.subspec 'Picker' do |bd|
     bd.vendored_library = 'RangersAppLog/Picker/*.a'
-    bd.frameworks = 'CoreGraphics','CoreServices','MobileCoreServices','QuartzCore','CoreText'
+    bd.frameworks = 'Foundation','UIKit','WebKit','CoreText'
     bd.dependency 'RangersAppLog/UITracker'
+    bd.source_files = 'RangersAppLog/Picker/*.{h,m,c}'
+    bd.public_header_files = 'RangersAppLog/Picker/*.h'
     bd.resource_bundles = {
       'RangersAppLog' => ['RangersAppLog/Assets/*.xcassets']
     }

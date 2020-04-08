@@ -31,12 +31,12 @@ source 'https://github.com/bytedance/cocoapods_sdk_source_repo.git'
 
 # 接入无埋点版本
 target 'YourTarget' do
-  pod 'RangersAppLog', '>= 4.5.0'
+  pod 'RangersAppLog', '>= 5.0.0'
 end
 
 # 接入埋点版本 
 target 'YourTarget' do
-  pod 'RangersAppLog', '>= 4.5.0',:subspecs => ['Core']
+  pod 'RangersAppLog', '>= 5.0.0',:subspecs => ['Core']
 end
 
 ```
@@ -49,7 +49,7 @@ end
 
 ```Objective-C
 
-#import <RangersAppLog/RangersAppLogUITrack.h>
+#import <RangersAppLog/RangersAppLog.h>
 
 + (void)startAppLog {
     BDAutoTrackConfig *config = [BDAutoTrackConfig new];
@@ -107,7 +107,7 @@ end
 
 ```Objective-C
 
-#import <RangersAppLog/RangersAppLogCore.h>
+#import <RangersAppLog/RangersAppLog.h>
 
 /// 如果是iOS 13中重写UISceneDelegate的回调，则按照i以下code
 - (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts {
@@ -135,6 +135,9 @@ end
 ```
 
 ## 版本更新记录
+
+### 5.0.0
+- 修复ABTestConfigValueForKey接口defaultValue问题
 
 ### 4.5.0
 
