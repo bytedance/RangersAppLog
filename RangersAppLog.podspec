@@ -11,7 +11,6 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '8.0'
   s.requires_arc = true
   s.static_framework = true
-  s.source_files = 'RangersAppLog/*.{h,m}'
   s.pod_target_xcconfig = {
     'OTHER_LDFLAGS' => '-lObjC',
     'DEFINES_MODULE' => 'YES',
