@@ -41,6 +41,8 @@ NS_ASSUME_NONNULL_BEGIN
 /*! @abstract 是否自动拉配置。默认YES，一般情况请不要修改。仅私有化部署情况，可能不需要自动拉取配置 */
 @property (nonatomic, assign) BOOL autoFetchSettings;
 
+/*! @abstract 是否开AB。默认YES，一般情况请不要修改 */
+@property (nonatomic, assign) BOOL abEnable;
 
 @end
 

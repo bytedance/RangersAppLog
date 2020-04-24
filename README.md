@@ -31,12 +31,12 @@ source 'https://github.com/bytedance/cocoapods_sdk_source_repo.git'
 
 # 接入无埋点版本
 target 'YourTarget' do
-  pod 'RangersAppLog', '>= 5.0.0'
+  pod 'RangersAppLog', '~> 5.0'
 end
 
 # 接入埋点版本 
 target 'YourTarget' do
-  pod 'RangersAppLog', '>= 5.0.0',:subspecs => ['Core']
+  pod 'RangersAppLog', '~> 5.0',:subspecs => ['Core']
 end
 
 ```
@@ -51,7 +51,7 @@ end
 
 #import <RangersAppLog/RangersAppLog.h>
 
-+ (void)startAppLog {
+- (void)startAppLog {
     BDAutoTrackConfig *config = [BDAutoTrackConfig new];
     config.appID = @"159486";
     config.channel = @"App Store";
@@ -62,10 +62,6 @@ end
     config.logger = ^(NSString * _Nullable log) {
         NSLog(@"%@",log);
     };
-
-    [BDAutoTrack setABTestFinishBlock:^(BOOL ABTestEnabled, NSDictionary * allConfigs) {
-        NSLog(@"-- ABTestEnabled(%tu)",ABTestEnabled);
-    }];
     /// change to your UserUniqueID if now is loged in
     NSString *uniqueID = @"12345";
     BDAutoTrack *track = [BDAutoTrack trackWithConfig:config];
@@ -73,6 +69,8 @@ end
     NSString *uniqueID = @"12345";
     [track setCurrentUserUniqueID:uniqueID];
     [track startTrack];
+    
+    self.track = track;
 }
 
 ```
@@ -81,14 +79,14 @@ end
 
 ```Objective-C
 
-+ (void)logout {
-    [track clearUserUniqueID];
+- (void)logout {
+    [self.track clearUserUniqueID];
 }
 
-+ (void)login {
+- (void)login {
     /// change to your UserUniqueID
     NSString *uniqueID = @"12345";
-    [track setCurrentUserUniqueID:uniqueID];
+    [self.track setCurrentUserUniqueID:uniqueID];
 }
 
 ```
@@ -98,7 +96,7 @@ end
 ```Objective-C
 
 + (void)eventV3:(NSString *)event params:(NSDictionary *)params {
-    [track eventV3:event params:params];
+    [self.track eventV3:event params:params];
 }
 
 ```
@@ -136,6 +134,9 @@ end
 
 ## 版本更新记录
 
+### 5.1.0
+- 新增AB功能开关
+
 ### 5.0.0
 - 修复ABTestConfigValueForKey接口defaultValue问题
 
@@ -145,20 +146,6 @@ end
 - 移除ABVersion相关的接口
 - 优化OOM问题
 - 修复IGListKit冲突
-
-### 4.3.0
-
-- 调整游戏预置埋点，接口不与上个版本兼容
-
-### 4.1.1
-
-- 通过Scheme打开圈选开关
-- 默认subspec集成所有功能
-- 去掉did接口，新增BytedanceDeviceID接口
-- 安装包 795.99 KB
-
-
-
 
 
 ## 证书
