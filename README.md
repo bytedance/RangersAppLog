@@ -31,12 +31,12 @@ source 'https://github.com/bytedance/cocoapods_sdk_source_repo.git'
 
 # 接入无埋点版本
 target 'YourTarget' do
-  pod 'RangersAppLog', '~> 5.0'
+  pod 'RangersAppLog', '~> 5.1'
 end
 
 # 接入埋点版本 
 target 'YourTarget' do
-  pod 'RangersAppLog', '~> 5.0',:subspecs => ['Core']
+  pod 'RangersAppLog', '~> 5.1',:subspecs => ['Core']
 end
 
 ```
@@ -134,7 +134,7 @@ end
 
 ## 版本更新记录
 
-### 5.1.0
+### 5.1.1
 - 新增AB功能开关
 
 ### 5.0.0
