@@ -28,3 +28,5 @@ xcuserdata/
 *.dSYM.zip
 *.dSYM
 *.zip
+Gemfile
+Gemfile.lock
