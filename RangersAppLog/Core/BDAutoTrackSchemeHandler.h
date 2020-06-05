@@ -6,21 +6,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BDCommonDefine.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
-@protocol BDAutoTrackSchemeHandler <NSObject>
-
-/*! @abstract 处理scheme
- @discussion 请参考下面接口调用示例
- @param URL scheme的完整URL，透传参数
- @param appID 初始化SDK的AppID
- @param scene 适配iOS 13的参数，透传参数
- @result 返回YES，表示已经处理了该URL，NO表示没有处理
-*/
-- (BOOL)handleURL:(NSURL *)URL appID:(NSString *)appID scene:(nullable id)scene;
-
-@end
 
 /* 如果是iOS 13中重写UISceneDelegate的回调，则按照i以下code
 - (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts {
@@ -49,6 +37,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface BDAutoTrackSchemeHandler : NSObject<BDAutoTrackSchemeHandler>
 
 + (instancetype)sharedHandler;
+
+- (BOOL)handleURL:(NSURL *)URL appID:(NSString *)appID scene:(nullable id)scene;
 
 - (void)registerHandler:(id<BDAutoTrackSchemeHandler>)handler;
 - (void)unregisterHandler:(id<BDAutoTrackSchemeHandler>)handler;

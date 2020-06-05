@@ -6,14 +6,26 @@ install! 'cocoapods',
   :warn_for_multiple_pod_sources => false
 platform :ios, '10.0'
 
-#require 'bd_pod_extentions'
-#plugin 'cocoapods-bytedance-transform'
-#bd_use_app("public")
+# require 'bd_pod_extentions'
+# plugin 'cocoapods-bytedance-transform'
+# bd_use_app("public")
 
 #use_frameworks!
 def common
   pod 'RangersAppLog',:path => '../'
-  # pod 'RangersAppLog/Picker','5.1.6-alpha.1.1.binary'
+  # pod 'RangersAppLog/Picker','5.1.6-rc.1'
+  # pod 'RangersKit', "0.9.1.1-binary", :subspecs => [
+  #   "Service",
+  #   "Reachability",
+  #   "Defaults",
+  #   "IDFA",
+  #   "Security",
+  #   "Foundation",
+  #   "Timer",
+  #   "Keychain",
+  #   "Database",
+  #   "Decorator",
+  # ]
 end
 target 'OCDemo' do
   common

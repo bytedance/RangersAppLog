@@ -65,6 +65,37 @@ typedef NSString * _Nullable (^BDAutoTrackRequestHostBlock)(BDAutoTrackServiceVe
  */
 typedef NSDictionary<NSString*, id> *_Nonnull (^BDAutoTrackCustomHeaderBlock)(void);
 
+@protocol BDAutoTrackSchemeHandler <NSObject>
+
+/*! @abstract 处理scheme
+ @discussion 请参考下面接口调用示例
+ @param URL scheme的完整URL，透传参数
+ @param appID 初始化SDK的AppID
+ @param scene 适配iOS 13的参数，透传参数
+ @result 返回YES，表示已经处理了该URL，NO表示没有处理
+*/
+- (BOOL)handleURL:(NSURL *)URL appID:(NSString *)appID scene:(nullable id)scene;
+
+@end
+
+typedef NS_ENUM(NSUInteger, BDAutoTrackLaunchFrom) {
+    /// 初始状态
+    BDAutoTrackLaunchFromInitialState = 0,
+    /// 用户手动点击进入app
+    BDAutoTrackLaunchFromUserClick,
+    /// 用户通过push点击进入app
+    BDAutoTrackLaunchFromRemotePush,
+    /// 用户通过widget点击进入app
+    BDAutoTrackLaunchFromWidget,
+    /// 用户通过sptlight点击进入app
+    BDAutoTrackLaunchFromSpotlight,
+    /// 用户通过外部app唤醒进入app
+    BDAutoTrackLaunchFromExternal,
+    /// 用户手动切回前台
+    BDAutoTrackLaunchFromBackground,
+    /// from siri
+    BDAutoTrackLaunchFromSiri,
+};
 
 NS_ASSUME_NONNULL_END
 #endif /* BDCommonDefine_h */

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'RangersAppLog'
-  s.version          = '5.1.1'
+  s.version          = '5.2.0'
   s.summary          = 'ByteDance Rangers AppLog.'
   s.description      = 'ByteDance Rangers AppLog SDK.'
   s.homepage         = 'https://github.com/bytedance/RangersAppLog'
@@ -24,6 +24,12 @@ Pod::Spec.new do |s|
     bd.public_header_files = 'RangersAppLog/Core/*.h'
   end
 
+  s.subspec 'Log' do |bd|
+    bd.source_files = 'RangersAppLog/Log/*.{h,m,c}'
+    bd.vendored_library = 'RangersAppLog/Log/*.a'
+    bd.dependency 'RangersAppLog/Core'
+  end
+
   s.subspec 'UITracker' do |bd|
     bd.vendored_library = 'RangersAppLog/UITracker/*.a'
     bd.source_files = 'RangersAppLog/UITracker/*.{h,m,c}'
@@ -35,6 +41,7 @@ Pod::Spec.new do |s|
   s.subspec 'Picker' do |bd|
     bd.vendored_library = 'RangersAppLog/Picker/*.a'
     bd.frameworks = 'Foundation','UIKit','WebKit','CoreText'
+    bd.dependency 'RangersAppLog/Log'
     bd.dependency 'RangersAppLog/UITracker'
     bd.source_files = 'RangersAppLog/Picker/*.{h,m,c}'
     bd.public_header_files = 'RangersAppLog/Picker/*.h'

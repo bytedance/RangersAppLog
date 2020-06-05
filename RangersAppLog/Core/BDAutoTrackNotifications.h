@@ -71,12 +71,12 @@ FOUNDATION_EXTERN NSString * const kBDAutoTrackNotificationData;
 /*! @abstract SDK ABTestVid发生变化时候的通知
  userInfo
  @{ kBDAutoTrackNotificationAppID           :appID,
-    kBDAutoTrackNotificationABTesVids            :vids,
-    kBDAutoTrackNotificationABTesExternalVids:externalVids
+    kBDAutoTrackNotificationABTestVids            :vids,
+    kBDAutoTrackNotificationABTestExternalVids:externalVids
  };
 @discussion 通知在子线程，每次Vid发生变化时触发。需要该 App ID 配置了 ABTest 功能，否则不会有通知。
 */
-FOUNDATION_EXTERN NSString * const BDAutoTrackNotificationABTesVidsChanged;
-FOUNDATION_EXTERN NSString * const kBDAutoTrackNotificationABTesVids;
-FOUNDATION_EXTERN NSString * const kBDAutoTrackNotificationABTesExternalVids;
+FOUNDATION_EXTERN NSString * const BDAutoTrackNotificationABTestVidsChanged;
+FOUNDATION_EXTERN NSString * const kBDAutoTrackNotificationABTestVids;
+FOUNDATION_EXTERN NSString * const kBDAutoTrackNotificationABTestExternalVids;
 

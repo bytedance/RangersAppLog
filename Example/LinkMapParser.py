@@ -157,7 +157,8 @@ def read_base_link_map_file(base_link_map_file, lib_names = []):
   lib_total_size = 0
   all_libs = a_file_map.keys()
   for lib_name in all_libs:
-    if "libRangers" in lib_name or "libE" in lib_name or "libBD" in lib_name :
+    if "libRangers" in lib_name or "libE" in lib_name or "libBD" in lib_name or "libRSK" in lib_name:
+    # if "libRangersKit" in lib_name or "libRSK" in lib_name:
       lib_names.append(lib_name)
     pass
 
