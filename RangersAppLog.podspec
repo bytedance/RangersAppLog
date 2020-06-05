@@ -25,7 +25,6 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'Log' do |bd|
-    bd.source_files = 'RangersAppLog/Log/*.{h,m,c}'
     bd.vendored_library = 'RangersAppLog/Log/*.a'
     bd.dependency 'RangersAppLog/Core'
   end
