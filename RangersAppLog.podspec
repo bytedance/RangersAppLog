@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'RangersAppLog'
-  s.version          = '5.2.0'
+  s.version          = '5.2.1'
   s.summary          = 'ByteDance Rangers AppLog.'
   s.description      = 'ByteDance Rangers AppLog SDK.'
   s.homepage         = 'https://github.com/bytedance/RangersAppLog'
