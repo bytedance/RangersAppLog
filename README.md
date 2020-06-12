@@ -27,7 +27,17 @@
 或者参照Demo工程的Podfile
 
 ```Rbuy
+
+# cdn trunk
+source 'https://cdn.cocoapods.org/'
+
+## https
 source 'https://github.com/bytedance/cocoapods_sdk_source_repo.git'
+source 'https://github.com/CocoaPods/Specs.git'
+
+## ssh
+source 'git@github.com:bytedance/RangersAppLog.git'
+source 'git@github.com:CocoaPods/Specs.git'
 
 # 接入无埋点版本
 target 'YourTarget' do
