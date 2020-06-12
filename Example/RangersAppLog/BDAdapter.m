@@ -46,6 +46,10 @@ static NSString * const TestAPPID = @"159486";
                                                  selector:@selector(onABTestSuccess)
                                                      name:BDAutoTrackNotificationABTestSuccess
                                                    object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(onActiveSuccess)
+                                                     name:BDAutoTrackNotificationActiveSuccess
+                                                   object:nil];
 
 
     }
@@ -163,5 +167,10 @@ static NSString * const TestAPPID = @"159486";
 - (void)onABTestSuccess  {
     NSLog(@"NSNotification onABTestSuccess");
 }
+
+- (void)onActiveSuccess  {
+    NSLog(@"NSNotification onActiveSuccess");
+}
+
 
 @end
