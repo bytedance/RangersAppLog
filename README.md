@@ -35,18 +35,18 @@ source 'https://cdn.cocoapods.org/'
 source 'https://github.com/bytedance/cocoapods_sdk_source_repo.git'
 source 'https://github.com/CocoaPods/Specs.git'
 
-## ssh
+## or use ssh
 source 'git@github.com:bytedance/RangersAppLog.git'
 source 'git@github.com:CocoaPods/Specs.git'
 
 # 接入无埋点版本
 target 'YourTarget' do
-  pod 'RangersAppLog', '~> 5.1'
+  pod 'RangersAppLog', '~> 5.3'
 end
 
 # 接入埋点版本 
 target 'YourTarget' do
-  pod 'RangersAppLog', '~> 5.1',:subspecs => ['Core']
+  pod 'RangersAppLog', '~> 5.3',:subspecs => ['Core','Log']
 end
 
 ```
@@ -144,8 +144,9 @@ end
 
 ## 版本更新记录
 
-### 5.1.1
-- 新增AB功能开关
+### 5.3.0
+
+- 修复UUID变化上报不及时问题
 
 ### 5.0.0
 - 修复ABTestConfigValueForKey接口defaultValue问题
