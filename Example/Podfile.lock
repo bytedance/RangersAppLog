@@ -1,16 +1,16 @@
 PODS:
-  - RangersAppLog (5.3.0):
-    - RangersAppLog/Core (= 5.3.0)
-    - RangersAppLog/Log (= 5.3.0)
-    - RangersAppLog/Picker (= 5.3.0)
-    - RangersAppLog/UITracker (= 5.3.0)
-  - RangersAppLog/Core (5.3.0)
-  - RangersAppLog/Log (5.3.0):
+  - RangersAppLog (5.3.1):
+    - RangersAppLog/Core (= 5.3.1)
+    - RangersAppLog/Log (= 5.3.1)
+    - RangersAppLog/Picker (= 5.3.1)
+    - RangersAppLog/UITracker (= 5.3.1)
+  - RangersAppLog/Core (5.3.1)
+  - RangersAppLog/Log (5.3.1):
     - RangersAppLog/Core
-  - RangersAppLog/Picker (5.3.0):
+  - RangersAppLog/Picker (5.3.1):
     - RangersAppLog/Log
     - RangersAppLog/UITracker
-  - RangersAppLog/UITracker (5.3.0):
+  - RangersAppLog/UITracker (5.3.1):
     - RangersAppLog/Core
 
 DEPENDENCIES:
@@ -21,7 +21,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  RangersAppLog: b8bc3db5600f08c17256ffa48c9cf9c03ae4a324
+  RangersAppLog: 917f51a163a18c5aaf04a812837f465cdbb563e0
 
 PODFILE CHECKSUM: bb9f217a8b88f3ef78b600e5fb43610e58077d36
 
