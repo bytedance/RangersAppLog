@@ -144,19 +144,10 @@ end
 
 ## 版本更新记录
 
-### 5.3.0
+### 5.3.1
 
 - 修复UUID变化上报不及时问题
-
-### 5.0.0
-- 修复ABTestConfigValueForKey接口defaultValue问题
-
-### 4.5.0
-
-- 解决无埋点hook与ReSwift、RxCocoa、RxDataSources等第三方SDK的冲突
-- 移除ABVersion相关的接口
-- 优化OOM问题
-- 修复IGListKit冲突
+- 新增接口
 
 
 ## 证书
