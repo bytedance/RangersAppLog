@@ -36,7 +36,7 @@ source 'https://github.com/bytedance/cocoapods_sdk_source_repo.git'
 source 'https://github.com/CocoaPods/Specs.git'
 
 ## or use ssh
-source 'git@github.com:bytedance/RangersAppLog.git'
+source 'git@github.com:bytedance/cocoapods_sdk_source_repo.git'
 source 'git@github.com:CocoaPods/Specs.git'
 
 # 接入无埋点版本
