@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'RangersAppLog'
-  s.version          = '5.3.0'
+  s.version          = '5.4.0'
   s.summary          = 'ByteDance Rangers AppLog.'
   s.description      = 'ByteDance Rangers AppLog SDK.'
   s.homepage         = 'https://github.com/bytedance/RangersAppLog'
@@ -27,6 +27,12 @@ Pod::Spec.new do |s|
   s.subspec 'Log' do |bd|
     bd.vendored_library = 'RangersAppLog/Log/*.a'
     bd.dependency 'RangersAppLog/Core'
+  end
+
+  s.subspec 'Unique' do |bd|
+    bd.frameworks = 'AdSupport'
+    bd.dependency 'RangersAppLog/Core'
+    bd.vendored_library = 'RangersAppLog/Unique/*.a'
   end
 
   s.subspec 'UITracker' do |bd|
