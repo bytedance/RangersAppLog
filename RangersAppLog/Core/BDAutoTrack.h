@@ -322,6 +322,30 @@ BDAutoTrack 里面引用住一个BDAutoTrack单例，方便过渡期使用。推
  */
 + (void)setCustomHeaderBlock:(nullable BDAutoTrackCustomHeaderBlock)customHeaderBlock;
 
+/**
+ @abstract 添加自定义上报信息
+ @param value 自定义上报value，一般需要传NSString或者数字，或者nil
+ @param key 自定义上报key
+ @discussion customHeaderBlock 的SDK不会持久化，下面两个接口，SDK会持久化
+ 
+ /// 新增或者修改，仅发生变化的时候使用
+ [BDAutoTrack setCustomHeaderValue:@"male" forKey:@"gender"];
+ [BDAutoTrack setCustomHeaderValue:@(29) forKey:@"age"];
+
+ /// 删除
+ [BDAutoTrack removeCustomHeaderValueForKey:@"gender"];
+ [BDAutoTrack removeCustomHeaderValueForKey:@"age"];
+ 
+ 原来用法
+  [BDAutoTrack setCustomHeaderBlock:^NSDictionary<NSString *,id> * _Nonnull{
+     return @{@"gender":[UserInfo GetGender],
+            @"age":@([UserInfo GetAge]),
+            };
+  }];
+ */
++ (void)setCustomHeaderValue:(nullable id)value forKey:(NSString *)key;
++ (void)removeCustomHeaderValueForKey:(NSString *)key;
+
 /*! @abstract 日志上报，在初始化之后设置才能调用
  @param event 事件名称，不能为nil或空字符串
  @param params 事件参数。可以为空或者nil，但是param如果非空，需要可序列化成json
@@ -367,6 +391,12 @@ BDAutoTrack 里面引用住一个BDAutoTrack单例，方便过渡期使用。推
  */
 + (nullable NSDictionary *)allABTestConfigs;
 
+#pragma mark - main app only
+
+/*! @abstract 主动触发上报。SDK有频率限制，每10s最多可以触发一次
+*/
++ (void)flush;
+
 #pragma mark - private API
 
 /*! @abstract 调用用户激活接口，在初始化之后设置才能调用
@@ -381,9 +411,9 @@ BDAutoTrack 里面引用住一个BDAutoTrack单例，方便过渡期使用。推
 
 @interface BDAutoTrack (SharedSpecial)
 
-+ (BOOL)eventV3:(NSString *)event params:(nullable NSDictionary *)params specialParams:(NSDictionary *)specialParams __attribute__((deprecated("过期方法，推荐使用多实例的方式")));
++ (BOOL)eventV3:(NSString *)event params:(nullable NSDictionary *)params specialParams:(NSDictionary *)specialParams __attribute__((deprecated("过期方法")));
 
-+ (BOOL)customEvent:(NSString *)category params:(NSDictionary *)params __attribute__((deprecated("过期方法，推荐使用多实例的方式")));
++ (BOOL)customEvent:(NSString *)category params:(NSDictionary *)params;
 
 @end
 
