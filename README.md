@@ -17,9 +17,8 @@
 
 ## 版本说明
 
-1. Lite版，埋点版本，即 `subspecs => ['Core']`
-2. 无埋点版本，即 `subspecs => ['UITracker']`
-3. 圈选版本，即 `subspecs => ['Picker']`
+1. Lite版，埋点版本，即 `subspecs => ['Core','Log']`,如果需要采集IDFA,子库需要添加`Unique`
+3. 圈选版本，即 `subspecs => ['Picker']`如果需要采集IDFA,子库需要添加`Unique`
 
 ## 集成方式
 
@@ -27,13 +26,8 @@
 或者参照Demo工程的Podfile
 
 ```Rbuy
-
 # cdn trunk
 source 'https://cdn.cocoapods.org/'
-
-## https
-source 'https://github.com/bytedance/cocoapods_sdk_source_repo.git'
-source 'https://github.com/CocoaPods/Specs.git'
 
 ## or use ssh
 source 'git@github.com:bytedance/cocoapods_sdk_source_repo.git'
@@ -41,12 +35,12 @@ source 'git@github.com:CocoaPods/Specs.git'
 
 # 接入无埋点版本
 target 'YourTarget' do
-  pod 'RangersAppLog', '~> 5.3'
+  pod 'RangersAppLog', '~> 5.4',:subspecs => ['Picker','Unique']
 end
 
 # 接入埋点版本 
 target 'YourTarget' do
-  pod 'RangersAppLog', '~> 5.3',:subspecs => ['Core','Log']
+  pod 'RangersAppLog', '~> 5.4',:subspecs => ['Core','Log','Unique']
 end
 
 ```
@@ -143,6 +137,10 @@ end
 ```
 
 ## 版本更新记录
+
+### 5.4.0
+
+- 默认移除IDFA，IDFA放到了子库`Unique`中
 
 ### 5.3.1
 
