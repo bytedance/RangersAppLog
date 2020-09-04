@@ -51,6 +51,8 @@ Pod::Spec.new do |s|
   s.subspec 'Unique' do |bd|
     bd.frameworks = 'AdSupport'
     bd.dependency 'RangersAppLog/Core'
+    bd.source_files = 'RangersAppLog/Unique/*.{h,m,c}'
+    bd.public_header_files = 'RangersAppLog/Unique/*.h'
     bd.vendored_library = 'RangersAppLog/Unique/*.a'
   end
 
