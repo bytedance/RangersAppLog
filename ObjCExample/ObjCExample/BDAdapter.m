@@ -10,11 +10,9 @@
 #import "BDFeedModel.h"
 #import <RangersAppLog/BDKeyWindowTracker.h>
 #import <RangersAppLog/RangersAppLog.h>
-#import <RangersAppLog/BDAutoTrack+ET.h>
-#import <RangersAppLog/BDAutoTrack+Filter.h>
 #import <RangersAppLog/BDAutoTrackURLHostItemCN.h>
 
-static NSString *const BDDebugAppID = @"179543";
+static NSString *const BDDebugAppID = @"12345678";
 
 @implementation BDAdapter
 
@@ -36,18 +34,25 @@ static NSString *const BDDebugAppID = @"179543";
         CFTimeInterval current = CFAbsoluteTimeGetCurrent(); // 计算初始化时间
         
         BDAutoTrackConfig *config = [BDAutoTrackConfig configWithAppID:BDDebugAppID];
-        config.appName = @"dp_tob_sdk_test2";
-        config.showDebugLog = YES;  /* 开启调试Log */
+        config.appName = @"your_app_name";
+        
+        /* 开启调试Log。仅在开发时使用，生产环境禁用 */
+        config.showDebugLog = YES;
         config.logger = ^(NSString * _Nullable log) {
             NSLog(@"applog -- %@", log);
         };
-        config.logNeedEncrypt = NO;
-        config.serviceVendor = BDAutoTrackServiceVendorCN;
-//        config.serviceVendor = BDAutoTrackServiceVendorPrivate;  /* 设置上报服务器域名 */
         
-        config.autoTrackEnabled = YES;  // 开启无埋点
+        /* 生产环境打开加密 */
+        config.logNeedEncrypt = NO;
+        
+        /* 开启无埋点 */
+        config.autoTrackEnabled = YES;
+
+        /* 设置上报服务器域名 */
+        config.serviceVendor = BDAutoTrackServiceVendorCN;
         
         /* 配置私有化 */
+//        config.serviceVendor = BDAutoTrackServiceVendorPrivate;
 //        BDAutoTrackRequestHostBlock block =
 //                  ^NSString *(BDAutoTrackServiceVendor vendor, BDAutoTrackRequestURLType requestURLType) {
 //                      return @"http://10.10.10.10:8080";
@@ -67,12 +72,6 @@ static NSString *const BDDebugAppID = @"179543";
 
         CFTimeInterval initTimeCost = CFAbsoluteTimeGetCurrent() - current;
         NSLog(@"startAutoTracker.initTimeCost: (%.6f)",initTimeCost);
-        [[BDAutoTrack trackWithAppID:BDDebugAppID] setFilterEnable:YES];
-        [BDAutoTrack setETEnable:YES withAppID:BDDebugAppID];
-        
-        
-
-        
     });
 
     // [self showPicker];
