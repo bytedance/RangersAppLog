@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'RangersAppLog'
-  s.version          = '5.4.1'
+  s.version          = '5.5.0'
   s.summary          = 'ByteDance Rangers AppLog.'
   s.description      = 'ByteDance Rangers AppLog SDK.'
   s.homepage         = 'https://github.com/bytedance/RangersAppLog'
@@ -22,6 +22,19 @@ Pod::Spec.new do |s|
     bd.frameworks = 'UIKit','Foundation','Security','AdSupport','CoreTelephony','CoreFoundation','SystemConfiguration','CoreGraphics'
     bd.library = 'z','sqlite3'
     bd.public_header_files = 'RangersAppLog/Core/*.h'
+  end
+
+  s.subspec 'Host' do |bd|
+    bd.dependency 'RangersAppLog/Core'
+    bd.subspec 'CN' do |cn|
+      cn.vendored_library = 'RangersAppLog/Host_CN/*.a'
+    end
+    bd.subspec 'SG' do |sg|
+      sg.vendored_library = 'RangersAppLog/Host_SG/*.a'
+    end
+    bd.subspec 'VA' do |va|
+      va.vendored_library = 'RangersAppLog/Host_VA/*.a'
+    end
   end
 
   s.subspec 'Log' do |bd|
