@@ -27,14 +27,17 @@ Pod::Spec.new do |s|
   s.subspec 'Host' do |bd|
     bd.dependency 'RangersAppLog/Core'
     bd.subspec 'CN' do |cn|
+      cn.source_files = 'RangersAppLog/Host_CN/*.{h,m,c}'
       cn.public_header_files = 'RangersAppLog/Host_CN/*.h'
       cn.vendored_library = 'RangersAppLog/Host_CN/*.a'
     end
     bd.subspec 'SG' do |sg|
+      sg.source_files = 'RangersAppLog/Host_SG/*.{h,m,c}'
       sg.public_header_files = 'RangersAppLog/Host_SG/*.h'
       sg.vendored_library = 'RangersAppLog/Host_SG/*.a'
     end
     bd.subspec 'VA' do |va|
+      va.source_files = 'RangersAppLog/Host_VA/*.{h,m,c}'
       va.public_header_files = 'RangersAppLog/Host_VA/*.h'
       va.vendored_library = 'RangersAppLog/Host_VA/*.a'
     end
