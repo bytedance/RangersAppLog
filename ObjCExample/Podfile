@@ -1,0 +1,51 @@
+install! 'cocoapods', 
+  :disable_input_output_paths => true,
+  :generate_multiple_pod_projects => true,
+  :warn_for_multiple_pod_sources => false
+  
+platform :ios, '9.0'
+inhibit_all_warnings!
+
+target "ObjCExample" do
+  pod 'RangersAppLog',
+    :path => '../',
+    :subspecs => ['Host/CN', 'Core', 'Unique', 'UITracker', 'Log','Picker'],
+    :inhibit_warnings => false
+  
+  # UI Compatibility Test
+  pod 'IGListKit', '4.0.0'
+end
+
+def update_deployment_config(config = nil)
+  return if config.nil?
+  config.build_settings['ENABLE_BITCODE'] = 'NO'
+  if config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'].to_f < 9.0
+    config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '9.0'
+  end
+end
+
+post_install do |installer|
+  installer.pods_project.build_configurations.each do |config|
+    update_deployment_config(config)
+  end
+  
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      update_deployment_config(config)
+    end
+  end
+  ## for generate_multiple_pod_projects = true
+  installer.generated_projects.each do |project|
+    project.build_configurations.each do |config|
+      update_deployment_config(config)
+    end
+    
+    project.targets.each do |target|
+      target.build_configurations.each do |config|
+        update_deployment_config(config)
+      end
+    end
+  end
+
+end
+
