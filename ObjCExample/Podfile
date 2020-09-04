@@ -6,11 +6,6 @@ install! 'cocoapods',
 platform :ios, '9.0'
 inhibit_all_warnings!
 
-require 'bd_pod_extentions'
-bd_use_app("public")
-
-source 'https://code.byted.org/iOS_Library/publicthird_source_repo'
-
 target "ObjCExample" do
   pod 'RangersAppLog',
     :path => '../',
