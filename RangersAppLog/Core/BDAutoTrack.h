@@ -315,6 +315,13 @@ BDAutoTrack 里面引用住一个BDAutoTrack单例，方便过渡期使用。推
  */
 + (void)setAppLauguage:(nullable NSString *)appLauguage;
 
+/*! @abstract 用户触点 在初始化之后设置
+@discussion 如果设置过，会保存值，直到下次改变或者清空
+@discussion 如果没有值，或值为空字符串，则不会上报
+@discussion 发生变化时候请调用 `+[BDAutoTrack setAppTouchPoint:]`更新值
+*/
++ (void)setAppTouchPoint:(NSString *)appTouchPoint;
+
 /*! @abstract 添加自定义上报信息
  @param customHeaderBlock 自定义上报信息
  @discussion customHeaderBlock 一次App启动设置一次即可；App重启需要重新设置，因为SDK不会保存上次设置的值；会覆盖之前的初始化的或者上一次设置的，如果为nil会清空回调

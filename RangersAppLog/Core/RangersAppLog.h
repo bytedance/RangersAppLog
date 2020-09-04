@@ -22,6 +22,7 @@
 #import <zlib.h>
 #import <sqlite3.h>
 
+#import <RangersAppLog/BDCommonEnumDefine.h>
 #import <RangersAppLog/BDCommonDefine.h>
 #import <RangersAppLog/BDAutoTrackConfig.h>
 #import <RangersAppLog/BDAutoTrackConfig+AppLog.h>
@@ -46,6 +47,18 @@
 
 #if __has_include(<RangersAppLog/RangersAppLogPicker.h>)
 #import <CoreText/CoreText.h>
+#endif
+
+#if __has_include(<RangersAppLog/BDAutoTrackURLHostItemSG.h>)
+#import <RangersAppLog/BDAutoTrackURLHostItemSG.h>
+#endif
+
+#if __has_include(<RangersAppLog/BDAutoTrackURLHostItemVA.h>)
+#import <RangersAppLog/BDAutoTrackURLHostItemVA.h>
+#endif
+
+#if __has_include(<RangersAppLog/BDAutoTrackIDFA.h>)
+#import <RangersAppLog/BDAutoTrackIDFA.h>
 #endif
 
 #endif /* RangersAppLog_h */

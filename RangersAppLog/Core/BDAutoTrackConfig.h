@@ -21,12 +21,11 @@ NS_ASSUME_NONNULL_BEGIN
 /*! @abstract AppID，非空，必须设置 */
 @property (nonatomic, copy) NSString *appID;
 
-
 /*! @abstract 默认国内,初始化时一定要传正确的值
  @discussion 发生变化时候请调用 `+[BDAutoTrack setServiceVendor:]`更新值
  @discussion 会影响注册和日志上报。所以如果发生变化后，下次启动初始化请传入正确的值
  */
-@property (nonatomic, assign) BDAutoTrackServiceVendor serviceVendor;
+@property (nonatomic, copy) BDAutoTrackServiceVendor serviceVendor;
 
 
 /*! @abstract 根据App ID获取一个config
