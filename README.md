@@ -3,18 +3,18 @@
 数据采集上报SDK。具体支持功能见官网 https://datarangers.com.cn/。
 
 ## Demo演示
-
+建议您在体验Demo前，先checkout到相应版本的`release/x.x.x`分支。不建议在`master`分支下体验demo，因为`master`分支是不完全的发布。
 **Example工程1**
-1. `git clone git@github.com:bytedance/RangersAppLog.git`
-2. `cd RangersAppLog/Eample`
+1. `git clone git@github.com:bytedance/RangersAppLog.git --branch release/5.5.0`
+2. `cd RangersAppLog/Example`
 3. `pod install`
-4. `open RangersAppLog.xcworkspace`
+4. `open Example.xcworkspace`
 
 **Example工程2**
-1. `git clone git@github.com:bytedance/RangersAppLog.git`
-2. `cd RangersAppLog/ObjCEample`
+1. `git clone git@github.com:bytedance/RangersAppLog.git --branch release/5.5.0`
+2. `cd RangersAppLog/ObjCExample`
 3. `pod install`
-4. `open RangersAppLog.xcworkspace`
+4. `open ObjCExample.xcworkspace`
 
 ## 开发环境要求
 
