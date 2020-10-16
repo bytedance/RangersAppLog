@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9648BA22250F9F6C00C54814 /* BDProfileAPITesterImp.m in Sources */ = {isa = PBXBuildFile; fileRef = 9648BA21250F9F6C00C54814 /* BDProfileAPITesterImp.m */; };
+		96BE98D3251AF5A600068DBF /* BDNativeH5TesterImpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96BE98D2251AF5A600068DBF /* BDNativeH5TesterImpViewController.m */; };
+		96BE98D6251AFE9D00068DBF /* h5_page.html in Resources */ = {isa = PBXBuildFile; fileRef = 96BE98D5251AFE9D00068DBF /* h5_page.html */; };
+		96C629B625315C1D0056AD3E /* BDProfileAPITester_UI.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C629B425315C1D0056AD3E /* BDProfileAPITester_UI.m */; };
+		96C629B725315C1D0056AD3E /* BDProfileAPITester_UI.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96C629B525315C1D0056AD3E /* BDProfileAPITester_UI.xib */; };
 		96CC368C24EF691A0003D51D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 96CC368B24EF691A0003D51D /* AppDelegate.m */; };
 		96CC369724EF691D0003D51D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96CC369624EF691D0003D51D /* Assets.xcassets */; };
 		96CC369A24EF691D0003D51D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96CC369824EF691D0003D51D /* LaunchScreen.storyboard */; };
@@ -42,6 +47,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9648BA20250F9F6C00C54814 /* BDProfileAPITesterImp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BDProfileAPITesterImp.h; sourceTree = "<group>"; };
+		9648BA21250F9F6C00C54814 /* BDProfileAPITesterImp.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BDProfileAPITesterImp.m; sourceTree = "<group>"; };
+		96BE98D1251AF5A600068DBF /* BDNativeH5TesterImpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BDNativeH5TesterImpViewController.h; sourceTree = "<group>"; };
+		96BE98D2251AF5A600068DBF /* BDNativeH5TesterImpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BDNativeH5TesterImpViewController.m; sourceTree = "<group>"; };
+		96BE98D5251AFE9D00068DBF /* h5_page.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = h5_page.html; sourceTree = "<group>"; };
+		96C629B325315C1D0056AD3E /* BDProfileAPITester_UI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BDProfileAPITester_UI.h; sourceTree = "<group>"; };
+		96C629B425315C1D0056AD3E /* BDProfileAPITester_UI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BDProfileAPITester_UI.m; sourceTree = "<group>"; };
+		96C629B525315C1D0056AD3E /* BDProfileAPITester_UI.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BDProfileAPITester_UI.xib; sourceTree = "<group>"; };
 		96CC368724EF691A0003D51D /* ObjCExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ObjCExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96CC368A24EF691A0003D51D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		96CC368B24EF691A0003D51D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -136,6 +149,28 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		9648BA1F250F9F1300C54814 /* ProfileAPITester */ = {
+			isa = PBXGroup;
+			children = (
+				9648BA20250F9F6C00C54814 /* BDProfileAPITesterImp.h */,
+				9648BA21250F9F6C00C54814 /* BDProfileAPITesterImp.m */,
+				96C629B325315C1D0056AD3E /* BDProfileAPITester_UI.h */,
+				96C629B425315C1D0056AD3E /* BDProfileAPITester_UI.m */,
+				96C629B525315C1D0056AD3E /* BDProfileAPITester_UI.xib */,
+			);
+			path = ProfileAPITester;
+			sourceTree = "<group>";
+		};
+		96BE98D0251AF4B800068DBF /* H5Tester */ = {
+			isa = PBXGroup;
+			children = (
+				96BE98D1251AF5A600068DBF /* BDNativeH5TesterImpViewController.h */,
+				96BE98D2251AF5A600068DBF /* BDNativeH5TesterImpViewController.m */,
+				96BE98D5251AFE9D00068DBF /* h5_page.html */,
+			);
+			path = H5Tester;
+			sourceTree = "<group>";
+		};
 		96CC367E24EF691A0003D51D = {
 			isa = PBXGroup;
 			children = (
@@ -195,6 +230,8 @@
 		96CC36AF24EF9D6A0003D51D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				96BE98D0251AF4B800068DBF /* H5Tester */,
+				9648BA1F250F9F1300C54814 /* ProfileAPITester */,
 				96CC36DB24EFD3E70003D51D /* BDTesterControllers.h */,
 				96CC36EC24F101850003D51D /* BDTesterIntroducerBase.h */,
 				96CC36ED24F101850003D51D /* BDTesterIntroducerBase.m */,
@@ -376,7 +413,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				96CC369A24EF691D0003D51D /* LaunchScreen.storyboard in Resources */,
+				96BE98D6251AFE9D00068DBF /* h5_page.html in Resources */,
 				96CC374524F4EF730003D51D /* BDConfigViewerCell.xib in Resources */,
+				96C629B725315C1D0056AD3E /* BDProfileAPITester_UI.xib in Resources */,
 				96CC369724EF691D0003D51D /* Assets.xcassets in Resources */,
 				96CC36E024EFD6EE0003D51D /* BDUITrackTesterImp.xib in Resources */,
 			);
@@ -445,12 +484,15 @@
 				96CC36B924EF9D6A0003D51D /* BDFeedModel.m in Sources */,
 				96CC36EE24F101850003D51D /* BDTesterIntroducerBase.m in Sources */,
 				96CC370E24F27E9E0003D51D /* IGListTesterModel.m in Sources */,
+				9648BA22250F9F6C00C54814 /* BDProfileAPITesterImp.m in Sources */,
 				96CC36D424EFB8C40003D51D /* BDUITrackTesterImp.m in Sources */,
 				96CC369D24EF691D0003D51D /* main.m in Sources */,
 				96CC36E824EFDC440003D51D /* BDFinderTesterImp.m in Sources */,
 				96CC36BA24EF9D6A0003D51D /* BDTestIntroducerViewController.m in Sources */,
+				96BE98D3251AF5A600068DBF /* BDNativeH5TesterImpViewController.m in Sources */,
 				96CC36D024EFB7900003D51D /* BDReactiveObjcTesterImp.m in Sources */,
 				96CC374C24F4F31A0003D51D /* BDConfigViewModel.m in Sources */,
+				96C629B625315C1D0056AD3E /* BDProfileAPITester_UI.m in Sources */,
 				96CC36B824EF9D6A0003D51D /* BDDemoTextCell.m in Sources */,
 				96CC371D24F36BD00003D51D /* BDChinesePaintingSectionController.m in Sources */,
 				96CC36DE24EFD63A0003D51D /* BDHookCompatibilityTesterSuite.m in Sources */,
@@ -587,6 +629,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A7D5C9A00328674A0165C59F /* Pods-ObjCExample.debug.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ObjCExample/Info.plist;
@@ -605,6 +648,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B8D34FE7469F1083A047981E /* Pods-ObjCExample.release.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ObjCExample/Info.plist;

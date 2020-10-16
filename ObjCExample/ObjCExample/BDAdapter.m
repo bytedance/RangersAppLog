@@ -34,22 +34,17 @@ static NSString *const BDDebugAppID = @"12345678";
         CFTimeInterval current = CFAbsoluteTimeGetCurrent(); // 计算初始化时间
         
         BDAutoTrackConfig *config = [BDAutoTrackConfig configWithAppID:BDDebugAppID];
-        config.appName = @"your_app_name";
-        
-        /* 开启调试Log。仅在开发时使用，生产环境禁用 */
-        config.showDebugLog = YES;
+//        config.appName = @"yq_rangers_applog_test";
+        config.showDebugLog = YES;  /* 开启调试Log */
         config.logger = ^(NSString * _Nullable log) {
             NSLog(@"applog -- %@", log);
         };
         
         /* 生产环境打开加密 */
         config.logNeedEncrypt = NO;
+        config.serviceVendor = BDAutoTrackServiceVendorCN;  /* 设置上报服务器域名 */
         
-        /* 开启无埋点 */
-        config.autoTrackEnabled = YES;
-
-        /* 设置上报服务器域名 */
-        config.serviceVendor = BDAutoTrackServiceVendorCN;
+        config.autoTrackEnabled = YES;  // 开启无埋点
         
         /* 配置私有化 */
 //        config.serviceVendor = BDAutoTrackServiceVendorPrivate;
@@ -60,14 +55,15 @@ static NSString *const BDDebugAppID = @"12345678";
 //        [BDAutoTrack setRequestHostBlock:block];
         
         [BDAutoTrack startTrackWithConfig:config];
+        [BDAutoTrack setAppTouchPoint:@"iOS APP端"];
         [BDAutoTrack setCustomHeaderBlock:^NSDictionary<NSString *,id> * _Nonnull{
             NSInteger level = [[NSUserDefaults standardUserDefaults] integerForKey:@"Demo_GameLevel"];
             return @{@"level":@(level)};
         }];
-        
         [BDAutoTrack setRequestURLBlock:^NSString *(BDAutoTrackServiceVendor vendor, BDAutoTrackRequestURLType requestURLType) {
             return nil;
         }];
+        
         [BDAutoTrack setCurrentUserUniqueID:@"123"];
 
         CFTimeInterval initTimeCost = CFAbsoluteTimeGetCurrent() - current;
@@ -76,19 +72,10 @@ static NSString *const BDDebugAppID = @"12345678";
 
     // [self showPicker];
     [BDAutoTrack setCustomHeaderBlock:^NSDictionary<NSString *,id> * _Nonnull{
-        return [self customData];
+        return @{
+            @"level": @(1)
+        };
     }];
-}
-
-+ (NSDictionary<NSString *,id> *)customData {
-    NSMutableDictionary<NSString *,id> *custom = [NSMutableDictionary new];
-    [custom setValue:@([self getLevel]) forKey:@"level"];
-    return custom;
-}
-
-+ (NSInteger)getLevel {
-    NSInteger level = 1;
-    return level;
 }
 
 + (void)trackKeyWindow:(UIWindow *)keyWindow {
@@ -98,6 +85,19 @@ static NSString *const BDDebugAppID = @"12345678";
 #pragma mark - eventV3
 + (BOOL)eventV3:(NSString *)event params:(NSDictionary *)param {
     return [BDAutoTrack eventV3:event params:param];
+}
+
+#pragma mark - Notification handlers
++ (void)onRegisterSuccess:(NSNotification *)not  {
+    NSLog(@"onRegisterSuccess %@",not.userInfo);
+}
+
++ (void)onActiveSuccess:(NSNotification *)not  {
+    NSLog(@"onActiveSuccess %@",not.userInfo);
+}
+
++ (void)onABTestSuccess:(NSNotification *)not  {
+    NSLog(@"onABTestSuccess %@",not.userInfo);
 }
 
 #pragma mark - picker
@@ -155,19 +155,6 @@ static NSString *const BDDebugAppID = @"12345678";
     }
 
     return NO;
-}
-
-#pragma mark - Notification handlers
-+ (void)onRegisterSuccess:(NSNotification *)not  {
-    NSLog(@"onRegisterSuccess %@",not.userInfo);
-}
-
-+ (void)onActiveSuccess:(NSNotification *)not  {
-    NSLog(@"onActiveSuccess %@",not.userInfo);
-}
-
-+ (void)onABTestSuccess:(NSNotification *)not  {
-    NSLog(@"onABTestSuccess %@",not.userInfo);
 }
 
 #pragma mark - config overlaping window

@@ -11,6 +11,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/// TesterIntroducer的基类，本身不实例化。
+/// 包括一个多section的tableView，用于介绍各种Tester VC。
 @interface BDTesterIntroducerBase : UIViewController
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) BDFeedModelDictionary *modelObject;

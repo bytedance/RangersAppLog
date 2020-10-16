@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "BDAdapter.h"
+#import <RangersAppLog.h>
 #import "BDTestIntroducerViewController.h"
 #import <mach/mach.h>
 
@@ -45,6 +46,8 @@ void globalNSExceptionHandler(NSException *exception) {
     [self.window makeKeyAndVisible];
     
     [BDAdapter trackKeyWindow:self.window];
+    
+    [BDAutoTrack eventV3:@"play_video" params:nil];
     return YES;
 }
 

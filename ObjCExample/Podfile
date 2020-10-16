@@ -9,7 +9,19 @@ inhibit_all_warnings!
 target "ObjCExample" do
   pod 'RangersAppLog',
     :path => '../',
-    :subspecs => ['Host/CN', 'Core', 'Unique', 'UITracker', 'Log','Picker'],
+    :subspecs => [
+      'Host/SG',
+      'Host/VA',
+      'Host/CN',
+      'Core',
+      'Unique',
+      'Log',
+      'Picker',
+      'UITracker',
+    ],
+    :testspecs => [
+#      'Tests',
+    ],
     :inhibit_warnings => false
   
   # UI Compatibility Test

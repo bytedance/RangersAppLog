@@ -30,6 +30,10 @@
 
 #import "BDTesterSDKConfigViewer.h"
 
+#import "BDProfileAPITesterImp.h"
+
+#import "BDNativeH5TesterImpViewController.h"
+
 #endif /* BDTesterControllers_h */
 
 

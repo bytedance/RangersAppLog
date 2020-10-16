@@ -9,7 +9,9 @@
 #import "BDFeedModel.h"
 #import "BDFeedModelDictionary.h"
 #import "BDTesterControllers.h"
-
+#import <AdSupport/AdSupport.h>
+#import <AppTrackingTransparency/AppTrackingTransparency.h>
+#import <RangersAppLog/RangersAppLog.h>
 
 @interface BDTestIntroducerViewController ()
 
@@ -22,6 +24,13 @@ static NSString *cellReuseID = @"testIntro_1";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"导航首页";
+    
+//    BDAutoTrackAuthorizationStatus status = [BDAutoTrackIDFA authorizationStatus];
+    [BDAutoTrackIDFA requestAuthorizationWithHandler:^(BDAutoTrackAuthorizationStatus status) {
+        NSLog(@"%@", @(status));
+    }];
+    NSString *idfa = [ASIdentifierManager.sharedManager advertisingIdentifier].UUIDString;
+    NSLog(@"%@", idfa);
 }
 
 #pragma mark - getter
@@ -38,6 +47,10 @@ static NSString *cellReuseID = @"testIntro_1";
             }],
             [[BDFeedModel alloc] initWithTitle:@"测试DataPlayer功能" actionBlock:^{
                 __auto_type vc = [[BDPlayerTesterImp alloc] init];
+                [wself.navigationController pushViewController:vc animated:YES];
+            }],
+            [[BDFeedModel alloc] initWithTitle:@"测试Profile API" actionBlock:^{
+                __auto_type vc = [[BDProfileAPITesterImp alloc] init];
                 [wself.navigationController pushViewController:vc animated:YES];
             }],
             [[BDFeedModel alloc] initWithTitle:@"测试圈选" actionBlock:^{
@@ -61,6 +74,12 @@ static NSString *cellReuseID = @"testIntro_1";
                 [wself.navigationController pushViewController:vc animated:YES];
             }],
             [[BDFeedModel alloc] initWithTitle:@"测试竞品SDK兼容性" actionBlock:^{}],
+            
+            [[BDModelSectionHeader alloc] initWithSectionName:@"H5相关测试" desc:@""],
+            [[BDFeedModel alloc] initWithTitle:@"内嵌H5页面走原生上报" actionBlock:^{
+                __auto_type vc = [[BDNativeH5TesterImpViewController alloc] init];
+                [wself.navigationController pushViewController:vc animated:YES];
+            }],
             
             [[BDModelSectionHeader alloc] initWithSectionName:@"查看SDK配置参数" desc:@""],
             [[BDFeedModel alloc] initWithTitle:@"查看初始化配置" actionBlock:^{
