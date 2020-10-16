@@ -1,0 +1,12 @@
+CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1 IGListDiffKit_POD_VERSION=@\"8888_4.0.0\" IGListKit_POD_VERSION=@\"8888_4.0.0\"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/IGListDiffKit" "${PODS_ROOT}/Headers/Public/IGListKit" "${PODS_ROOT}/Headers/Public/RangersAppLog"
+LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/IGListDiffKit" "${PODS_CONFIGURATION_BUILD_DIR}/IGListKit" "${PODS_CONFIGURATION_BUILD_DIR}/RangersAppLog" "${PODS_ROOT}/../../RangersAppLog/Core" "${PODS_ROOT}/../../RangersAppLog/Host_CN" "${PODS_ROOT}/../../RangersAppLog/Log" "${PODS_ROOT}/../../RangersAppLog/Unique"
+OTHER_CFLAGS = $(inherited) -fmodule-map-file="${PODS_ROOT}/Headers/Public/RangersAppLog/RangersAppLog.modulemap" -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/IGListDiffKit" -isystem "${PODS_ROOT}/Headers/Public/IGListKit"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"IGListDiffKit" -l"IGListKit" -l"RangersAppLog" -l"RangersAppLog_Debugger" -l"RangersAppLog_Host_CN_ios" -l"RangersAppLog_Lite" -l"RangersAppLog_Unique" -l"c++" -l"sqlite3" -l"z" -framework "AdSupport" -framework "CoreFoundation" -framework "CoreGraphics" -framework "CoreTelephony" -framework "Foundation" -framework "Security" -framework "SystemConfiguration" -framework "UIKit"
+OTHER_SWIFT_FLAGS = $(inherited) -D COCOAPODS -Xcc -fmodule-map-file="${PODS_ROOT}/Headers/Public/RangersAppLog/RangersAppLog.modulemap"
+PODS_BUILD_DIR = ${BUILD_DIR}
+PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
+PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
+PODS_ROOT = ${SRCROOT}/Pods
+USE_RECURSIVE_SCRIPT_INPUTS_IN_SCRIPT_PHASES = YES

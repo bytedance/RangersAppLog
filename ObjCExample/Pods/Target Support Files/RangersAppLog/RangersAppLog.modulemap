@@ -1,0 +1,6 @@
+module RangersAppLog {
+  umbrella header "RangersAppLog-umbrella.h"
+
+  export *
+  module * { export * }
+}

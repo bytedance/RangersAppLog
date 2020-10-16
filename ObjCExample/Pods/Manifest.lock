@@ -1,0 +1,36 @@
+PODS:
+  - IGListDiffKit (4.0.0)
+  - IGListKit (4.0.0):
+    - IGListDiffKit (= 4.0.0)
+  - RangersAppLog/Core (5.5.0)
+  - RangersAppLog/Host/CN (5.5.0):
+    - RangersAppLog/Core
+  - RangersAppLog/Log (5.5.0):
+    - RangersAppLog/Core
+  - RangersAppLog/Unique (5.5.0):
+    - RangersAppLog/Core
+
+DEPENDENCIES:
+  - IGListKit (= 4.0.0)
+  - RangersAppLog/Core (from `../`)
+  - RangersAppLog/Host/CN (from `../`)
+  - RangersAppLog/Log (from `../`)
+  - RangersAppLog/Unique (from `../`)
+
+SPEC REPOS:
+  https://code.byted.org/iOS_Library/publicthird_source_repo:
+    - IGListDiffKit
+    - IGListKit
+
+EXTERNAL SOURCES:
+  RangersAppLog:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  IGListDiffKit: b300c57322ab11587138ae6915ecafb2b7a248b2
+  IGListKit: 2b77b2a210748d66289347a44b43ee0d44f48029
+  RangersAppLog: 27aa232e664fb68772786faeaa3dc074225bff93
+
+PODFILE CHECKSUM: 9fb369a3d9e282eeb29174102f16d59c2858b89c
+
+COCOAPODS: 1.9.3
