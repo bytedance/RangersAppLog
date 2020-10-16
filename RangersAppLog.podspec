@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.author           = { 'duanwenbin' => 'duanwenbin@bytedance.com' }
   s.source           = { :git => 'https://github.com/bytedance/RangersAppLog.git', :tag => s.version.to_s }
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
   s.requires_arc = true
   s.static_framework = true
   s.pod_target_xcconfig = {
@@ -71,9 +71,6 @@ Pod::Spec.new do |s|
     bd.dependency 'RangersAppLog/UITracker'
     bd.source_files = 'RangersAppLog/Picker/*.{h,m,c}'
     bd.public_header_files = 'RangersAppLog/Picker/*.h'
-    bd.resource_bundles = {
-      'RangersAppLog' => ['RangersAppLog/Assets/*.xcassets']
-    }
   end
 
 end
