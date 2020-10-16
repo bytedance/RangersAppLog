@@ -11,7 +11,6 @@
 #import <Foundation/Foundation.h>
 
 #if __has_include(<RangersAppLog/BDCommonDefine.h>)
-
 #import <UIKit/UIKit.h>
 #import <AdSupport/AdSupport.h>
 #import <Security/Security.h>
@@ -19,24 +18,27 @@
 #import <CoreTelephony/CTCarrier.h>
 #import <SystemConfiguration/SystemConfiguration.h>
 #import <CoreGraphics/CoreGraphics.h>
-#import <zlib.h>
-#import <sqlite3.h>
 
 #import <RangersAppLog/BDCommonEnumDefine.h>
 #import <RangersAppLog/BDCommonDefine.h>
+
 #import <RangersAppLog/BDAutoTrackConfig.h>
 #import <RangersAppLog/BDAutoTrackConfig+AppLog.h>
+
 #import <RangersAppLog/BDAutoTrack.h>
+#import <RangersAppLog/BDAutoTrack+SharedInstance.h>
+#import <RangersAppLog/BDAutoTrack+Profile.h>
 #import <RangersAppLog/BDAutoTrack+Game.h>
 #import <RangersAppLog/BDAutoTrack+GameTrack.h>
 #import <RangersAppLog/BDAutoTrack+Special.h>
 #import <RangersAppLog/BDAutoTrack+OhayooGameTrack.h>
+
 #import <RangersAppLog/BDAutoTrackSchemeHandler.h>
 #import <RangersAppLog/BDAutoTrackNotifications.h>
+
 #endif
 
 #if __has_include(<RangersAppLog/UIBarButtonItem+TrackInfo.h>)
-
 #import <WebKit/WebKit.h>
 
 #import <RangersAppLog/UIBarButtonItem+TrackInfo.h>
@@ -47,6 +49,10 @@
 
 #if __has_include(<RangersAppLog/RangersAppLogPicker.h>)
 #import <CoreText/CoreText.h>
+#endif
+
+#if __has_include(<RangersAppLog/BDAutoTrackURLHostItemCN.h>)
+#import <RangersAppLog/BDAutoTrackURLHostItemCN.h>
 #endif
 
 #if __has_include(<RangersAppLog/BDAutoTrackURLHostItemSG.h>)

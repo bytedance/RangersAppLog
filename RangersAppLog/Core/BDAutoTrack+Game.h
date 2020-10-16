@@ -1,5 +1,5 @@
 //
-//  BDAutoTrack- Game.h
+//  BDAutoTrack+Game.h
 //  Applog
 //
 //  Created by bob on 2019/4/10.
