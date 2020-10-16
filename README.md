@@ -18,15 +18,15 @@
 
 ## 开发环境要求
 
-特别说明，只支持Xcode 11 打包开发，Xcode 11以下，请单独联系开发提供SDK包
+特别说明，只支持Xcode 11+ 打包开发。若使用的Xcode版本为11以下，请单独联系开发提供SDK包
 
 * iOS 8.0+
-* Xcode 11+
+* Xcode 11.0+
 
 ## 版本说明
 
-1. Lite版，埋点版本，即 `subspecs => ['Core','Log']`,如果需要采集IDFA,子库需要添加`Unique`
-3. 圈选版本，即 `subspecs => ['Picker']`如果需要采集IDFA,子库需要添加`Unique`
+1. Lite版，埋点版本，即 `subspecs => ['Core','Log', 'Host/CN']`,如果需要采集IDFA,子库需要添加`Unique`
+3. 圈选版本，即 `subspecs => ['Picker', 'Host/CN']`如果需要采集IDFA,子库需要添加`Unique`
 
 ## 集成方式
 
@@ -35,16 +35,16 @@
 ```ruby
 # cdn trunk
 source 'https://cdn.cocoapods.org/'
-
 ## or use ssh
+# source 'git@github.com:CocoaPods/Specs.git'
+
 source 'git@github.com:bytedance/cocoapods_sdk_source_repo.git'
-source 'git@github.com:CocoaPods/Specs.git'
 
 # 接入无埋点版本
 target 'YourTarget' do
     pod 'RangersAppLog', '~> 5.5.0',:subspecs => [
         'Picker',
-        'Unique',
+        'Unique',  # 若需要采集IDFA，则引入Unique子库
         'Host/CN'  # 若您的APP的数据存储在中国, 则选择 Host/CN。否则请根据地域选择相应 Host 子库
     ]
 end
@@ -54,7 +54,7 @@ target 'YourTarget' do
     pod 'RangersAppLog', '~> 5.5.0',:subspecs => [
       'Core',
       'Log',
-      'Unique',
+      'Unique',  # 若需要采集IDFA，则引入Unique子库
       'Host/CN'  # 若您的APP的数据存储在中国, 则选择 Host/CN。否则请根据地域选择相应 Host 子库
     ]
 end
@@ -152,6 +152,11 @@ end
 ```
 
 ## 版本更新记录
+
+### 5.6.0
+
+- 新增 profile API. 详见头文件`BDAutoTrack+Profile.h`
+- 移除移动端圈选。服务端圈选功能不受影响。建议您在平台的圈选页面上进行圈选，更加快捷方便。
 
 ### 5.5.0
 
