@@ -14,8 +14,12 @@ Pod::Spec.new do |s|
   s.pod_target_xcconfig = {
     'OTHER_LDFLAGS' => '-lObjC',
     'DEFINES_MODULE' => 'YES',
+    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
   }
-
+  s.user_target_xcconfig = { 
+    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
+  }
+  
   s.subspec 'Core' do |bd|
     bd.source_files = 'RangersAppLog/Core/*.{h,m,c}'
     bd.vendored_library = 'RangersAppLog/Core/*.a'
