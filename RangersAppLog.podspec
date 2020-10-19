@@ -7,7 +7,8 @@ Pod::Spec.new do |s|
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'duanwenbin' => 'duanwenbin@bytedance.com' }
   s.source           = { :git => 'https://github.com/bytedance/RangersAppLog.git', :tag => s.version.to_s }
-
+  s.source           = { :git => 'https://code.byted.org/iOS_Library/RangersAppLog.git', :tag => s.version.to_s }
+  
   s.ios.deployment_target = '9.0'
   s.requires_arc = true
   s.static_framework = true
@@ -53,7 +54,7 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'Unique' do |bd|
-    bd.frameworks = 'AdSupport'
+    bd.frameworks = 'AdSupport', 'AppTrackingTransparency'
     bd.dependency 'RangersAppLog/Core'
     bd.source_files = 'RangersAppLog/Unique/*.{h,m,c}'
     bd.public_header_files = 'RangersAppLog/Unique/*.h'
