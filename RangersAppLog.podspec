@@ -7,7 +7,6 @@ Pod::Spec.new do |s|
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'duanwenbin' => 'duanwenbin@bytedance.com' }
   s.source           = { :git => 'https://github.com/bytedance/RangersAppLog.git', :tag => s.version.to_s }
-  s.source           = { :git => 'https://code.byted.org/iOS_Library/RangersAppLog.git', :tag => s.version.to_s }
   
   s.ios.deployment_target = '9.0'
   s.requires_arc = true
