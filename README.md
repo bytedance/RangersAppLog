@@ -4,14 +4,15 @@
 
 ## Demo演示
 建议您在体验Demo前，先checkout到相应版本的`release/x.x.x`分支。不建议在`master`分支下体验demo，因为`master`分支是不完全的发布。
+
 **Example工程1**
-1. `git clone git@github.com:bytedance/RangersAppLog.git --branch release/5.5.0`
+1. `git clone git@github.com:bytedance/RangersAppLog.git --branch release/5.6.1`
 2. `cd RangersAppLog/Example`
 3. `pod install`
 4. `open Example.xcworkspace`
 
 **Example工程2**
-1. `git clone git@github.com:bytedance/RangersAppLog.git --branch release/5.5.0`
+1. `git clone git@github.com:bytedance/RangersAppLog.git --branch release/5.6.1`
 2. `cd RangersAppLog/ObjCExample`
 3. `pod install`
 4. `open ObjCExample.xcworkspace`
@@ -44,7 +45,7 @@ source 'git@github.com:bytedance/cocoapods_sdk_source_repo.git'
 
 # 接入无埋点版本
 target 'YourTarget' do
-    pod 'RangersAppLog', '~> 5.5.0',:subspecs => [
+    pod 'RangersAppLog', '~> 5.6.1',:subspecs => [
         'Picker',
         'Unique',  # 若需要采集IDFA，则引入Unique子库
         'Host/CN'  # 若您的APP的数据存储在中国, 则选择 Host/CN。否则请根据地域选择相应 Host 子库
@@ -53,7 +54,7 @@ end
 
 # 接入埋点版本 
 target 'YourTarget' do
-    pod 'RangersAppLog', '~> 5.5.0',:subspecs => [
+    pod 'RangersAppLog', '~> 5.6.1',:subspecs => [
       'Core',
       'Log',
       'Unique',  # 若需要采集IDFA，则引入Unique子库
@@ -155,12 +156,15 @@ end
 
 ## 版本更新记录
 
-### 5.6.0
+### 5.6.1
+- bugfix: 修复激活url_safe base64相关问题
+
+### 5.6.0（有bug，请使用5.6.1）
 
 - 新增 profile API. 详见头文件`BDAutoTrack+Profile.h`
 - 移除移动端圈选。服务端圈选功能不受影响。建议您在平台的圈选页面上进行圈选，更加快捷方便。
 
-### 5.5.0
+### 5.5.0（有bug，请使用5.6.1）
 
 - 加密开关支持加密query字段
 - 数据库文件夹移动到`Library/`目录并改名
