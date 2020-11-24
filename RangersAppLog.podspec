@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'RangersAppLog'
-  s.version          = '5.6.0'
+  s.version          = '5.6.1'
   s.summary          = 'ByteDance Rangers AppLog.'
   s.description      = 'ByteDance Rangers AppLog SDK.'
   s.homepage         = 'https://github.com/bytedance/RangersAppLog'
@@ -53,7 +53,7 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'Unique' do |bd|
-    bd.frameworks = 'AdSupport', 'AppTrackingTransparency'
+    bd.frameworks = 'AdSupport' #, 'AppTrackingTransparency'
     bd.dependency 'RangersAppLog/Core'
     bd.source_files = 'RangersAppLog/Unique/*.{h,m,c}'
     bd.public_header_files = 'RangersAppLog/Unique/*.h'
