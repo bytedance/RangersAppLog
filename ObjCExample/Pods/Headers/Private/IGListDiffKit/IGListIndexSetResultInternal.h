@@ -1,1 +1,0 @@
-../../../IGListDiffKit/Source/IGListDiffKit/Internal/IGListIndexSetResultInternal.h

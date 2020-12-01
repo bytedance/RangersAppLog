@@ -1,1 +1,0 @@
-../../../IGListKit/Source/IGListKit/Internal/UICollectionViewLayout+InteractiveReordering.h

@@ -10,8 +10,6 @@ target "ObjCExample" do
   pod 'RangersAppLog',
     :path => '../',
     :subspecs => [
-      'Host/SG',
-      'Host/VA',
       'Host/CN',
       'Core',
       'Unique',

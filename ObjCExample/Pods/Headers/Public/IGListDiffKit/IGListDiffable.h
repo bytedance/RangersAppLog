@@ -1,1 +1,0 @@
-../../../IGListDiffKit/Source/IGListDiffKit/IGListDiffable.h

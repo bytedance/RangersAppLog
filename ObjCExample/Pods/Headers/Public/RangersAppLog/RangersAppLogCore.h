@@ -1,1 +1,0 @@
-../../../../../RangersAppLog/Core/RangersAppLogCore.h
