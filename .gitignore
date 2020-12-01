@@ -4,17 +4,22 @@
 
 RangersAppLog/Classes/Core/*
 !RangersAppLog/Classes/Core/Header
+!RangersAppLog/Classes/Core/*.h
 
 RangersAppLog/Classes/Log/*
+!RangersAppLog/Classes/Log/*.h
 
 RangersAppLog/Classes/Picker/*
 !RangersAppLog/Classes/Picker/Header
+!RangersAppLog/Classes/Picker/*.h
 
 RangersAppLog/Classes/Unique/*
 !RangersAppLog/Classes/Unique/Public
+!RangersAppLog/Classes/Unique/*.h
 
 RangersAppLog/Classes/UITracker/*
 !RangersAppLog/Classes/UITracker/Header
+!RangersAppLog/Classes/UITracker/*.h
 
 !*.a
 ios-arch-iphone
