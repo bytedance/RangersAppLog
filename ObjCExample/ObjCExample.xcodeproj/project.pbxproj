@@ -364,7 +364,6 @@
 				96CC368324EF691A0003D51D /* Sources */,
 				96CC368424EF691A0003D51D /* Frameworks */,
 				96CC368524EF691A0003D51D /* Resources */,
-				17F27C99A7302D59F23B2A1B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -424,21 +423,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		17F27C99A7302D59F23B2A1B /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ObjCExample/Pods-ObjCExample-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		A94459ADDD3CAC0BD733F873 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -632,13 +616,15 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V83682JSKT;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ObjCExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.bytedance.rangersAppLog.ObjCExample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bytedance.rangersAppLog.ObjCExample4;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -651,13 +637,15 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V83682JSKT;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ObjCExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.bytedance.rangersAppLog.ObjCExample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bytedance.rangersAppLog.ObjCExample4;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
