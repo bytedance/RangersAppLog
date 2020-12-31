@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'RangersAppLog'
-  s.version          = '5.6.3'
+  s.version          = '5.6.4'
   s.summary          = 'ByteDance Rangers AppLog.'
   s.description      = 'ByteDance Rangers AppLog SDK.'
   s.homepage         = 'https://github.com/bytedance/RangersAppLog'
@@ -13,11 +13,8 @@ Pod::Spec.new do |s|
   s.static_framework = true
   s.pod_target_xcconfig = {
     'OTHER_LDFLAGS' => '-lObjC',
-    'DEFINES_MODULE' => 'YES',
-    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
-  }
-  s.user_target_xcconfig = { 
-    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
+    'DEFINES_MODULE' => 'YES'
+
   }
   
   s.subspec 'Core' do |bd|
@@ -39,6 +36,11 @@ Pod::Spec.new do |s|
       sg.source_files = 'RangersAppLog/Classes/Host/SG/*.{h,m,c}'
       sg.public_header_files = 'RangersAppLog/Classes/Host/SG/*.h'
       sg.vendored_library = 'RangersAppLog/Classes/Host/SG/*.a'
+    end
+    bd.subspec 'VA' do |va|
+      va.source_files = 'RangersAppLog/Classes/Host/VA/*.{h,m,c}'
+      va.public_header_files = 'RangersAppLog/Classes/Host/VA/*.h'
+      va.vendored_library = 'RangersAppLog/Classes/Host/VA/*.a'
     end
   end
 
