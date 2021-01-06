@@ -157,6 +157,9 @@ end
 ### 5.6.4
 - 支持bitcode
 - 支持platform端属性
+- 提供类方法单独初始化和单独启动SDK的接口。
+  - `+[BDAutoTrack sharedTrackWithConfig:]` 
+  - `+[BDAutoTrack startTrack]`
 
 ### 5.6.3
 - 上报流量优化
