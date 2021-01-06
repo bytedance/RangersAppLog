@@ -8,30 +8,7 @@
 #import "BDAutoTrack.h"
 
 NS_ASSUME_NONNULL_BEGIN
-/*!
- BDAutoTrack 增加多实例支持
- 使用示例1：
-  BDAutoTrackConfig *config = [BDAutoTrackConfig new];
-  config.xxx = xxx;
-  ...
- // 初始化完成之后，可以调用其他接口
- BDAutoTrack *track = [BDAutoTrack trackWithConfig:config]
 
- // 开始上报
- [track satrtTrack];
-
- // 用变量引用住track用于上报
- [track registerEventByMethod:xxx isSuccess:xxx];
-
- 事件参数level的key，保持参数一致
- 可以这样使用来设置Header
- [self getCurrentLevel]返回一个当前level的函数
- 此header的block设置一次即可，每次会回调。
- 
- [track setCustomHeaderBlock:^NSDictionary<NSString *,id> * _Nonnull{
- return @{kBDAGameLevel:@([self getCurrentLevel])};
- }];
- */
 FOUNDATION_EXTERN NSString * const kBDAGameLevel;
 
 /*!

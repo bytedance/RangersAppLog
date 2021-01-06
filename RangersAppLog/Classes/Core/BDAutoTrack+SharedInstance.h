@@ -10,10 +10,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 /// 以下是单例方法
-#pragma mark - SharedInstance 推荐使用多实例方式上报，参考前面的使用示例
+#pragma mark - SharedInstance
 
 /*! @abstract
-BDAutoTrack 里面引用住一个BDAutoTrack单例，方便过渡期使用。推荐统一修改到实例方法。
+BDAutoTrack 里面引用住一个BDAutoTrack单例，方便通过类名来调用SDK方法。
 特别说明：先调用`[BDAutoTrack startTrackWithConfig:config];`再调用BDAutoTrack的其他 类方法接口
 
 使用示例：
@@ -27,9 +27,7 @@ config.xxx = xxx;
 [BDAutoTrack setCurrentUserUniqueID:@"123"];
 */
 
-/*! @discussion 设置注册成功和ABTest拉取成功回调，推荐使用通知方法。
-@discussion 请参考 <RangersAppLog/BDAutoTrackNotifications.h>注释。
-@discussion 建议采用 <RangersAppLog/BDAutoTrack.h> 里面的实例方法接口，类方法接口不推荐使用
+/*! @discussion 设置注册成功和ABTest拉取成功回调，推荐使用通知方法。可以参考 <RangersAppLog/BDAutoTrackNotifications.h>注释。
 */
 @interface BDAutoTrack (SharedInstance)
 
@@ -58,17 +56,59 @@ config.xxx = xxx;
  */
 @property (class, nonatomic, copy, readonly) NSString *appID;
 
-/*! @abstract 初始化方法，初始化一个Track实例，BDAutoTrack 会引用住该实例方便调用
-@param config 初始化配置，AppID AppName Channel是必须的
-@discussion 初始化并启动SDK。相当于 下面两个调用加起来一次
- [BDAutoTrack sharedTrackWithConfig:config]
- [BDAutoTrack startTrack]
+#pragma mark - 初始化与启动单例
+/*!
+ * @abstract 初始化并启动SDK单例。
+ * @param config 配置对象。其中AppID AppName Channel是必须的。
+ * @discussion
+ * 调用时机:
+ *    1、必须在应用启动时调用，即在 application:didFinishLaunchingWithOptions: 中调用，
+ *    2、必须在主线程中调用
+ *    3、必须在 SDK 其他方法调用之前调用
+ * 本方法是一个便捷方法，相当于下面两个调用:
+ * @code
+ * [BDAutoTrack sharedTrackWithConfig:config];
+ * [BDAutoTrack startTrack];
 */
 + (void)startTrackWithConfig:(BDAutoTrackConfig *)config;
 
-/// 获得单例. 若已初始化返回单例，否则返回nil。本身不会做初始化。
+/*!
+ * @abstract 初始化单例。
+ * @param config 配置对象。其中AppID AppName Channel是必须的。
+ * @discussion
+ * 调用时机:
+ *    1、必须在应用启动时调用，即在 application:didFinishLaunchingWithOptions: 中调用，
+ *    2、必须在主线程中调用
+ *    3、必须在 SDK 其他方法调用之前调用
+ * 一般与`+ [BDAutoTrack startTrack]`一起使用。
+ * @code
+ * [BDAutoTrack sharedTrackWithConfig:config];
+ * [BDAutoTrack startTrack];
+ */
++ (void)sharedTrackWithConfig:(BDAutoTrackConfig *)config;
+
+/*!
+ * @abstract 启动SDK单例。
+ * @discussion
+ * 调用时机:
+ *    1、必须在应用启动时调用，即在 application:didFinishLaunchingWithOptions: 中调用，
+ *    2、必须在主线程中调用
+ *    3、必须在 SDK 其他方法调用之前调用
+ */
++ (void)startTrack;
+
+/**
+ * @abstract
+ * 若已初始化，则返回之前初始化好的单例；否则返回nil。（本身不会做初始化）
+ *
+ * @discussion
+ * 调用这个方法之前，必须先调用 `+ [BDAutoTrack sharedTrackWithConfig:]`
+ *
+ * @return 返回之前初始化好的单例
+ */
 + (instancetype)sharedTrack;
 
+#pragma mark -
 /*! @abstract userAgent 在初始化之后设置
  @discussion 每次启动SDK的时候设置一次，发生变化的时候设置即可。一般不会发生变化，只需要设置一次即可
  @param userAgent 日志上报HTTP/HTTPS 请求里面的 userAgent

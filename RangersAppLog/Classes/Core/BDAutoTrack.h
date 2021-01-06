@@ -13,24 +13,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/*! @abstract
-BDAutoTrack 增加多实例支持
- 使用示例1：
-  BDAutoTrackConfig *config = [BDAutoTrackConfig configWithSecondAppID:@"appid"];
-  config.xxx = xxx;
-  ...
- // 初始化完成之后，可以调用其他接口
- BDAutoTrack *track = [BDAutoTrack trackWithConfig:config]
-
- // 设置一些属性等配置
- [track setCurrentUserUniqueID:@"123"];
-
- // 开始上报
- [track satrtTrack];
-
- // 用变量引用住track用于上报
- [track eventV3:xxx params:xxx];
- */
 /*!
  BDAutoTrack日志上报功能的类
  */
@@ -239,7 +221,7 @@ SDK版本号.
 
 @end
 
-#pragma mark - Special 推荐使用多实例方式上报，参考前面的使用示例
+#pragma mark - Special
 
 @interface BDAutoTrack (SharedSpecial)
 

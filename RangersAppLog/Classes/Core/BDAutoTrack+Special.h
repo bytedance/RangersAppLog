@@ -11,7 +11,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /*!
  BDAutoTrack  内部支持上报接口，外部客户请勿调用
- 推荐使用多实例方式上报
  */
 @interface BDAutoTrack (Special)
 
