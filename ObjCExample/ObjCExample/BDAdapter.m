@@ -41,7 +41,7 @@ static NSString *const BDDebugAppID = @"12345678";
         };
         
         /* 生产环境打开加密 */
-        config.logNeedEncrypt = NO;
+        config.logNeedEncrypt = !NO;
         config.serviceVendor = BDAutoTrackServiceVendorCN;  /* 设置上报服务器域名 */
         
         config.autoTrackEnabled = YES;  // 开启无埋点
