@@ -77,8 +77,9 @@ SDK版本号.
  @discussion 有值，则设置为ID值；登出 请调用 [BDAutoTrack clearUserUniqueID] 或者传 nil
  @discussion SDK会保存，因此只需要变化的时候设置。
  @param uniqueID 用户id，如无特殊需求，请勿传 空字符串 或者 全是空格的字符串
+ @return 是否成功设置或登出。
  */
-- (void)setCurrentUserUniqueID:(nullable NSString *)uniqueID;
+- (BOOL)setCurrentUserUniqueID:(nullable NSString *)uniqueID;
 
 /*! @abstract 登出 logout
  @discussion 登出 logout
@@ -95,8 +96,9 @@ SDK版本号.
  
  @discussion 用户一般可在以下情况手动调用此方法:
  1. 初始化阶段注册请求失败，需要重新发起注册请求
+ @return 是否成功发起注册
  */
-- (void)sendRegisterRequest APPLOG_API_AVALIABLE(5.6.3);
+- (BOOL)sendRegisterRequest APPLOG_API_AVALIABLE(5.6.3);
 
 /*! @abstract 设置上报Host地区，有国内、新加坡、美东三个选项
  @discussion 发生变化可以更新，不需要一直重复设置
