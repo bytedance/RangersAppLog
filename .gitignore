@@ -5,21 +5,36 @@
 RangersAppLog/Classes/Core/*
 !RangersAppLog/Classes/Core/Header
 !RangersAppLog/Classes/Core/*.h
+!RangersAppLog/Classes/Core/*.m
+!RangersAppLog/Classes/Core/*.mm
+!RangersAppLog/Classes/Core/*.c
 
 RangersAppLog/Classes/Log/*
 !RangersAppLog/Classes/Log/*.h
+!RangersAppLog/Classes/Log/*.m
+!RangersAppLog/Classes/Log/*.mm
+!RangersAppLog/Classes/Log/*.c
 
 RangersAppLog/Classes/Picker/*
 !RangersAppLog/Classes/Picker/Header
 !RangersAppLog/Classes/Picker/*.h
+!RangersAppLog/Classes/Picker/*.m
+!RangersAppLog/Classes/Picker/*.mm
+!RangersAppLog/Classes/Picker/*.c
 
 RangersAppLog/Classes/Unique/*
 !RangersAppLog/Classes/Unique/Public
 !RangersAppLog/Classes/Unique/*.h
+!RangersAppLog/Classes/Unique/*.m
+!RangersAppLog/Classes/Unique/*.mm
+!RangersAppLog/Classes/Unique/*.c
 
 RangersAppLog/Classes/UITracker/*
 !RangersAppLog/Classes/UITracker/Header
 !RangersAppLog/Classes/UITracker/*.h
+!RangersAppLog/Classes/UITracker/*.m
+!RangersAppLog/Classes/UITracker/*.mm
+!RangersAppLog/Classes/UITracker/*.c
 
 !*.a
 ios-arch-iphone
