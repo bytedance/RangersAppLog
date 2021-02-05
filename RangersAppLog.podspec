@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'RangersAppLog'
-  s.version          = '5.6.4'
+  s.version          = '5.6.5'
   s.summary          = 'ByteDance Rangers AppLog.'
   s.description      = 'ByteDance Rangers AppLog SDK.'
   s.homepage         = 'https://github.com/bytedance/RangersAppLog'
@@ -13,8 +13,11 @@ Pod::Spec.new do |s|
   s.static_framework = true
   s.pod_target_xcconfig = {
     'OTHER_LDFLAGS' => '-lObjC',
-    'DEFINES_MODULE' => 'YES'
-
+    'DEFINES_MODULE' => 'YES',
+    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
+  }
+  s.user_target_xcconfig = { 
+    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
   }
   
   s.subspec 'Core' do |bd|
