@@ -11,6 +11,8 @@
 #define APPLOG_API_AVALIABLE(x)
 #define APPLOG_API_DEPRECATED
 #define APPLOG_API_DEPRECATED_WITH_REPLACEMENT(msg, ver)
+// 编译时断言
+#define APPLOG_STATIC_ASSERT(COND,MSG) typedef char static_assertion_##MSG[(COND)?1:-1]
 
 #ifndef BDCommonDefine_h
 #define BDCommonDefine_h

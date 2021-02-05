@@ -7,7 +7,20 @@
 
 #import "BDAutoTrack.h"
 
+typedef NSString * OhayooCustomHeaderKey NS_TYPED_ENUM;
+
 NS_ASSUME_NONNULL_BEGIN
+
+/* ohayoo custom header key. 均以"ohayoo_"开头 */
+FOUNDATION_EXTERN OhayooCustomHeaderKey OhayooCustomHeaderKeyPackageChannel;
+FOUNDATION_EXTERN OhayooCustomHeaderKey OhayooCustomHeaderKeyZoneID;
+FOUNDATION_EXTERN OhayooCustomHeaderKey OhayooCustomHeaderKeyServerID;
+FOUNDATION_EXTERN OhayooCustomHeaderKey OhayooCustomHeaderKeySDKOpenID;
+FOUNDATION_EXTERN OhayooCustomHeaderKey OhayooCustomHeaderKeyUserType;
+FOUNDATION_EXTERN OhayooCustomHeaderKey OhayooCustomHeaderKeyRoleID;
+FOUNDATION_EXTERN OhayooCustomHeaderKey OhayooCustomHeaderKeyLevel;
+
+#pragma mark - OhayooGameTrack
 
 @interface BDAutoTrack (OhayooGameTrack)
 
@@ -31,8 +44,21 @@ roleId      string 角色id
                             roleId:(NSString *)roleId
                        otherParams:(nullable NSDictionary *)otherParams;
 
+/**
+ @abstract 将相应ohayoo字段设置到custom header中的辅助方法。实际上是调用`setCustomHeaderValue:forKey:`。
+ @discussion 使用示例:
+ @code
+ [BDAutoTrack ohayooHeaderSetObject:@"channel_123" forKey:OhayooCustomHeaderKeyPackageChannel];
+ @code
+ */
+- (void)ohayooHeaderSetObject:(NSObject *)object forKey:(OhayooCustomHeaderKey)key;
+
+- (void)ohayooHeaderRemoveObjectForKey:(OhayooCustomHeaderKey)key;
+
 @end
 
+
+#pragma mark - SharedOhayooGameTrack
 @interface BDAutoTrack (SharedOhayooGameTrack)
 
 /**
@@ -54,6 +80,18 @@ roleId      string 角色id
                           coinLeft:(NSInteger)coinLeft
                             roleId:(NSString *)roleId
                        otherParams:(nullable NSDictionary *)otherParams;
+
+/**
+ @abstract 将相应ohayoo字段设置到custom header中的辅助方法。实际上是调用`setCustomHeaderValue:forKey:`。
+ @discussion 使用示例:
+ @code
+ [BDAutoTrack ohayooHeaderSetObject:@"channel_123" forKey:OhayooCustomHeaderKeyPackageChannel];
+ @code
+ */
++ (void)ohayooHeaderSetObject:(NSObject *)object forKey:(OhayooCustomHeaderKey)key;
+
++ (void)ohayooHeaderRemoveObjectForKey:(OhayooCustomHeaderKey)key;
+
 
 @end
 

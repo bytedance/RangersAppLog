@@ -19,11 +19,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface BDAutoTrack : NSObject
 
 /*! @abstract
-SDK版本号.
- */
-@property (class, nonatomic, copy, readonly) NSString *sdkVersion;
-
-/*! @abstract
  针对每个AppID 设备唯一rangers Device ID. 非数字，随机字符串，一般情况请不要存储，从SDK接口获取即可。
  @discussion 特别说明，rangersDeviceID是字符串，不是数字
  */
@@ -48,6 +43,8 @@ SDK版本号.
  */
 @property (nonatomic, copy, readonly) NSString *appID;
 
++ (instancetype)new __attribute__((unavailable()));
+- (instancetype)init __attribute__((unavailable()));
 /*! @abstract 初始化方法，初始化一个Track实例
  @param config 初始化配置，AppID AppName Channel是必须的
  @discussion 初始化接口可以重复调用，会返回同一个实例，推荐返回之后，引用住这个实例，下次上报方便使用。
@@ -190,6 +187,12 @@ SDK版本号.
  */
 - (nullable id)ABTestConfigValueForKey:(NSString *)key defaultValue:(nullable id)defaultValue;
 
+/*! @abstract 本地缓存已加载时同`ABTestConfigValueForKey:defaultValue:`。本地缓存未加载时将阻塞等待其加载完成。
+ @discussion 本地缓存一般在初始化后30-100ms内加载完成。
+ 此方法旨在便于业务在初始化后立即获取到已缓存的AB实验数据，可能耗时较长。
+ */
+- (nullable id)ABTestConfigValueSyncForKey:(NSString *)key defaultValue:(nullable id)defaultValue;
+
 /*! @abstract 获取ABTest 额外的vids
 @param versions 额外的vids。格式比如 @"1,2,3"。是逗号（英文）分割，逗号之间是数字
 @discussion 如果要清空上次设置，直接传nil；每次设置都会覆盖上次设置
@@ -214,6 +217,24 @@ SDK版本号.
  @discussion 如果正常为了做实验，请勿使用此接口，请使用-[BDAutoTrack ABTestConfigValueForKey:defaultValue:]接口
  */
 - (nullable NSDictionary *)allABTestConfigs;
+
+/*! @abstract 本地缓存已加载时同`abVids`。本地缓存未加载时将阻塞等待其加载完成。
+ @discussion 本地缓存一般在初始化后30-100ms内加载完成。
+ 此方法旨在便于业务在初始化后立即获取到已缓存的AB实验数据，可能耗时较长。
+ */
+- (nullable NSString *)abVidsSync;
+
+/*! @abstract 本地缓存已加载时同`allAbVids`。本地缓存未加载时将阻塞等待其加载完成。
+ @discussion 本地缓存一般在初始化后30-100ms内加载完成。
+ 此方法旨在便于业务在初始化后立即获取到已缓存的AB实验数据，可能耗时较长。
+ */
+- (nullable NSString *)allAbVidsSync;
+
+/*! @abstract 本地缓存已加载时同`allABTestConfigs`。本地缓存未加载时将阻塞等待其加载完成。
+ @discussion 本地缓存一般在初始化后30-100ms内加载完成。
+ 此方法旨在便于业务在初始化后立即获取到已缓存的AB实验数据，可能耗时较长。
+ */
+- (nullable NSDictionary *)allABTestConfigsSync;
 
 #pragma mark - private API
 
