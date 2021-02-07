@@ -1,6 +1,6 @@
 # RangersAppLog
 
-数据采集上报SDK。具体支持功能见官网 https://datarangers.com.cn/。
+数据采集上报SDK。具体支持功能见官网 https://datarangers.com.cn/
 
 ## Demo演示
 
@@ -81,9 +81,8 @@ end
     config.logger = ^(NSString * _Nullable log) {
         NSLog(@"%@",log);
     };
-    /// change to your UserUniqueID if now is loged in
-    NSString *uniqueID = @"12345";
     BDAutoTrack *track = [BDAutoTrack trackWithConfig:config];
+    
     /// change to your UserUniqueID if now is loged in
     NSString *uniqueID = @"12345";
     [track setCurrentUserUniqueID:uniqueID];
@@ -155,7 +154,7 @@ end
 ### 5.6.5
 - 支持「首次启动事件标记」
 - ohayoo预置埋点
-- 新增一组初始化后立即获取AB配置缓存的方法。见`BDAutoTrack.h`以`Sync`结尾的方法
+- 新增一组初始化后立即获取AB配置缓存的方法。见`BDAutoTrack.h`以`Sync`结尾的ABTest相关方法
 
 ### 5.6.4
 - 支持bitcode
