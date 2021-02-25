@@ -10,7 +10,7 @@
 #import "BDFeedModelDictionary.h"
 #import "BDTesterControllers.h"
 #import <AdSupport/AdSupport.h>
-#import <AppTrackingTransparency/AppTrackingTransparency.h>
+//#import <AppTrackingTransparency/AppTrackingTransparency.h>
 #import <RangersAppLog/RangersAppLog.h>
 
 @interface BDTestIntroducerViewController ()
