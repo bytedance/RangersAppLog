@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'RangersAppLog'
-  s.version          = '5.6.5'
+  s.version          = '5.6.6'
   s.summary          = 'ByteDance Rangers AppLog.'
   s.description      = 'ByteDance Rangers AppLog SDK.'
   s.homepage         = 'https://github.com/bytedance/RangersAppLog'
@@ -60,6 +60,12 @@ Pod::Spec.new do |s|
     bd.vendored_library = 'RangersAppLog/Classes/Unique/*.a'
   end
 
+  s.subspec 'CAID' do |ss|
+    ss.vendored_library = 'RangersAppLog/Classes/CAID/*.a'
+    ss.source_files = 'RangersAppLog/Classes/CAID/**/*.{h,m,c,mm}'
+    ss.public_header_files = 'RangersAppLog/Classes/CAID/Header/*.h'
+  end
+  
   s.subspec 'UITracker' do |bd|
     bd.vendored_library = 'RangersAppLog/Classes/UITracker/*.a'
     bd.source_files = 'RangersAppLog/Classes/UITracker/*.{h,m,c}'
