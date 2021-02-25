@@ -42,7 +42,7 @@ source 'git@github.com:bytedance/cocoapods_sdk_source_repo.git'
 
 # 接入无埋点版本
 target 'YourTarget' do
-    pod 'RangersAppLog', '~> 5.6.3',:subspecs => [
+    pod 'RangersAppLog', '~> 5.6.6',:subspecs => [
         'Picker',
         'Unique',  # 若需要采集IDFA，则引入Unique子库
         'Host/CN'  # 若您的APP的数据存储在中国, 则选择 Host/CN。否则请根据地域选择相应 Host 子库
@@ -51,7 +51,7 @@ end
 
 # 接入埋点版本 
 target 'YourTarget' do
-    pod 'RangersAppLog', '~> 5.6.3',:subspecs => [
+    pod 'RangersAppLog', '~> 5.6.6',:subspecs => [
       'Core',
       'Log',
       'Unique',  # 若需要采集IDFA，则引入Unique子库
@@ -73,22 +73,21 @@ end
 - (void)startAppLog {
     BDAutoTrackConfig *config = [BDAutoTrackConfig new];
     config.appID = @"159486";
-    config.channel = @"App Store";
     config.appName = @"dp_tob_sdk_test2";
-	 config.autoTrackEnabled = YES;
-    /// show debug log
-    config.showDebugLog = YES;
+    config.channel = @"App Store";
+	config.autoTrackEnabled = YES;  // 本地无埋点开关。注意使用无埋点时，必须在远端配置中也打开无埋点开关。
+    config.showDebugLog = YES;  // show debug log
     config.logger = ^(NSString * _Nullable log) {
         NSLog(@"%@",log);
     };
+
     BDAutoTrack *track = [BDAutoTrack trackWithConfig:config];
-    
-    /// change to your UserUniqueID if now is loged in
-    NSString *uniqueID = @"12345";
-    [track setCurrentUserUniqueID:uniqueID];
     [track startTrack];
-    
     self.track = track;
+
+    NSString *uniqueID = @"12345";  // set UserUniqueID if now is loged in
+    [track setCurrentUserUniqueID:uniqueID];
+    [track eventV3:@"play_video" params:nil];  // 打点
 }
 
 ```
@@ -151,6 +150,10 @@ end
 ```
 
 ## 版本更新记录
+### 5.6.6
+- 新增CAID子库。引入CAID子库后自动开启CAID。合规提示：Core中不包含与CAID有关的符号。
+- fix: 激活请求Query中缺少IDFA, IDFV等字段信息。
+
 ### 5.6.5
 - 支持「首次启动事件标记」
 - ohayoo预置埋点
