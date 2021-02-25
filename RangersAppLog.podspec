@@ -62,8 +62,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'CAID' do |ss|
     ss.vendored_library = 'RangersAppLog/Classes/CAID/*.a'
-    ss.source_files = 'RangersAppLog/Classes/CAID/**/*.{h,m,c,mm}'
-    ss.public_header_files = 'RangersAppLog/Classes/CAID/Header/*.h'
+    ss.dependency 'RangersAppLog/Core'
   end
   
   s.subspec 'UITracker' do |bd|
