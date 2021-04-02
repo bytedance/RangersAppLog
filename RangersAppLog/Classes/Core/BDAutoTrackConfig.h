@@ -27,7 +27,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, copy) BDAutoTrackServiceVendor serviceVendor;
 
-
 /*! @abstract 根据App ID获取一个config
 @param appID AppID
 @result 一个config实例, 其他参数非必填，或者有默认值，可以直接通过setter 设置
