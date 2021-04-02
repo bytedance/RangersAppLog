@@ -60,10 +60,10 @@ Pod::Spec.new do |s|
     bd.vendored_library = 'RangersAppLog/Classes/Unique/*.a'
   end
 
-  s.subspec 'CAID' do |ss|
-    ss.vendored_library = 'RangersAppLog/Classes/CAID/*.a'
-    ss.dependency 'RangersAppLog/Core'
-  end
+  # s.subspec 'CAID' do |ss|
+  #   ss.vendored_library = 'RangersAppLog/Classes/CAID/*.a'
+  #   ss.dependency 'RangersAppLog/Core'
+  # end
   
   s.subspec 'UITracker' do |bd|
     bd.vendored_library = 'RangersAppLog/Classes/UITracker/*.a'
