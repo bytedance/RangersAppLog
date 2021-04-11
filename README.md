@@ -39,6 +39,7 @@ source 'https://cdn.cocoapods.org/'
 # source 'git@github.com:CocoaPods/Specs.git'
 
 source 'git@github.com:bytedance/cocoapods_sdk_source_repo.git'
+source 'https://github.com/volcengine/volcengine-specs.git'  # 6.0.0+版本发布在volcengine-specs源
 
 # 接入无埋点版本
 target 'YourTarget' do
@@ -81,13 +82,11 @@ end
         NSLog(@"%@",log);
     };
 
-    BDAutoTrack *track = [BDAutoTrack trackWithConfig:config];
-    [track startTrack];
-    self.track = track;
+    [BDAutoTrack startTrackWithConfig:config];
 
     NSString *uniqueID = @"12345";  // set UserUniqueID if now is loged in
-    [track setCurrentUserUniqueID:uniqueID];
-    [track eventV3:@"play_video" params:nil];  // 打点
+    [BDAutoTrack setCurrentUserUniqueID:uniqueID];
+    [BDAutoTrack eventV3:@"play_video" params:nil];  // 打点
 }
 
 ```
@@ -150,6 +149,14 @@ end
 ```
 
 ## 版本更新记录
+### 6.0.0
+- Feat: 支持ALink
+- Feat: H5Bridge: H5页面支持从原生端上报
+- Feat: 支持Profile独立路径接口上报
+- Feat: 新增`setCustomHeaderWithDictionary:`接口
+- Feat: 支持初始 UserUniqueID
+- Fix: 切换用户时AB数据更新不及时的问题
+
 ### 5.6.6
 - 新增CAID子库。引入CAID子库后自动开启CAID。合规提示：Core中不包含与CAID有关的符号。
 - fix: 激活请求Query中缺少IDFA, IDFV等字段信息。
