@@ -2,6 +2,8 @@
 
 数据采集上报SDK。具体支持功能见官网 https://datarangers.com.cn/
 
+本仓库包含Xcode Demo工程和6.0.0以下版本的SDK发布源。6.0.0及以上版本发布在[火山引擎Cocoapods Spec源](https://github.com/volcengine/volcengine-specs/tree/master/RangersAppLog)，不发布在本仓库。
+
 ## Demo演示
 
 **Example工程1**
@@ -149,6 +151,28 @@ end
 ```
 
 ## 版本更新记录
+
+### 6.3.0
+- Feat: 支持私有化加密依赖注入
+- Feat: 支持火山引擎广告分析产品多链接实验技术
+- Opt: 优化SDK稳定性
+
+### 6.2.3
+- Feat: 支持ALink SDK分享裂变产品功能
+- Feat: 支持Apple Search Ads归因
+
+### 6.2.0
+- Feat: 支持通过接口设置app四位版本号
+- Feat: 暴露SDK字符串版本号获取接口
+- Feat: 集成安全反作弊模块
+- Feat: 被动启动标记
+- Feat: 初始化时增加开关控制是否采集内嵌H5无埋点事件
+- Feat: 优化用户维度AB测试 - 添加开关：切换用户时若SSID变化则清除ABVersions缓存(含ExternalVersions)
+- Feat: 支持识别5G网络
+- Opt: 优化premain时间
+- Fix: deep copy 偶现crash
+- Fix: 其它Fix若干
+
 ### 6.0.0
 - Feat: 支持ALink
 - Feat: H5Bridge: H5页面支持从原生端上报
